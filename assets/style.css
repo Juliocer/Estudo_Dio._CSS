@@ -1,0 +1,682 @@
+/*Seletores
+ 1. Seletores de Tag/Tipo
+ 2. Seletores de Id > #tipo{}
+ 3. Seletores de Classes > .tipo{}
+ 4. Seletores de Universal > *{}
+ 5. Seletores de Atributo: 
+    [Atributo]{} em conjunto com o valor [Atributo="valor"]{}
+    [Atributo~="valor"]{} se tiver mas de uma valor dentro coloca ~ que vc seta.
+    [Atributo*="valor1"]{} procura valor especifico dentro do valor.
+
+    Selecionar mais de um seletor
+        vc colca um ( , ) para separa. Exemplo:
+        h1, .texto, #link-referencia{ color: blue }
+
+    Selecionando de uma fomato pai e finho, conbinador desedente.
+        vc coloca ele todo junto Exemplo:
+        p.texto{} neste exemplo o pai e tag p e finho e .texto e edita o finho.
+
+Combinadores: relação entre dois seletores.
+
+ 1. Combinador desendente (espaço) Elemento dentro de outro: div p
+ 2. Combinador filho (>) Filho direto: div > p
+ 3. Combinador irmão adjacente (+) Irmão ao lado imediato: h1 + p
+ 4. Combinador irmão em Geral (~) Todos os irmãos seguintes: h1 ~ p
+ 
+ Estrutura:
+ [SELETOR] [COMBINADOR] [SELETOR]
+*/
+
+/*Largura e Altura
+    width > Largura
+    Height > Altura
+
+    width:auto > ele aumenta a largura de acordo com o conteudo dentro da tag.
+    width:initial > ele aplica o valor padrão da tag.
+    width:inherit > ele vai aplicar a largura do tag pai. 
+
+    max-width:200px > ele informa a largura maxima que le pode creser
+    min-width:200px > ele aplica o valor minimo que ele pode creser
+
+
+*/
+
+/*Margin 
+
+margin: 20px;
+Margin ele coloca uma distancia da linha da tag para fora. Vc pode trabalhar com valores negativos. 
+
+margin: auto > ele sentraliza a tag no centro da tela.
+
+margin: 10px 10px 10px 10px:
+    o primeiro valor parte de cima.
+    segundo valor para a esquerda
+    terceiro valor para baicho 
+    quarto valor para a esquerda    
+    
+vc conseque colocar margins para direção especifica.
+    margin-top: ; 
+    margin-right: ;
+    margin-bottom: ;
+    margin-left: ;
+*/
+
+/*Padding
+
+padding:10px;
+Ele coloca uma distancia da linha da tag para dentro. Vc pode usar numero negativo.
+
+padding: 10px 10px 10px 10px:
+    o primeiro valor parte de cima.
+    segundo valor para a esquerda
+    terceiro valor para baicho.
+    quarto valor para a esquerda.    
+    
+vc conseque colocar padding para direção especifica.
+    padding-top:10px ; 
+    padding-right:10px ;
+    padding-bottom:10px ;
+    padding-left:10px ;
+*/
+
+/*Box-sizing
+
+box-sizing: border-box;
+
+Quando vc coloca um Margin e Padding ele soma a o valor que vc colocou na margin com o tamanho do tag
+o Box-sizing inpedi que ele expando a tag e implemente os valores que vc colocou na margin e padding dentro do valor da tag
+sem inspandila.
+
+*/
+
+/*Cores
+    RGB E RGBA
+    RGB RED 0 >= 255, GREEN 0 >= 255, BLUE 0 >= 255.
+    RGB RED 0 >= 255, GREEN 0 >= 255, BLUE 0 >= 255, ALPHA 0 >= 255 E ATRANSPARENCIA
+
+    Hexadecimal
+    A >= F
+    00 >= 255
+    #RED 0 >= 255, GREEN 0 >= 255, BLUE 0 >= 255, 10% >= Transparencia.
+
+    HSL E HSLA
+    H(matriz), S(saturação), L(luminação);
+    color: hsl(0,100%,30%);
+    H(matriz), S(saturação), L(luminação), A(Iluminação)
+    color: hsla(0,100%,30%, 0.6);
+*/
+
+/*Imagen object-fit e object-position
+
+A propriedade object-fit define como o conteúdo de uma <img> (ou <video>,
+ <iframe>, etc.) se ajusta dentro do container (geralmente uma <div>).
+    object-fit:: -> O que faz.
+    object-fit: contain; -> A imagem é inteira visível dentro do container, mantendo a proporção. Pode sobrar espaço em volta.
+    object-fit: cover; -> A imagem preenche todo o container, mantendo a proporção. Pode cortar partes da imagem.
+    object-fit: none; -> A imagem mantém seu tamanho original, mesmo que ultrapasse o container.
+    object-fit: scale-down -> 	A imagem será reduzida proporcionalmente se for maior que o container, caso contrário, se comporta como none.
+
+A propriedade Object-position define a posição do conteúdo dentro do elemento 
+(geralmente <img>) quando o object-fit não preenche perfeitamente o container.
+
+Funciona principalmente com:
+    object-fit: cover
+    object-fit: none
+    object-fit: scale-down
+    (em contain, o efeito é mais sutil)
+
+📌 Valores Comuns de object-position:
+    ✅ center (padrão)
+    object-position: center;
+        A imagem fica centralizada (horizontal e verticalmente).
+        Valor padrão se você não definir nada.
+
+    ✅ top, bottom, left, right
+    object-position: top;
+    object-position: bottom;
+    object-position: left;
+    object-position: right;
+
+        top: alinha o topo da imagem com o topo do container.
+        bottom: alinha a base da imagem com a base do container.
+        left: alinha a esquerda da imagem com a esquerda do container.
+        right: alinha a direita da imagem com a direita do container.
+
+🔁 Combinações:
+    ✅ top right
+    object-position: top right;
+        Alinha a imagem no canto superior direito do container.
+
+    ✅ bottom left
+    object-position: bottom left;
+        Alinha a imagem no canto inferior esquerdo.
+
+🎯 Com Porcentagem ou Pixels:
+    ✅ object-position: 30% 70%;
+    object-position: 30% 70%;
+        O primeiro valor (30%) move a imagem da esquerda para a direita (horizontal).
+        O segundo valor (70%) move de cima para baixo (vertical).
+        Isso significa que a imagem vai aparecer mais deslocada para a direita e parte inferior do container.
+
+
+    div{
+        width: 200px;
+        height: 300px;
+        border: 5px solid blue;
+    }
+    
+    img{
+        width: 100%;
+        height: 100%;
+    }
+    
+    #contain{
+        object-fit: contain;
+    }
+    
+    #cover{
+        object-fit: cover;
+    }
+    
+    #none{
+        object-fit: none;
+    }
+    
+    #scale-dow{
+        object-fit: scale-down;
+    }
+    
+    */
+
+/* background-image, background-size, background-repeat
+🎯 A propriedade background-image permite definir uma imagem ou gradiente como plano de fundo de um elemento HTML, como uma <div>, <section>, <body>, etc.
+    
+✅ 1. background-image: url(); -> Imagem de fundo
+✅ 2. background-image: linear-gradient(lightpink, palevioletred, purple); -> Gradiente linear (de cima para baixo)
+✅ 3. background-image: radial-gradient(lightpink, palevioletred, purple); -> Gradiente radial (do centro para as bordas)
+✅ 4. background-image: repeating-linear-gradient(to top, palevioletred 0 20px, lightpink 20px 40px); -> Gradiente linear repetido (efeito de faixa/zebra)
+    
+    ✅ 1. Imagem de fundo
+    background-image: url('../img/nave_considero_realista.jpg');
+    Exibe uma imagem como fundo do elemento.
+    O caminho (../img/...) depende da estrutura da sua pasta.
+    Pode usar também imagens da internet:
+    background-image: url('https://exemplo.com/imagem.jpg');
+    
+    
+    ✅ 2. Gradiente linear (de cima para baixo)
+    background-image: linear-gradient(lightpink, palevioletred, purple);
+    Cria uma transição de cores linear.
+    Neste exemplo: a cor vai de lightpink no topo até purple na base.
+    Pode mudar a direção:
+    linear-gradient(to right, red, yellow);
+    
+    
+    ✅ 3. Gradiente radial (do centro para as bordas)
+    background-image: radial-gradient(lightpink, palevioletred, purple);
+    As cores começam no centro e vão até as bordas, como círculos concêntricos.
+    Pode controlar o formato:
+    radial-gradient(circle at top left, red, blue);
+    
+    ✅ 4. Gradiente linear repetido (efeito de faixa/zebra)
+    background-image: repeating-linear-gradient(to top, palevioletred 0 20px, lightpink 20px 40px);
+    Cria um padrão repetido com faixas de cor.
+    Aqui:
+    palevioletred vai de 0 a 20px
+    lightpink de 20px a 40px
+    Depois o padrão se repete até preencher todo o fundo
+    Pode trocar a direção:
+    to right, to left, 45deg, etc.
+    
+    
+🎯 Usado junto com background-image, o background-size controla o tamanho da imagem de fundo no elemento.
+    
+    ✅ 1. background-size: cover; 
+    ✅ 2. background-size: contain;
+    ✅ 3. background-size: 100px;
+    ✅ 4. background-size: 100px 100%;
+
+    ✅ 1. background-size: cover;
+    A imagem cobre todo o elemento, mantendo a proporção.
+    Pode cortar partes da imagem para preencher tudo.
+    Muito usado em banners e fotos de capa.
+    
+    ✅ 2. background-size: contain;
+    A imagem se ajusta inteira dentro do elemento, sem cortes.
+    Mantém a proporção, então pode sobrar espaço (como margens) se a imagem e o container não tiverem a mesma proporção.
+    
+    ✅ 3. background-size: 100px;
+    Define apenas a largura da imagem (100px), e a altura é ajustada automaticamente proporcionalmente.
+    Equivalente a:
+        background-size: 100px auto;
+    
+    ✅ 4. background-size: 100px 100%;
+    Define largura: 100px e altura: 100% do elemento.
+    A imagem será esticada ou encolhida sem manter a proporção.
+
+🎯 O que é background-repeat?
+
+    ✅ 1. background-repeat: no-repeat round;
+    ✅ 2. background-repeat: repeat-x;
+    ✅ 3. background-repeat: repeat-y;
+    ✅ 4. background-repeat: space;
+    ✅ 5. background-repeat: round;
+    ✅ 6. background-repeat: no-repeat;
+
+    ✅ Tabela comparativa:
+    Valor	    Efeito
+    no-repeat	Mostra a imagem apenas uma vez
+    repeat-x	Repete somente na horizontal
+    repeat-y	Repete somente na vertical
+    repeat      Repete a imagem nos dois eixos (x e y)
+    space	    Repete com espaços iguais entre as imagens
+    round	    Redimensiona a imagem para encaixar certinho
+
+    ✅ 2. background-repeat: repeat-x;
+    Repete a imagem somente no eixo horizontal (x).
+    Na vertical, a imagem aparece uma única vez.
+    📌 Ideal para barras de topo ou efeitos horizontais que precisam se repetir.
+
+    ✅ 3. background-repeat: repeat-y;
+    Repete a imagem somente no eixo vertical (y).
+    Na horizontal, aparece uma vez só.
+    📌 Usado para criar colunas visuais ou listras verticais.
+    
+    ✅ 4. background-repeat: space;
+    A imagem de fundo é repetida com espaços iguais entre as cópias.
+    Se a imagem não couber perfeitamente, espaços extras são adicionados (sem cortar ou redimensionar a imagem).
+    📌 Exemplo:
+    Se 3 imagens cabem e sobra espaço, ele distribui esse espaço igualmente entre elas.
+    
+    ✅ 5. background-repeat: round;
+    A imagem de fundo é redimensionada automaticamente para que caiba perfeitamente no container sem sobras.
+    A imagem se repete, mas com o tamanho ajustado para encaixar certinho no espaço total.
+    📌 Exemplo:
+    Se a imagem tem 60px e o container tem 200px, ele pode redimensionar para 50px para repetir 4 vezes sem corte.
+
+    ✅ 6. background-repeat: no-repeat;
+    A imagem aparece só uma vez (sem repetição).
+    É o mais comum quando se usa imagens decorativas únicas (ex: ícones, logos, fotos de fundo com cover).
+    
+    */
+
+/* background-attachment, background-origin, background-blend-mode
+
+    Background-Attachment
+🎯 Essa propriedade define como a imagem de fundo se comporta em relação à rolagem da página ou de um elemento com overflow.
+
+✅ Explicações claras:
+Valor	        O que faz
+scroll(padrão)	A imagem de fundo rola junto com o conteúdo da página ou da div.
+fixed	        A imagem de fundo fica fixa na tela (na viewport), mesmo que o conteúdo role. Dá um efeito tipo "parallax".
+local	        A imagem de fundo rola junto com o conteúdo da própria div. Útil em overflow: auto com rolagem interna.
+
+### 🔵 `fixed`
+- A imagem **fica fixa na tela**, como se estivesse colada no fundo da janela.
+- Mesmo rolando a página ou o conteúdo da `div`, a imagem **não se move**.
+- Isso só funciona bem se o elemento **não estiver dentro de um elemento com `transform`, `perspective`, ou `filter` aplicado**.
+
+### 🔵 `scroll`
+- A imagem de fundo **rola junto com a página**, é o comportamento **padrão**.
+- Se você rolar a página ou o conteúdo da `div`, a imagem se moverá com ele.
+
+### 🔵 `local`
+- A imagem **rola junto com o conteúdo da `div`**.
+- Funciona apenas se a `div` **tem rolagem interna** (`overflow: auto` e bastante texto).
+- A imagem **fica fixa no conteúdo**, e se movimenta ao rolar o conteúdo da própria `div`.
+
+Exemplo: 
+    body{ height: 200vh; }
+        .exemplo{
+            width: 300px;
+            height: 300px;
+            background-image: url('../img/nave_considero_realista.jpg');
+            background-size: cover;
+            border: 1px solid red;
+            overflow: auto; -> overflow: auto; permite rolagem interna se o conteúdo for maior que a div }
+        #fixed{ background-attachment: fixed; }
+        #scroll{ background-attachment: scroll; }
+        #local{ background-attachment: local; }
+
+
+🎯 background-origin: Define onde o plano de fundo (imagem, cor) começa a ser desenhado dentro do elemento.
+
+✅ Explicações claras:
+Valor	        Explicação
+padding-box     O background começa no início da área de padding (não cobre a borda).
+border-box      O background começa no início da borda e cobre toda a área do elemento.
+content-box     O background cobre apenas a área de conteúdo, ignorando padding e borda.
+
+🔵 padding-box
+    Significado: O fundo começa a ser desenhado a partir da área de padding.
+    Cobre: A área de conteúdo + padding.
+    Não cobre: As bordas.
+    Uso comum: Quando você quer que o fundo respeite a distância da borda, sem preenchê-la.
+
+📌 Exemplo visual:
+Imagine uma caixa com bordas, padding e conteúdo. O fundo vai cobrir tudo exceto a borda.
+
+🔵 border-box
+    Significado: O fundo começa a ser desenhado desde a borda externa do elemento.
+    Cobre: Conteúdo + padding + borda.
+    Uso comum: Quando você quer que o fundo se estenda por toda a área do elemento, inclusive a borda.
+
+📌 Exemplo visual:
+A imagem ou cor de fundo vai ficar debaixo da borda também, ocupando toda a caixa do elemento.
+
+🔵 content-box
+    Significado: O fundo é desenhado somente dentro da área de conteúdo.
+    Cobre: Apenas a área de conteúdo.
+    Não cobre: O padding nem a borda.
+    Uso comum: Quando você quer que o fundo fique restrito ao conteúdo, sem ocupar espaço extra.
+
+📌 Exemplo visual:
+A imagem de fundo fica "encaixada" só no meio da caixa, sem tocar nas laterais (padding ou borda).
+
+Exemplo:
+.exemplo{
+    width: 300px;
+    height: 300px;
+    background-image: url('../img/nave_considero_realista.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border: 15px dashed palegreen;
+    padding: 30px;
+}
+    
+    #padding-box{
+        background-origin: padding-box;
+    }
+    
+    #border-box{
+        background-origin: border-box;
+    }
+    
+    #content-box{
+        background-origin: content-box;
+    }
+
+🎯 background-clip: Controla até onde o plano de fundo pode se estender ou ser visível.
+
+✅ Explicações claras:
+Valor	        Onde o fundo termina
+border-box	    Até a borda
+padding-box	    Até o padding
+content-box	    Até o conteúdo
+
+🔵 border-box
+    Significado: O fundo vai até o limite externo da borda.
+    O que cobre: Conteúdo + padding + borda.
+    Efeito: A imagem ou cor de fundo aparece por baixo da borda.
+    Uso comum: Para fazer com que o fundo ocupe toda a área do elemento, inclusive onde há borda.
+
+📌 Dica: É o valor padrão da maioria dos navegadores.
+
+🔵 padding-box
+    Significado: O fundo termina no final do padding.
+    O que cobre: Conteúdo + padding.
+    Não cobre: A borda (fica transparente ou da cor da borda).
+    Uso comum: Quando você quer que o fundo fique dentro da borda, sem ultrapassá-la.
+
+📌 Dica: Muito usado com elementos que têm bordas estilizadas, para não interferir no visual da borda.
+
+🔵 content-box
+    Significado: O fundo só é visível na área de conteúdo.
+    O que cobre: Apenas a área onde o conteúdo (texto, imagens) está.
+    Não cobre: Nem o padding, nem a borda.
+    Uso comum: Quando você quer o fundo restrito ao conteúdo, como em caixas com muito padding, mas sem interferência visual no fundo.
+
+🧠 Resumo com metáfora:
+Pense no fundo como uma imagem que você cola dentro de uma caixa:
+    background-origin: onde você posiciona a imagem (início).
+    background-clip: até onde você deixa ela visível (fim).
+
+
+.exemplo {
+        width: 300px;
+        height: 300px;
+        border: 15px dashed palegreen;
+        color: white;
+        padding: 30px;
+        font-size: 35px;
+        font-weight: 900;
+        background-color: palevioletred;
+        
+        background-image: repeating-linear-gradient(45deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px, hsla(197, 62%, 11%, 0.5) 10px,
+        hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.5) 35px, hsla(5, 53%, 63%, 0.5) 40px,
+        hsla(197, 62%, 11%, 0.5) 40px, hsla(197, 62%, 11%, 0.5) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,
+    hsla(5, 53%, 63%, 0.5) 60px, hsla(5, 53%, 63%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 80px,
+    hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, 0.5) 90px, hsla(5, 53%, 63%, 0.5) 110px,
+    hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 120px, hsla(197, 62%, 11%, 0.5) 120px, hsla(197, 62%, 11%, 0.5) 140px
+    ),
+    repeating-linear-gradient(135deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px, hsla(197, 62%, 11%, 0.5) 10px,
+    hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.5) 35px, hsla(5, 53%, 63%, 0.5) 40px,
+    hsla(197, 62%, 11%, 0.5) 40px, hsla(197, 62%, 11%, 0.5) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,
+    hsla(5, 53%, 63%, 0.5) 60px, hsla(5, 53%, 63%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 80px,
+    hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, 0.5) 90px, hsla(5, 53%, 63%, 0.5) 110px,
+    hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 140px, hsla(197, 62%, 11%, 0.5) 140px, hsla(197, 62%, 11%, 0.5) 160px
+    );
+}
+
+#padding-box {
+    background-clip: padding-box;
+}
+
+#border-box {
+    background-clip: border-box;
+}
+
+#content-box {
+    background-clip: content-box;
+}
+
+#text {
+    -webkit-background-clip: text;
+    color: transparent;
+    border: 5px solid black;
+    background-clip: text;
+}
+
+🎯 background-blend-mode é uma mesclagem dos fundos de um elemento.
+
+🎨 Valores comuns do background-blend-mode:
+| Valor                                      | Efeito de mesclagem                                                |
+| ------------------------------------------ | ------------------------------------------------------------------ |
+| `normal`                                   | Sem mesclagem (padrão)                                             |
+| `multiply`                                 | Escurece combinando as cores (como misturar tinta)                 |
+| `screen`                                   | Clareia combinando cores (efeito de brilho)                        |
+| `overlay`                                  | Combina `multiply` e `screen` (realce forte)                       |
+| `darken`                                   | Usa a cor mais escura entre as camadas                             |
+| `lighten`                                  | Usa a cor mais clara entre as camadas                              |
+| `color-dodge`                              | Clareia as cores de base                                           |
+| `color-burn`                               | Escurece com contraste                                             |
+| `difference`                               | Subtrai a cor de fundo da camada de cima                           |
+| `luminosity`, `hue`, `saturation`, `color` | Fazem mesclagens baseadas em propriedades da cor (mais artísticas) |
+
+.exemplo{
+    width: 300px;
+    height: 300px;
+    border: 15px dashed palegreen;
+    color: white;
+    padding: 30px;
+    font-size: 35px;
+    font-weight: 900;
+    background-color: orange;
+    background-image: url(../img/nave_considero_realista.jpg);
+    background-blend-mode: multiply;
+}
+*/
+
+/* background
+
+🎯 A propriedade background é shorthand (abreviada) e aceita múltiplos valores, mas a ordem importa!
+
+Por isso, é bom organizar assim:
+    background: [color] [image] [position/size] [repeat] [attachment] [origin] [clip];
+
+Exemplo
+    .exemplo{
+        width: 300px;
+    height: 300px;
+    border: 15px dashed palegreen;
+    color: white;
+    padding: 30px;
+    font-size: 35px;
+    font-weight: 900;
+    
+    background: 
+    url(../img/nave_considero_realista.jpg) -> img
+    top center / 200px 200px -> position / size
+    no-repeat -> repeat 
+    fixed -> attachment 
+    padding-box -> origin 
+    content-box -> clip 
+    red -> color 
+    ;
+}
+
+🧠 Explicação dos componentes:
+| Parte                                     | O que faz                                                                              |
+| ----------------------------------------- | -------------------------------------------------------------------------------------- |
+| `url(../img/nave_considero_realista.jpg)` | Define a **imagem de fundo**.                                                          |
+| `top center`                              | Alinha a imagem no **topo central** do elemento.                                       |
+| `/ 200px 200px`                           | Redimensiona a imagem para **200x200px**.                                              |
+| `no-repeat`                               | A imagem **não será repetida**.                                                        |
+| `fixed`                                   | A imagem **fica fixa** no viewport (não rola junto com a página).                      |
+| `padding-box`                             | Define que a **origem da imagem** começa no **padding** (`background-origin`).         |
+| `content-box`                             | Define até onde o fundo é visível: **somente a área de conteúdo** (`background-clip`). |
+| `red`                                     | Define a **cor de fundo padrão** do elemento.                                          |
+
+*/
+
+/* border
+
+border-width: 10px; -> define o grosura da borda vc popde coloca a grosura para lados especifico e pode escrever também em ingles para determina a grosura como medium
+border-style: double; -> define o estilo da borda tem varios não muitos vc pode colocar bolinhas duas linhas quadrados. 
+border-color: aqua; -> vc pode definir a cor da borda vc pode colocar uma cor para cada lado.
+
+border: 10px double aqua; -> vc pode definir todas a grosura o tipo e cor da borda nesta mesma sequencia. 
+
+vc pode definir diretamente para qual lado da borda vc quer editar
+border-top: ;
+border-width: ;
+border-bottom: ;
+border-left: ;
+
+border-radius: 20px -> ele aredonda as bordas não deixa quadrado.
+vc pode deixar ovau usando a barra lateral border-radius: 50px/100px.
+border-radius: 50% vc faz uma circulo, só toma cuidado com a largura e altura para não deforma o circulo. 
+
+*/
+
+/* border-image-source, border-image-slice
+
+ A propriedade **border-image-source** define a imagem ou gradiente que será usada como imagem de borda de um elemento.
+ O **border-image-slice** controla como a imagem da borda é “cortada” (fatiada) para ser distribuída nas partes da borda do elemento.
+
+
+🎯 border-image-source
+    border-image-source: linear-gradient(red, blue) -> vc pode colcar uma cor também.
+    border-image-source: url(../img/nave.png); -> ele colca em cada canto da borda a imagen que vc selecionar.
+
+🎯 border-image-slice
+    Define em quantas partes a imagem será dividida para formar as bordas do elemento.
+    A imagem é dividida como uma grade 3x3:
+    ╔═══╦═════╦═══╗
+    ║ 1 ║  2  ║ 3 ║
+    ╠═══╬═════╬═══╣
+    ║ 4 ║  5  ║ 6 ║
+    ╠═══╬═════╬═══╣
+    ║ 7 ║  8  ║ 9 ║
+    ╚═══╩═════╩═══╝
+
+    ╔═════╦═════╦═════╗
+    ║  1  ║  2  ║  3  ║
+    ║⭐R ║ ⭐Y  ║ ⭐R ║
+    ╠═════╬═════╬═════╣
+    ║  4  ║  5  ║  6  ║
+    ║⭐Y ║ ⭐B  ║ ⭐Y ║
+    ╠═════╬═════╬═════╣
+    ║  7  ║  8  ║  9  ║
+    ║⭐R ║ ⭐Y  ║ ⭐R ║
+    ╚═════╩═════╩═════╝
+    Vermelho (⭐R): nos cantos (1, 3, 7, 9)
+    Amarelo (⭐Y): nas laterais (2, 4, 6, 8)
+    Azul (⭐B): no centro (5)
+
+    Quando vc usa border-image-slice ele faz um gride que a parte vermelha fica nas pontas amarelo nas lateras e azul no meio.
+
+    ✅ Exemplo:
+    .exemplo{
+        background-color: black;
+        width: 200px;
+        height: 200px;
+        border: 30px solid;
+    }
+    
+    #exemplo-1{
+        border-image-source: url(../img/desenho\ para\ estudo.png);
+        border-image-repeat: repeat;
+        border-image-slice: 169;
+    }
+*/
+
+.exemplo{
+    background-color: black;
+    width: 200px;
+    height: 200px;
+    border: 30px solid;
+    }
+    
+#exemplo-1{
+    border-image-source: url(../img/desenho-para-estudo.png);
+    border-image-repeat: repeat;
+    border-image-slice: 170;
+    border-image-width: 10px;
+}
+
+
+#exemplo-2{
+    border-image-slice: linear-gradient(red, blue);
+}
+
+
+/*
+header{
+    background-color: rgb(58, 58, 60);
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+h1{
+    margin: 0;
+    text-align: center;
+}
+
+nav .menu{
+    display: flex;
+    gap: 10px;
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+nav ul{
+    margin: 0;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(72, 71, 74);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+nav a:hover{
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    background-color: rgb(101, 101, 105);
+}
+
+/* */
