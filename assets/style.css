@@ -569,7 +569,7 @@ border-radius: 50% vc faz uma circulo, só toma cuidado com a largura e altura p
 
 */
 
-/* border-image-source, border-image-slice
+/* border-image-source, border-image-slice, border-image-width
 
  A propriedade **border-image-source** define a imagem ou gradiente que será usada como imagem de borda de um elemento.
  O **border-image-slice** controla como a imagem da borda é “cortada” (fatiada) para ser distribuída nas partes da borda do elemento.
@@ -619,25 +619,300 @@ border-radius: 50% vc faz uma circulo, só toma cuidado com a largura e altura p
         border-image-repeat: repeat;
         border-image-slice: 169;
     }
+
+🎯 border-image-width: 10px;
+
+    vc define o tamanho da borda. 
+                        top  width  bottom  left
+    border-image-width: 10px 20px   30px    40px;
+
+    vc pode definir diretamente para qual lado da borda vc quer editar o tamanha
+    border-top: ;
+    border-width: ;
+    border-bottom: ;
+    border-left: ;
 */
 
-.exemplo{
-    background-color: black;
-    width: 200px;
-    height: 200px;
-    border: 30px solid;
-    }
+/* border-image-repeat, border-image-outset
+
+🎯 border-image-repeat 
+    ele controla como a imagem vai se corporrta com a mudanaça de tamanho da div dentro da borda. 
+
+    border-image-repeat: repeat; 
+        A imagem da borda será repetida quantas vezes for necessário ao longo da borda.
+        Se a imagem não couber perfeitamente, ela será cortada no final.
+    border-image-repeat: round; 
+        A imagem será repetida, mas o navegador ajustará levemente o tamanho da imagem 
+        para que ela se encaixe perfeitamente na borda, sem cortes.
+    border-image-repeat: stretch;
+        A imagem será esticada (deformada) para preencher todo o espaço da borda sem repetição. 
+    border-image-repeat: space;
+       A imagem será repetida, mas não será cortada nem esticada. Se não couber perfeitamente,
+        o navegador distribuirá espaços entre as imagens repetidas para preencher a borda.
+
+    ✅ Definir valores diferentes para cada lado:
+    Você pode definir dois valores: o primeiro vale para horizontal (esquerda e direita) e o segundo para vertical (superior e inferior).
     
-#exemplo-1{
-    border-image-source: url(../img/desenho-para-estudo.png);
-    border-image-repeat: repeat;
-    border-image-slice: 170;
-    border-image-width: 10px;
+        border-image-repeat: repeat space; 
+
+    ✅ Exemplos:
+    border-image-repeat: repeat;   repete e corta se sobrar 
+    border-image-repeat: round;    repete e ajusta o tamanho da imagem 
+    border-image-repeat: stretch;  estica a imagem
+    border-image-repeat: space;    repete e adiciona espaços se sobrar espaço
+
+🎯 border-image-outset
+    A propriedade border-image-outset define o quanto a imagem da borda deve "sair" 
+    para fora da caixa do elemento (ou seja, afastar da borda real do conteúdo).
+
+    ✅ O que ela faz:
+    "Empurra" a imagem da borda para fora do elemento, além da largura normal da borda.
+    Isso faz a imagem ocupar mais espaço fora do elemento.
+
+    border-image-outset: 10;
+
+    ✅ Definir valores diferentes para cada lado:
+    border-image-outset: 1 2 1 2; Top, Right, Bottom, Left
+
+
+*/
+
+/* font-family, @font-face, font-weight
+
+✅  Forma mais simples de definir uma fonte:
+        
+        font-family: sans-serif;
+
+✅ Usar uma fonte personalizada baixada:
+    Quando você baixa uma fonte (por exemplo, .ttf, .woff, etc.), é necessário usar 
+    @font-face para carregá-la:
+        @font-face {
+        font-family: "Roboto";
+        src: url("fonts/Roboto-Regular.ttf"); Caminho para o arquivo
+        }
+        * {
+        font-family: "Roboto";
+        }
+    
+✅  Retira e colocar em negrito a fonte.
+    A propriedade font-weight controla a espessura (peso) da fonte.
+        font-weight: normal;   Fonte padrão, sem negrito
+        font-weight: bold;     Negrito
+
+    Você também pode usar valores numéricos para mais controle:
+        font-weight: 100;   Bem fina
+        font-weight: 400;   Normal 
+        font-weight: 700;   Negrito 
+        font-weight: 900;   Extra negrito 
+
+*/
+
+/* @import url(), Usar <link> no HTML (head), Melhor estratégia
+✅ @import url() – Importar fonte do Google Fonts
+Você pode importar fontes diretamente no seu CSS usando @import:
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    font-family: Roboto;
 }
 
+✅ Usar <link> no HTML (head) 
+Outra forma de usar Google Fonts é colocando um <link> dentro da tag <head> do seu HTML:
 
-#exemplo-2{
-    border-image-slice: linear-gradient(red, blue);
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap" rel="stylesheet">
+Depois, use a fonte no CSS normalmente:
+*{
+    font-family: Roboto;
+        }
+
+✅ Melhor estratégia: usar um global.css
+Para manter seu projeto organizado e fácil de manter, a melhor prática é:
+1.Criar um arquivo global.css ou reset.css.
+2.Colocar nele as configurações globais, como:
+Importações de fontes
+Cores principais
+Reset de margens e paddings
+Fontes padrão
+
+Exemplo – global.css:
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+Depois, no CSS principal:
+@import url('./global.css');
+Aqui vai o resto do seu estilo
+
+✅ Vantagens:
+Código mais limpo e organizado.
+Mais fácil de manter e reutilizar.
+Rápido de alterar o visual de todo o site em um único lugar.
+
+@import url("../assets/global.css");
+*/
+
+/* font-size, font-style, font-weight
+
+🎯 Tamanhos de fonte em CSS
+
+    ✅ Em pixels (valor absoluto)
+            #tamanho-px {
+                font-size: 20px;
+            }
+
+        Define o tamanho da fonte em pixels.
+        Valor fixo, independente do tamanho do navegador ou dispositivo.
+
+    ✅ Tamanhos pré-definidos (palavras-chave)
+            #xx-small {
+            font-size: xx-small;
+            }
+            #x-small {
+            font-size: x-small;
+            }
+            #small {
+            font-size: small;
+            }
+            #medium {
+            font-size: medium;
+            }
+            #large {
+            font-size: large;
+            }
+        Ordem dos tamanhos (do menor para o maior):
+            xx-small < x-small < small < medium < large < x-large < xx-large
+
+🎯 font-style – Estilo da fonte
+    A propriedade font-style define o estilo da letra, como normal, itálico ou oblíquo.
+
+    ✅ Exemplos:
+            #normal{
+                font-style: normal;
+            }
+        Usa a forma padrão da fonte (sem inclinação).
+
+            #italic{
+                font-style: italic;
+            }
+        Deixa a fonte inclinada, usando uma versão itálica real da fonte (se existir).
+        
+            #oblique{
+                font-style: oblique;
+            }
+        Também inclina a fonte, mas de forma artificial (simula um itálico).
+        Visualmente, parece com italic, mas é menos refinado.
+
+🎯 font-weight – Peso da fonte (negrito)
+    Essa propriedade controla se o texto será mais fino, normal ou mais espesso (como o negrito).
+
+    ✅ Exemplos básicos:
+            #normal {
+            font-weight: normal; ou 400
+            }
+        Usa o peso padrão da fonte, geralmente 400.
+            #bold {
+            font-weight: bold; ou 700
+            }
+        Deixa o texto negrito.
+    
+    ✅ Você também pode usar valores numéricos:
+        font-weight: 100;   Extra fino
+        font-weight: 300;   Fino 
+        font-weight: 400;   Normal 
+        font-weight: 500;   Um pouco mais grosso 
+        font-weight: 700;   Negrito 
+        font-weight: 900;   Extra negrito 
+
+*/
+
+/* font-variant , line-height
+
+🎯 font-variant – Capitalização estilizada
+    ✅ exemplos:
+        #normal {
+        font-variant: small-caps;
+        font-weight: bold;
+        }
+    font-variant: small-caps: transforma as letras minúsculas em maiúsculas pequenas (versaletes), mas mantém as letras que já estavam em maiúsculas com o tamanho normal.
+    💡 Dica:
+        small-caps é muito usado em:
+            Títulos elegantes
+            Cabeçalhos de capítulos
+            Subtítulos formais
+
+🎯 line-height
+
+    ele determina o espaçamento entre as linhas do texto
+    ✅ exemplos:
+        p{
+            line-height: 1.5;
+        }
+
+
+
+        */
+
+/* font – Propriedade abreviada de fonte
+A propriedade abreviada font permite definir várias propriedades de fonte ao mesmo tempo:
+
+✅ Sintaxe completa da propriedade abreviada:
+    font: [style] [variant] [weight] [size]/[line-height] [family];
+
+        style: normal, italic, oblique
+        variant: normal, small-caps
+        weight: normal, bold, 100–900
+        size: obrigatória (ex: 16px)
+        line-height: opcional (ex: /1.5)
+        family: obrigatória (ex: Arial, sans-serif)
+
+✅ Seu primeiro exemplo:
+    p {
+    font: 20px Arial, sans-serif;
+    }
+        Aqui você está definindo:
+            font-size: 20px
+            font-family: Arial, sans-serif
+        Os valores que não foram declarados (como font-style, font-weight, etc.) assumem o valor padrão: normal.
+
+✅ Seu segundo exemplo:
+    h1 {
+    font: italic small-caps bold 24px/2 Georgia, serif;
+    }
+        italic:         estilo da fonte
+        small-caps:     versalete (minúsculas viram maiúsculas pequenas)
+        bold:           negrito
+        24px:           tamanho da fonte
+        /2:             altura da linha (line-height: 2)
+        Georgia, serif: família da fonte (com fallback)
+    
+    📌 Essa linha é equivalente a escrever:
+        h1 {
+            font-style: italic;
+            font-variant: small-caps;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 2;
+            font-family: Georgia, serif;
+        }
+⚠️ Atenção:
+    Os valores obrigatórios são: font-size e font-family.
+    Se você esquecer um deles, o CSS não aplicará a regra.
+
+
+    */
+
+
+
+p{
+    font: 20px Arial, sans-serif;
+}
+
+h1{
+    font: italic small-caps bold 24px/2 Georgia, serif;
 }
 
 
