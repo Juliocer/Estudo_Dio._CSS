@@ -905,15 +905,311 @@ A propriedade abreviada font permite definir várias propriedades de fonte ao me
 
     */
 
+/* text-align, text-decoration, ext-indent, letter-spacing, word-spacing
+
+🎯 text-align – Alinhamento do texto
+   A propriedade text-align controla como o texto será alinhado horizontalmente dentro de um elemento (como um parágrafo, div, título, etc.).
+    
+    text-align: left; Alinha o texto à esquerda (padrão em português)
+    text-align: right; Alinha o texto à direita
+    text-align: center; Centraliza o texto
+    text-align: justify Justifica o texto como em documentos (alinhas as margens esquerda e direita)
+
+    ✅ Exemplo prático: 
+    HTML: 
+        <div class="exemplo">
+            <p>Esse texto está centralizado com text-align: center.</p>
+        </div>
+    CSS:
+        .exemplo{
+            width: 370px;
+            border: 1px solid black;
+        }
+        p{
+            padding: 10px;
+            background-color: lavender;
+            text-align: center; -> ele esta alinhado ao centro
+        }
+
+🎯 text-decoration
+
+    🎯 text-decoration-line - Onde a linha será aplicada - Ele decide na onde a linha vai ficar.
+
+        text-decoration-line: underline;     Linha abaixo do texto
+        text-decoration-line: line-through;  Linha no meio do texto
+        text-decoration-line: overline;      Linha acima do texto
+        text-decoration-line: none;          Remove qualquer linha
+
+    🎯 text-decoration-style e o estilo da linha se ela vai ser pontinhada ou em ondas.
+
+        text-decoration-style: solid ;   Linha reta e contínua (padrão)
+        text-decoration-style: double;   Duas linhas paralelas
+        text-decoration-style:dotted;    Linha pontilhada
+        text-decoration-style: dashed;   Linha tracejada
+        text-decoration-style:wavy;      Linha em ondas
+
+    🎯 text-decoration-color – Cor da linha
+        Define a cor da linha decorativa, sem afetar a cor do texto:
+            text-decoration-color: red;
+
+    🎯 text-decoration-thickness – Espessura da linha
+        Define a grossura da linha:
+            text-decoration-thickness: 1px;
+
+        ✅ Exemplo completo:
+            p {
+            text-decoration-line: underline;
+            text-decoration-style: wavy;
+            text-decoration-color: red;
+            text-decoration-thickness: 2px;
+            }
+    
+    🎯 text-decoration – Forma abreviada (shorthand)
+        Você pode condensar tudo isso em uma única linha:
+            text-decoration: underline solid red 1px; 
+        
+        Ordem dos valores (recomendada):
+            text-decoration: [line] [style] [color] [thickness];
+
+    💡 Dica:
+    text-decoration é muito usado em links, títulos decorados e efeitos visuais em botões.
+    Para remover a linha de um link.
+
+🎯 text-indent vc conseque com ele da um espaçamento da borda.
+
+    ✅ Exemplo completo:
+        p{
+            text-indent: -5px;
+        }
+
+🎯 letter-spacing vc conseque colocar um espaçamento entre as letras.
+
+    ✅ Exemplo completo:
+        p{
+            letter-spacing: 10px;
+        }
+
+🎯 word-spacing vc conseque colocar um espaçamento e cada palavra.
+
+    ✅ Exemplo completo:
+        p{
+            word-spacing: 10px;
+        }
 
 
-p{
-    font: 20px Arial, sans-serif;
-}
+*/
 
-h1{
-    font: italic small-caps bold 24px/2 Georgia, serif;
-}
+/* white-space, word-wrap, writing-mode, word-break, text-overflow
+
+🎯 white-space – Controle da quebra e espaço no texto
+    A propriedade white-space define como o navegador lida com espaços em branco, 
+    quebras de linha e formatação do texto no HTML.
+    
+    white-space: nowrap;
+        ❌ Não permite quebra de linha — todo o conteúdo fica em uma única linha, mesmo que ultrapasse a largura do container.
+        Usa-se muito em botões, cabeçalhos ou labels.
+
+    white-space: pre; 
+        ✅ Preserva todos os espaços e quebras de linha exatamente como estão no HTML.
+        Funciona como a tag <pre> do HTML.
+        Ideal para exibir código ou textos formatados manualmente.
+    
+    white-space: pre-line;
+        ✅ Preserva quebras de linha do HTML.
+        ❌ Ignora múltiplos espaços.
+        Útil para formatar textos com parágrafos, mantendo quebras.
+
+    white-space: pre-wrap;
+        ✅ Preserva todos os espaços e quebras de linha.
+        ✅ Permite quebra automática de linha quando o texto chega ao final do container.
+        Muito usado quando você quer manter a formatação, mas ainda assim deixar o texto responsivo.
+    
+    white-space: break-spaces;
+        Igual ao pre-wrap, mas também preserva os espaços extras no final da linha.
+        Suporte mais recente (funciona em navegadores modernos).
+        Ideal para textos com alinhamento ou formatação visual especial.
+    
+🎯 word-wrap (ou overflow-wrap)
+    A propriedade word-wrap controla se uma palavra muito longa pode ser quebrada e ir
+    para a próxima linha quando ultrapassar a largura do container.
+    
+    ✅ Sintaxe:
+        word-wrap: normal;       (ou overflow-wrap: normal)
+        word-wrap: break-word;   (ou overflow-wrap: break-word)
+
+    ✅ Significado:
+🔹 word-wrap: normal;
+    O texto não será quebrado no meio de uma palavra.
+    Se a palavra for muito longa, ela transborda a caixa.
+
+🔹 word-wrap: break-word;
+    Permite quebrar palavras longas automaticamente.
+    Evita que a palavra ultrapasse a largura da div.
+  
+    
+🎯 word-break – Quebra de palavras
+    A propriedade word-break controla a quebra de palavras quando elas atingem o final
+    de uma linha.
+
+    ✅ Sintaxe:
+        word-break: normal;
+        word-break: break-all;
+        word-break: keep-all;
+
+    ✅ Explicação:
+🔹word-break: normal;
+    Quebra as linhas apenas entre palavras, de forma natural.
+    Palavras longas não são quebradas no meio.
+
+🔹word-break: break-all;
+    Permite quebrar em qualquer ponto da palavra, se necessário.
+    Muito útil para idiomas sem espaçamento entre palavras (como chinês ou japonês), mas também usado para ajustar palavras longas em pequenos espaços.
+
+🔹word-break: keep-all;
+    Evita a quebra de palavras.
+    Funciona principalmente em idiomas asiáticos, mantendo as palavras completas.
+
+🎯 writing-mode – Define a orientação e o fluxo do texto
+    A propriedade writing-mode define a direção na qual o texto é escrito: horizontal ou 
+    vertical, e também de onde ele começa.
+
+    ✅ Sintaxe:
+        writing-mode: horizontal-tb; padrão 
+        writing-mode: vertical-rl;
+        writing-mode: vertical-lr;
+
+    ✅ Valores mais usados:
+        Valor	Descrição
+        🔹horizontal-tb	    Horizontal, da esquerda para a direita e de cima para baixo (modo padrão em português e inglês).
+        🔹vertical-rl	    Vertical, de cima para baixo e colunas da direita para a esquerda (comum em japonês, chinês tradicional).
+        🔹vertical-lr	    Vertical, de cima para baixo e colunas da esquerda para a direita (menos comum, mas útil em alguns contextos).
+
+🎯 text-overflow 
+    A propriedade text-overflow define como o texto que ultrapassa o tamanho da caixa será exibido.
+    
+    ⚠️ Importante: Para funcionar corretamente, é obrigatório usar junto com:
+        overflow: hidden;
+        white-space: nowrap;
+
+    ✅ Sintaxe:
+        text-overflow: clip;
+        text-overflow: ellipsis;
+
+    ✅ Valores:
+        | Valor      | Descrição                                                                           
+        | ---------- | ----------------------------------------------------------------------------------- 
+        | `clip`     | **Corta** o texto que ultrapassa o limite da caixa **sem adicionar nada** visual.   
+        | `ellipsis` | Adiciona **três pontinhos (...)** no final do texto, indicando que ele foi cortado. 
+
+*/
+
+/* box-shadow, filter: drop-shadow, text-shadow
+
+🎯 box-shadow
+    Adiciona sombra ao elemento (como um bloco).
+    Essa sombra pode ficar fora ou dentro da caixa (quando com inset).
+
+    ✅ Sintaxe:
+        box-shadow: offset-x offset-y blur-radius spread-radius color;
+        | Parâmetro          | Descrição                           |
+        | ------------------ | ----------------------------------- |
+        | `offset-x`         | Deslocamento horizontal da sombra   |
+        | `offset-y`         | Deslocamento vertical da sombra     |
+        | `blur-radius`      | Suavização/borrão da sombra         |
+        | `spread-radius`    | Tamanho da expansão da sombra       |
+        | `color`            | Cor da sombra                       |
+        | `inset` (opcional) | Coloca a sombra **dentro** da caixa |
+
+    ✅ Exemplo:
+        box-shadow: 10px 10px 20px -7px red;
+        ➕ Uma sombra vermelha com deslocamento e suavização
+        ➖ Espalhamento negativo deixa ela mais próxima do elemento
+
+🎯 filter: drop-shadow
+        Adiciona uma sombra em volta do conteúdo renderizado, como imagens com fundo transparente ou SVGs.
+        Diferente do box-shadow, ela segue a forma do conteúdo, não a da caixa.
+
+    ✅ Exemplo:
+        filter: drop-shadow(10px 10px 5px gray);
+        ➕ Uma sombra cinza deslocada ao redor do conteúdo.
+
+🎯 text-shadow 
+    A propriedade text-shadow adiciona sombras ao redor do texto.
+
+    ✅ Sintaxe:
+        text-shadow: offset-x offset-y blur-radius color;
+        | Parâmetro     | Descrição                                         |
+        | ------------- | ------------------------------------------------- |
+        | `offset-x`    | Distância horizontal da sombra (esquerda/direita) |
+        | `offset-y`    | Distância vertical da sombra (cima/baixo)         |
+        | `blur-radius` | Borrão da sombra (mais suave ou mais sólida)      |
+        | `color`       | Cor da sombra                                     |
+
+    ✅ Exemplo:
+        h2 {
+            color: deeppink;
+            font-size: 40px;
+            text-align: center;
+            text-shadow: 10px 10px 5px purple;
+        }
+        Esse exemplo cria uma sombra roxa deslocada 10px à direita e 10px para baixo do texto, com um leve borrado de 5px.
+    
+*/
+
+/* opacity, overflow
+
+🎯 opacity – Transparência do elemento
+    A propriedade opacity controla a transparência de um elemento HTML (texto, imagem, caixa, botão etc).
+    Opacity vc conseque retira o brinho.
+
+    ✅ Sintaxe:
+        opacity: valor;
+
+    O valor vai de 0 até 1:
+        0 = totalmente transparente (invisível)
+        1 = totalmente opaco (visível)
+        
+        vc conseque coloca de 0.1 ate 0.9 o maximo 1.0.
+        Exemplo intermediário: opacity: 0.5; → 50% visível
+
+    🧠 Dica:
+        Se quiser aplicar transparência somente no fundo, sem afetar o texto dentro da caixa, use cores com rgba:
+            background-color: rgba(0, 0, 0, 0.5); fundo preto com 50% de opacidade
+        
+        Porque opacity afeta todo o elemento, inclusive o conteúdo interno dele.
+
+🎯 overflow – Controla o conteúdo que ultrapassa os limites da caixa
+    A propriedade overflow determina como o navegador deve tratar o conteúdo que ultrapassa as dimensões do elemento (largura ou altura).
+
+    ✅ Valores possíveis:
+        overflow: visible;   (padrão) o conteúdo extra é exibido fora da caixa
+        overflow: hidden;    o conteúdo extra é cortado e não aparece
+        overflow: scroll;    adiciona barras de rolagem (horizontal e vertical), mesmo que não precise
+        overflow: auto;      adiciona barras de rolagem só se necessário
+
+    ✅ Aplicações:
+        #hidden {
+        overflow: hidden;    corta o conteúdo que ultrapassar
+        }
+
+        #scroll {
+        overflow: scroll;    sempre mostra as barras de rolagem
+        }
+
+        #auto {
+        overflow: auto;      mostra rolagem só quando necessário
+        }
+
+    ✅ Exemplo com rolagem horizontal apenas:
+        #exemplo-1 {
+        white-space: nowrap;     impede quebra de linha
+        overflow-y: hidden;      oculta rolagem vertical
+        overflow-x: scroll;      permite rolagem horizontal
+        }
+
+*/
+
+
 
 
 /*
