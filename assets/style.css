@@ -1209,8 +1209,114 @@ A propriedade abreviada font permite definir várias propriedades de fonte ao me
 
 */
 
+/* Unidades de medidas absolutas
+
+🎯 O que são unidades absolutas?
+
+    São unidades fixas, que não mudam conforme o tamanho da tela ou preferências do 
+    usuário. Ou seja:
+        1 cm sempre será 1 cm (independente do dispositivo, em teoria).
+
+    Por isso, são menos recomendadas para layouts responsivos — usamos mais as unidades 
+    relativas como em, %, rem, vw, etc.
+
+    |   Unidade   |   Nome                    |   Equivalência aproximada          |
+    | ----------- | ------------------------- | ---------------------------------- |
+    | `cm`        | Centímetro                | 1 cm = 37.8 px                     |
+    | `mm`        | Milímetro                 | 1 mm = 3.78 px                     |
+    | `Q`         | Quarter-millimeter (¼ mm) | 1 Q = 0.25 mm = 0.945 px           |
+    | `in`        | Polegada (inch)           | 1 in = 2.54 cm = 96 px             |
+    | `pc`        | Pica                      | 1 pc = 12 pt = 16 px               |
+    | `pt`        | Ponto tipográfico (point) | 1 pt = 1/72 in = 1.33 px           |
+    | `px`        | Pixel (ponto na tela)     | 1 px = 1/96 in (por padrão no CSS) |
+
+🎯 Unidades relativas
+    📏 O que são unidades relativas em CSS?
+
+    Unidades relativas são medidas que se adaptam ao contexto onde estão sendo usadas.
+    Ou seja, elas não têm um tamanho fixo — seu valor depende de outro elemento, como:
+        o elemento pai
+        o tamanho da fonte
+        ou o tamanho da tela (viewport)
+
+    ✅ Unidades Relativas MAIS USADAS
+        | **Unidade** | **Nome**        | **Equivalência aproximada**                            |
+        | ----------- | --------------- | ------------------------------------------------------ |
+        | `%`         | Porcentagem     | Relativa ao valor do **elemento pai**                  |
+        | `em`        | Element         | 1 em = **tamanho da fonte do elemento atual**          |
+        | `rem`       | Root Element    | 1 rem = **tamanho da fonte do elemento raiz (`html`)** |
+        | `vw`        | Viewport Width  | 1 vw = **1% da largura da viewport**                   |
+        | `vh`        | Viewport Height | 1 vh = **1% da altura da viewport**                    |
+    
+    ⚙️ Unidades Relativas MENOS USADAS (mais específicas)
+        | **Unidade** | **Nome**         | **Equivalência aproximada**                                |
+        | ----------- | ---------------- | ---------------------------------------------------------- |
+        | `vmin`      | Viewport Minimum | 1 vmin = **1% do menor valor entre `vw` e `vh`**           |
+        | `vmax`      | Viewport Maximum | 1 vmax = **1% do maior valor entre `vw` e `vh`**           |
+        | `ch`        | Character        | 1 ch = **largura do caractere “0” da fonte atual**         |
+        | `ex`        | x-height         | 1 ex = **altura da letra “x” da fonte atual**              |
+        | `lh`        | Line Height      | 1 lh = **altura da linha (line-height) do elemento atual** |
+
+    🔍 Exemplos rápidos:
+        | Unidade | Base de referência                  | Exemplo                                        |
+        | ------- | ----------------------------------- | ---------------------------------------------- |
+        | `%`     | Tamanho do elemento **pai**         | `width: 50%` → metade da largura do pai        |
+        | `em`    | **Fonte do próprio elemento**       | `padding: 2em` → 2× o tamanho da própria fonte |
+        | `rem`   | **Fonte do elemento raiz (`html`)** | `font-size: 1.5rem` → 1.5× a fonte do `html`   |
+        | `vw`    | **Largura da tela (viewport)**      | `width: 100vw` → 100% da largura da tela       |
+        | `vh`    | **Altura da tela (viewport)**       | `height: 100vh` → 100% da altura da tela       |
+
+    ✅ Vantagens:
+        Adaptam-se a diferentes telas (celular, tablet, desktop)
+        Ajudam na criação de layouts responsivos
+        Permitem que usuários ajustem o zoom ou tamanho da fonte sem quebrar o layout
+
+*/
+
+/* calc() 
+
+Uma função do CSS. Ela permite realizar cálculos diretamente dentro das propriedades que aceitam medidas, 
+como width, height, margin, padding, font-size e outras.
+
+🛠️ O que posso usar dentro de calc()?
+Você pode usar:
+    Operadores: +, -, *, /
+    Unidades mistas: px, %, em, rem, vh, vw, etc.
+
+    ✅ Exemplo com soma: 
+        padding: calc(1rem + 20px);
+    ✅ Exemplo com divisão:
+        width: calc(100vw / 3);
+
+⚠️ Regras importantes:
+    Sempre coloque espaços entre os números e os operadores:
+        
+    Correto
+        width: calc(100% - 50px);
+
+    Incorreto
+        width: calc(100%-50px);
 
 
+    */
+
+
+    
+div {
+    padding: 10px;
+}
+
+.exemplo-1 {
+    background-color: yellow;
+    width: 300px;
+    box-sizing: border-box;
+}
+
+.exemplo-2 {
+    box-sizing: border-box;
+    background-color: palevioletred;
+    width: calc(100% - 30px);
+}
 
 /*
 header{
