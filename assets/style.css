@@ -1,3 +1,5 @@
+@import url(./global.css);
+
 /*Seletores
  1. Seletores de Tag/Tipo
  2. Seletores de Id > #tipo{}
@@ -757,7 +759,7 @@ Rápido de alterar o visual de todo o site em um único lugar.
 
 /* font-size, font-style, font-weight
 
-🎯 Tamanhos de fonte em CSS
+🎯 font-size: Tamanhos de fonte em CSS
 
     ✅ Em pixels (valor absoluto)
             #tamanho-px {
@@ -1300,23 +1302,1375 @@ Você pode usar:
 
     */
 
+/*------------------------------------------------------------------------------------------------------------ */
 
+/* display, vertical-align, position, z-index: ; 
+
+🎯 A propriedade display no CSS define como um elemento HTML será exibido na página — ou seja, ela controla o comportamento da "caixa" do elemento no layout.
+
+    ✅ display: block; faz o elemento:
+
+        display: block;
+            Ocupar toda a largura disponível do elemento pai (por padrão).
+            Forçar uma quebra de linha antes e depois dele — o que gera espaçamento 
+                automático em relação ao que vem abaixo (a próxima div, por exemplo).
+
+    ✅ O que display: inline:
+
+        display: inline;
+            Coloca o elemento na mesma linha que os outros (não quebra linha).
+            Ignora as propriedades de width e height — ou seja, não permite definir largura ou altura diretamente.
+            Ocupa apenas o espaço necessário para o conteúdo (sem ocupar a linha toda).
+            Margin e Padding ele só e aplicado na esquerda e na direita no left e right, O inline bloqueia o top e bottom.
+
+    ✅ O que display: inline-block:
+
+            display: inline-block;
+                Coloca o elemento na mesma linha que os outros (não quebra linha).
+                Ocupa apenas o espaço necessário para o conteúdo (sem ocupar a linha toda).
+                Ele te permite coloca um width, height, padding, margin normalment. 
+
+    ✅ O que display: none:
+
+        display: none;
+            Ele esconde a tag ele não aparece na tela e tudo que esta dentro dele. 
+            Remove completamente o elemento do layout da página.
+            O elemento não ocupa espaço nenhum — é como se não existisse.
+            Tudo que estiver dentro dele também some, inclusive textos, imagens, filhos etc.
+            
+
+🎯 vertical-align
+
+    🧩 O que é vertical-align?
+        É uma propriedade CSS usada para alinhar elementos verticalmente em relação à linha-base de outros elementos.
+        Ele funciona em tabelas, e todas as tags inline.
+
+    ✅ Quando usar:
+        Em elementos inline, inline-block ou table-cell.
+        Para alinhar textos, imagens ou elementos pequenos na mesma linha.
+        Para alinhar conteúdo dentro de uma célula de tabela (<td>).
+
+    📌 Valores comuns:
+        | Valor           | Significado                                     |
+        | --------------- | ----------------------------------------------- |
+        | `baseline`      | Alinha com a linha de base do pai (padrão)      |
+        | `top`           | Alinha com o topo do elemento pai               |
+        | `middle`        | Alinha ao meio (muito usado com imagens)        |
+        | `bottom`        | Alinha com a parte inferior                     |
+        | `text-top`      | Alinha com o topo da linha de texto do pai      |
+        | `text-bottom`   | Alinha com a base da linha de texto do pai      |
+        | `sub` / `super` | Subscrito / sobrescrito (como em fórmulas)      |
+        | `length` / `%`  | Define um deslocamento específico (menos comum) |
+
+🎯 position 
+
+    🧩 O que é position?
+        A propriedade position define como um elemento HTML é posicionado na página, e se ele será afetado pelo fluxo normal do layout.
+        vc conseque selecionar um elemento uma tag e mudar o leiaut, livre mente. 
+
+    ✅ O que faz position: relative;?
+        Ela posiciona o elemento em relação à sua posição original no fluxo da página.
+
+        📌 Como funciona:
+            O elemento continua ocupando o espaço original como se não tivesse sido movido.
+            Mas você pode ajustar sua posição usando top, left, right, bottom.
+
+        🧱 Exemplo:
+            .caixa {
+                position: relative;
+                top: 20px;
+                left: 30px;
+            }
+        ➡️ Neste exemplo, a <div class="caixa"> será movida 20px para baixo e 30px para a 
+            direita, mas o espaço onde ela estava continua reservado.
+
+        🎯 Quando usar:
+            Para ajustar levemente a posição de um elemento sem tirá-lo do fluxo do layout.
+            Para criar um contexto de posicionamento para elementos position: absolute dentro dele.
+            
+    ✅ O que faz position: absolute;?
+        Ela remove o elemento do fluxo normal da página e o posiciona exatamente onde você quiser usando top, right, bottom, e left.
+
+        📌 Como funciona:
+            O elemento não ocupa espaço na posição original.
+            Ele é posicionado em relação ao ancestral mais próximo que tenha position: relative (ou absolute, fixed, sticky).
+            Se não houver nenhum ancestral posicionado, será em relação ao <body>.
+        
+        🧱 Exemplo:
+            HTML
+            <div id="elemento-pai">
+                <div id="elemento-filho" class="exemplo"></div>
+            </div>
+
+            CSS
+            #elemento-pai {
+                box-sizing: border-box;
+                height: 300px;
+                padding: 10px;
+                border: 1px solid red;
+                position: relative;
+            }
+
+            #elemento-filho{
+                background-color: palegreen;
+                position: absolute;
+                top: 0;
+                margin: 0;
+            }
+        ➡️ Neste exemplo o position: absolute; ele vai ficar dentro do position: relative;. 
+            Ele não vai para o top da tela.
     
-div {
-    padding: 10px;
+    ✅ position: fixed; — Explicação Completa e Simples
+        A propriedade position: fixed faz com que um elemento fique fixo na tela, mesmo quando o usuário rola a página para cima ou para baixo.
+        
+        📌 Características:
+            O elemento fica preso à janela do navegador (também chamada de viewport).
+            Ele não se move junto com o conteúdo da página.
+            Pode ser colocado em qualquer canto da tela usando top, right, bottom e left.
+            
+        🧱 Exemplo:
+            HTML
+            <div class="botao-topo">Voltar ao topo</div>
+
+            CSS
+            .botao-topo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #33A8DB;
+            color: white;
+            border-radius: 8px;
+            }
+        ➡️ Esse botão vai ficar sempre no canto inferior direito da tela, mesmo que o usuário role a página.
+        
+        🎯 Quando usar:
+            Cabeçalhos fixos (header)
+            Botões de ação flutuante (como botões de WhatsApp, voltar ao topo)
+            Menus que devem ficar sempre visíveis
+
+    ✅ position: sticky; — Explicação Simples e Completa
+        A propriedade position: sticky faz com que um elemento:
+            Se comporte como relative até atingir uma posição específica na rolagem,
+            Depois disso, ele "gruda" naquela posição, como se fosse fixed.
+            
+        📌 Características:
+            Funciona dentro do contêiner pai.
+            Precisa de um valor como top, left, right ou bottom para saber onde vai "grudar".
+            Diferente do fixed, ele só fica fixo enquanto o pai estiver visível na tela.
+            
+        🧱 Exemplo:
+            HTML 
+            <h2 class="titulo">Seção</h2>
+
+            CSS
+            .titulo {
+            position: sticky;
+            top: 0;
+            background-color: white;
+            padding: 10px;
+            }
+        ➡️ Nesse caso, o título vai rolar normalmente, mas quando ele chegar no topo da tela, 
+            ele fica grudado ali, como um título fixo de seção.
+
+🎯 z-index: ;
+    A propriedade z-index no CSS controla a ordem de empilhamento dos elementos, ou 
+    seja, qual elemento fica por cima do outro quando eles se sobrepõem.
+        
+    📌 Sintaxe:
+        .elemento {
+            z-index: 1;
+        }
+
+    ✅ Funciona apenas em elementos posicionados:
+        O z-index só funciona se o elemento tiver uma dessas propriedades de position:
+
+            relative
+            absolute
+            fixed
+            sticky
+
+    📊 Como funciona:
+        Elementos com z-index maior aparecem por cima dos com z-index menor.
+        Se dois elementos têm o mesmo z-index, o que aparece por último no HTML fica por cima.
+
+    📌 Exemplo:
+        HTML
+            <div id="elemento-1" class="exemplo ">Elemento 01</div>
+            <div id="elemento-2" class="exemplo ">Elemento 02</div>
+            <div id="elemento-3" class="exemplo ">Elemento 03</div>
+        CSS
+            body {
+                font-family: Roboto, sans-sarife;
+                height: 200vh;
+            }
+            .exemplo {
+                width: 100px;
+                height: 100px;
+                margin: 10px;
+                padding: 10px;
+                border-radius: 4px;
+                position: absolute;
+            }
+            #elemento-1 {
+                background-color: orange;
+                left: 10px;
+                top: 10px;
+                z-index: 1;
+            }
+            #elemento-2 {
+                background-color: palevioletred;
+                left: 20px;
+                top: 20px;
+            }
+            #elemento-3 {
+                background-color: palegreen;
+                left: 30px;
+                top: 30px;
+            }
+
+
+
+*/
+
+/* flexbox 
+
+
+🎯 Flexbox
+    🔧 Flexbox (Flexible Box Layout)
+        Objetivo: Facilitar o alinhamento, distribuição de espaço e ordenação dos elementos filhos dentro de um contêiner.
+
+    🧱 Ativado com:
+        display: flex;          bloco
+        display: inline-flex;   inline
+
+        🔧 display: flex
+            O elemento pai se comporta como um bloco (block), ou seja:
+                Ocupa toda a largura disponível
+                Quebra a linha por padrão
+            Usado quando você quer que o container flex ocupe uma área inteira da tela ou da seção.
+            
+            Exemplo básico:
+                <div style="display: flex;">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                </div>
+
+        🔧 display: inline-flex
+            O elemento pai se comporta como um elemento inline, ou seja:
+                Fica na mesma linha que outros elementos inline ou inline-block
+                Só ocupa o espaço necessário para os filhos
+            Ainda assim, os filhos continuam com comportamento flexível (organizados via Flexbox).
+
+            Exemplo básico:
+                <span style="display: inline-flex;">
+                <span>Item 1</span>
+                <span>Item 2</span>
+                </span>
+
+🔹 Propriedades do contêiner (pai):
+    flex-direction: define a direção (row, column, etc.)
+    justify-content: alinha no eixo principal (horizontal por padrão)
+    align-items: alinha no eixo cruzado (vertical por padrão)
+    flex-wrap: define se os itens podem quebrar linha
+
+🔸 Propriedades dos itens (filhos):
+    flex-grow: quanto o item pode crescer
+    flex-shrink: quanto o item pode encolher
+    flex-basis: tamanho inicial
+    align-self: sobrescreve align-items no item
+
+
+*/
+
+/* flex-direction, flex-wrap, flex-flow
+
+🎯 flex-direction:
+    Define a direção do eixo principal no contêiner flex, ou seja, como os filhos serão posicionados (em linha ou coluna).
+    
+    ✅ Valores possíveis:
+        row (padrão):
+        ➝ Itens em linha, da esquerda para a direita.
+        
+        row-reverse:
+        <- Itens em linha, da direita para a esquerda.
+
+        column:
+        ⬇ Itens em coluna, de cima para baixo.
+
+        column-reverse:
+        ⬆ Itens em coluna, de baixo para cima.
+
+    💡 Exemplo:
+        .container {
+        display: flex;
+        flex-direction: column;
+        }
+    ➡️ Os elementos filhos agora serão empilhados verticalmente.
+
+🎯 flex-wrap:
+    A propriedade flex-wrap define se os itens flexíveis devem quebrar linha quando não couberem dentro do contêiner.
+
+    ✅ Valores:
+        nowrap (padrão):
+        ➝ Todos os itens ficam em uma linha só, mesmo que fiquem espremidos.
+
+        wrap:
+        ➝ Os itens quebram para a próxima linha quando necessário.
+
+        wrap-reverse:
+        <- Igual ao wrap, mas a nova linha aparece acima da anterior (ordem invertida).
+
+    💡 Exemplo:
+        .container {
+        display: flex;
+        flex-wrap: wrap;
+        }
+    ➡️ Assim, os itens "pulam" para a próxima linha se não houver espaço suficiente.
+
+🎯 flex-flow
+    A propriedade flex-flow é uma shorthand (atalho) para definir duas propriedades ao mesmo tempo:
+        flex-direction → direção dos itens
+        flex-wrap → se os itens quebram linha
+        
+    📌 Sintaxe: 
+        flex-flow: <flex-direction> <flex-wrap>;
+
+    ✅ Exemplo:
+        .container {
+        display: flex;
+        flex-flow: row wrap;
+        }
+    👉 Isso equivale a:
+        flex-direction: row;
+        flex-wrap: wrap;
+
+    💡 Resumo:
+        Use flex-flow para escrever de forma mais curta e organizada quando quiser definir direção e quebra de linha juntos.
+
+
+    */
+
+/* justify-content, align-items, align-content, gap
+
+🎯 A propriedade justify-content no Flexbox (e Grid) alinha os itens no eixo principal (horizontal por padrão).
+    Use align-items para alinhar os itens "da esquerda para direita" (ou lateralmente, se a direção for linha "row").
+    
+    🧭 Usos principais:
+        flex-start → alinha à esquerda
+        flex-end → alinha à direita
+        center → centraliza
+        space-between → espaço entre os itens (sem nas bordas)
+        space-around → espaço igual ao redor de cada item
+        space-evenly → espaço totalmente igual entre, antes e depois dos itens
+
+    ✅ Exemplo:
+        .container {
+        display: flex;
+        justify-content: center;
+        }
+
+🎯 align-items
+    A propriedade align-items alinha os itens no eixo cruzado (perpendicular ao eixo principal), ou seja:
+    Use align-items para alinhar os itens "de cima para baixo" (ou lateralmente, se a direção for coluna "column").
+
+    Se flex-direction: row → alinha verticalmente
+    Se flex-direction: column → alinha horizontalmente
+    
+    🧭 Valores mais comuns:
+        stretch (padrão) → estica os itens para ocupar todo o espaço disponível
+        flex-start → alinha ao início do eixo cruzado
+        flex-end → alinha ao final
+        center → centraliza no eixo cruzado
+        baseline → alinha pela linha de base do texto
+        
+    ✅ Exemplo:
+        .container {
+        display: flex;
+        align-items: center;
+        }
+
+🎯 align-content
+    A propriedade align-content é usada para alinhar múltiplas linhas de itens no eixo cruzado (vertical por padrão).
+    Ela só tem efeito quando há mais de uma linha de itens, ou seja, com flex-wrap: wrap ativado.
+        
+    🧭 Principais valores:
+        stretch (padrão) → as linhas são esticadas para preencher o espaço disponível
+        flex-start → alinha todas as linhas no topo
+        flex-end → alinha todas as linhas na parte inferior
+        center → centraliza verticalmente as linhas
+        space-between → distribui as linhas com espaço entre elas
+        space-around → distribui com espaço antes, entre e depois
+        space-evenly → distribui com espaço igual em todos os lados
+
+    ✅ Exemplo:
+        .container {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        }
+    
+    💡 Dica:
+        Use align-content quando seu container tiver várias linhas de elementos e você quiser controlar como essas linhas se distribuem verticalmente.
+        Não confunda com align-items, que alinha os itens dentro de uma única linha.
+
+🎯 gap
+    A propriedade gap define o espaçamento entre os itens de um container com 
+    display: flex, grid ou inline-flex.
+
+    📐 Sintaxe:
+        gap: 20px;          espaçamento entre linhas e colunas iguais
+        gap: 10px 20px;     primeiro valor: linhas (row), segundo: colunas (column)
+
+    ✅ Exemplo com flex:
+        .container {
+        display: flex;
+        gap: 16px;
+        }
+
+    ✅ Exemplo com grid:
+        .container {
+        display: grid;
+        gap: 10px 20px;
+        }
+
+    💡 Dica:
+        gap substitui a necessidade de usar margin individual nos filhos.
+        Funciona em layouts modernos e ajuda a manter espaçamentos mais limpos e consistentes.
+
+
+*/
+
+/* order, flex-grow, flex-shrink, flex-basis
+
+🎯 order
+    A propriedade order define a ordem de exibição dos itens filhos dentro de um container 
+    flex ou grid.
+
+    📌 Padrão:
+        Todos os itens têm order: 0 por padrão.
+
+    ✅ Exemplo:
+    HTML
+        <div class="container" id="container-01">
+            <div class="item item-1">Item 01</div>
+            <div class="item item-2">Item 02</div>
+            <div class="item item-3">Item 03</div>
+        </div>
+    CSS
+        .item-3{
+            order: -1;
+        }
+        .item-1{
+            order: 1;
+        }
+    ➡️ Explicação: O valor order menor aparece antes.
+        .item-3 com order: -1 aparece antes de todos.
+        .item-2 mantém o valor padrão order: 0, ficando no meio.
+        .item-1 com order: 1 vai para o final.
+
+    💡 Dica:
+        Útil para reorganizar visualmente sem alterar o HTML.
+        Valores menores aparecem antes.
+        Funciona apenas em elementos diretos de um container flex ou grid.
+
+🎯 flex-grow: — Resumo Claro e Direto
+    A propriedade flex-grow define quanto um item pode crescer em relação aos outros itens dentro de um container flexível (display: flex).
+
+    🧱 flex-grow
+        Faz o item crescer dentro do espaço disponível no container display: flex.
+        flex-grow: 1; → ocupa 1 parte do espaço.
+        flex-grow: 2; → ocupa 2 partes (o dobro do anterior).
+
+    📌 Exemplo claro:
+        Se sobrar 300px de espaço livre:
+        item com flex-grow: 1 recebe 100px
+        item com flex-grow: 2 recebe 200px
+
+    ➡️ flex-grow ele cresce o tamanho de acordo com o número que vc coloca exemplo flex-grow: 1; no item-1 e flex-grow: 2; no item-2 o item dois vai ter, mas espaço que o item 1.
+
+🎯 flex-shrink
+    Dá liberdade para o item encolher quando o espaço no container pai não é suficiente.
+    
+    📌 Resumo prático:
+        flex-shrink: 1; (padrão) → o item pode encolher para caber.
+        flex-shrink: 0; → o item não encolhe, mesmo que falte espaço.
+        Valores maiores (como 2, 3) → o item encolhe mais rápido que os outros.
+    
+    ✅ Exemplo:
+        .item-01 {
+        flex-shrink: 1;  Encolhe menos 
+        }
+        .item-02 {
+        flex-shrink: 2;  Encolhe mais 
+        }
+
+    📌 Resumo:
+        | Item    | `flex-shrink` | Comportamento |
+        | ------- | ------------- | ------------- |
+        | item-01 | 1             | Encolhe menos |
+        | item-02 | 2             | Encolhe mais  |
+
+🎯 flex-basis
+    A propriedade flex-basis define o tamanho inicial de um item dentro de um container flex.
+
+    📌 Resumo prático:
+        Define o tamanho inicial do item dentro do container flex.
+        Pode ser alterado por flex-grow e flex-shrink.
+        Substitui o width quando usado.
+
+    📌 Detalhes importantes:
+        Ele não é fixo, como o width.
+        O valor de flex-basis pode ser alterado pelo flex-grow (crescimento) e flex-shrink (encolhimento), dependendo do espaço disponível no container.
+        Se você quiser um tamanho fixo de verdade, aí sim você deve usar width, min-width, max-width, e desabilitar flex-grow e flex-shrink.
+        Vc pode usar junto com o min-width, max-width para definir o limite de crescimento e encolhimento. 
+    
+    🧪 Exemplo rápido:
+        .item {
+            flex-basis: 200px;
+        }
+*/
+
+/* flex 
+
+🎯 flex: ; — Resumo prático
+    A propriedade flex é um atalho que junta três propriedades em uma:
+        
+        flex: <flex-grow> <flex-shrink> <flex-basis>;
+
+    🧪 Exemplo:
+        .item {
+        flex: 1 1 200px;
+        }
+    ➡️ Significa:
+        flex-grow: 1; → pode crescer.
+        flex-shrink: 1; → pode encolher.
+        flex-basis: 200px; → começa com 200px.
+
+    ✅ flex: initial;
+        É igual a:
+            flex: 0 1 auto;
+
+        Ou seja:
+            Não cresce (flex-grow: 0)
+            Pode encolher (flex-shrink: 1)
+            Tamanho base automático (flex-basis: auto)
+
+        🧠 Uso comum: o item mantém o tamanho do conteúdo, mas pode encolher para caber na linha.
+    
+    ✅ flex: auto;
+        É igual a:
+            flex: 1 1 auto;
+
+        Ou seja:
+            Pode crescer (flex-grow: 1)
+            Pode encolher (flex-shrink: 1)
+            Tamanho base automático (flex-basis: auto)
+
+        🧠 Uso comum: o item cresce e encolhe conforme necessário, com base no seu conteúdo.
+
+    ✅ flex: none; — Resumo prático
+    É o mesmo que:
+        flex: 0 0 auto;
+
+    Ou seja:
+        ❌ Não cresce (flex-grow: 0)
+        ❌ Não encolhe (flex-shrink: 0)
+        📐 Tamanho fixo baseado no conteúdo (flex-basis: auto)
+
+    🧠 O que isso significa na prática?
+        O item:
+            Mantém o tamanho natural do conteúdo
+            Não se adapta ao espaço disponível
+            Ignora o tamanho dos outros itens no display: flex
+
+    📌 Quando usar?
+        Use flex: none; quando:
+            Você quer que um item tenha tamanho fixo
+            Ele não deve crescer nem encolher, mesmo se faltar ou sobrar espaço na linha
+
+*/
+
+/* align-self
+
+✅ align-self — Resumo prático
+    A propriedade align-self permite alinhar individualmente um item flexível no eixo 
+    cruzado (vertical, por padrão), sobrescrevendo o align-items definido no container.
+
+    📐 Sintaxe:
+        .item {
+            align-self: auto | flex-start | flex-end | center | baseline | stretch;
+        }
+
+    📌 Exemplos de uso:
+        .item-1 {
+            align-self: flex-start; Alinha no topo
+        }
+        .item-2 {
+            align-self: center;     Alinha no meio vertical
+        }
+        .item-3 {
+            align-self: flex-end;   Alinha embaixo
+        }
+        .item-4 {
+            align-self: baseline;   O item será alinhado pela linha de base do texto com os demais itens no container flexível.
+        }
+        .item-5 {
+            align-self: stretch;    O item estica para preencher totalmente o eixo cruzado (geralmente o eixo vertical).
+        }
+
+*/
+
+/*-------------------------------------------------------------------------------------------------------------- */
+
+/* Grid
+
+🎯 CSS Grid Layout é uma forma de organizar os elementos da página em linhas e colunas. 
+    Com ele, você pode montar layouts mais completos e controlados. Diferente do Flexbox 
+    (que organiza em uma linha ou coluna), o Grid organiza em ambas ao mesmo tempo.
+
+✅ Para habilitar o Grid em uma div, usamos:
+
+    display: grid; → transforma a div em um container de grade em bloco.
+    🔹 Ocupação: toda a largura da linha (como um div padrão).
+
+    display: inline-grid; → transforma em container de grade inline.
+    🔹 Ocupação: apenas o espaço necessário para os itens dentro dela (como um span).
+
+📦 Propriedades do Container (display: grid)
+    | Propriedade             | Função                                                           |
+    | ----------------------- | ---------------------------------------------------------------- |
+    | `display: grid`         | Define que o elemento será um grid container                     |
+    | `grid-template-columns` | Define o número e tamanho das **colunas**                        |
+    | `grid-template-rows`    | Define o número e tamanho das **linhas**                         |
+    | `grid-template-areas`   | Nomeia áreas da grade (útil para layout semântico)               |
+    | `column-gap`            | Espaço entre **colunas**                                         |
+    | `row-gap`               | Espaço entre **linhas**                                          |
+    | `gap`                   | Atalho para `row-gap` e `column-gap`                             |
+    | `justify-items`         | Alinha os itens **horizontalmente** nas células                  |
+    | `align-items`           | Alinha os itens **verticalmente** nas células                    |
+    | `place-items`           | Atalho para `align-items` e `justify-items`                      |
+    | `justify-content`       | Alinha todo o **grid** horizontalmente dentro do container       |
+    | `align-content`         | Alinha todo o **grid** verticalmente dentro do container         |
+    | `place-content`         | Atalho para `align-content` e `justify-content`                  |
+    | `grid-auto-columns`     | Define o tamanho de colunas automáticas                          |
+    | `grid-auto-rows`        | Define o tamanho de linhas automáticas                           |
+    | `grid-auto-flow`        | Define a direção de preenchimento automático (row, column, etc.) |
+
+🧩 Propriedades dos Itens (filhos do grid)
+    | Propriedade         | Função                                                  |
+    | ------------------- | ------------------------------------------------------- |
+    | `grid-column`       | Define início e fim da **coluna** que o item ocupa      |
+    | `grid-column-start` | Define onde começa a coluna                             |
+    | `grid-column-end`   | Define onde termina a coluna                            |
+    | `grid-row`          | Define início e fim da **linha** que o item ocupa       |
+    | `grid-row-start`    | Define onde começa a linha                              |
+    | `grid-row-end`      | Define onde termina a linha                             |
+    | `grid-area`         | Define a área que o item ocupa (por nome ou coordenada) |
+    | `justify-self`      | Alinha o item **horizontalmente** na célula             |
+    | `align-self`        | Alinha o item **verticalmente** na célula               |
+    | `place-self`        | Atalho para `align-self` e `justify-self`               |
+
+*/
+
+/* grid-template-columns, grid-template-rows, repeat, auto-fill, auto-fit
+
+🎯 grid-template-columns
+    Define quantas colunas a grade terá e qual o tamanho de cada uma.
+
+    🧩Exemplo: 
+        .container {
+        display: grid;
+        grid-template-columns: 100px 1fr 2fr;
+    
+    ➡Cria 3 colunas:
+        a 1ª com 100px,
+        a 2ª com 1 parte do espaço restante,
+        a 3ª com 2 partes do espaço restante.
+
+🎯 grid-template-rows
+    Define quantas linhas a grade terá e qual o tamanho de cada uma.
+    E necesario colocar um tamanho para a altura para funcionar porque ele não conseque encontrar o tamanho.
+
+    🧩Exemplo:
+        .container {
+        display: grid;
+        grid-template-rows: 50px auto 1fr;
+        }
+
+    ➡Cria 3 linhas:
+        a 1ª com 50px,
+        a 2ª com altura automática conforme o conteúdo,
+        a 3ª com 1 parte do espaço restante.
+
+🎯 repeat()
+    A função repeat() evita repetição de valores em grid-template-columns ou grid-template-rows.
+    Facilita bastante na hora de colocar as colunas e linhas no seu layout.
+    
+    📌 Sintaxe:
+        repeat(quantidade, tamanho)
+
+    ✅ Exemplo 1:
+        grid-template-columns: repeat(3, 1fr);
+    
+    ➡ Cria 3 colunas com tamanhos iguais (1fr cada).
+
+    ✅ Exemplo 2:
+        grid-template-rows: repeat(2, 100px);
+    
+    ➡ Cria 2 linhas com 100px de altura cada.
+    
+    ✅ Exemplo 3 (com valores mistos):
+        grid-template-columns: 100px repeat(2, 1fr) 200px;
+
+    ➡ Cria 4 colunas:
+        1ª com 100px
+        2ª e 3ª com 1fr
+        4ª com 200px
+    }
+
+🎯 auto-fill no Grid
+    Função:
+        Cria o maior número possível de colunas (ou linhas) 
+         de tamanho fixo (ex: 150px) que couberem dentro do container.
+
+    Mesmo sem conteúdo:
+        Ele mantém as "células" vazias visíveis — o navegador 
+         reserva o espaço mesmo que não haja elementos para preencher tudo.
+
+    Como visualizar:
+        No DevTools (inspecionar elemento), ative a opção "grid" 
+         no painel do navegador. Assim, você verá claramente os espaços reservados pelas colunas.
+
+    📌 Exemplo: 
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 150px);
+        }
+
+🎯 auto-fit no Grid
+    Também cria o máximo de colunas, ele não reserva os espaços
+     ele preenche os espaços de acordo com a qauntidade do conteudo.
+
+    📌 Exemplo:
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 150px);
+        }
+
+
+*/
+
+/* min-content, max-content, auto
+
+🎯 min-content: O que faz?
+    Faz o elemento ficar o menor possível sem quebrar palavras.
+
+    Exemplo prático:
+        Um texto dentro de uma <div> vai tentar quebrar linha no menor ponto possível, sem fazer palavras quebrarem.
+        Ele vai quebra a cada espaço no texto.
+    
+    width: min-content;
+    ➡ Resultado: o conteúdo vai "encolher" ao máximo, mas respeitando as quebras naturais das palavras.
+
+🎯 max-content: O que faz?
+    Faz o elemento ficar tão largo quanto for necessário para o conteúdo não quebrar nenhuma linha.
+
+    Exemplo prático:
+    Um texto grande vai manter tudo em uma única linha, aumentando a largura do elemento.
+
+    width: max-content;
+    ➡ Resultado: a largura será tão grande quanto o conteúdo precisar para caber sem quebras.
+    
+🎯 auto: O que faz?
+    Deixa o navegador calcular automaticamente o tamanho com base no conteúdo, padding, etc.
+    Ele vai ser inferior a todos os outros fr, px o valor dele não vai ser respeitado.
+
+    width: auto;
+    ➡ Resultado: o tamanho será o "natural" do conteúdo, respeitando o contexto (pai, filhos, etc.). É o valor padrão.
+*/
+
+/* grid-auto-rows, grid-auto-flows, grid-auto-columns, minmax
+
+🎯 grid-auto-rows
+    Define a altura das linhas automáticas (ou seja, as que não foram definidas com grid-template-rows).
+    Útil quando os itens "criam" novas linhas além das previstas.
+    E usado quando tem mais conteudo que linhas que vc colocau ele criar mais linha.
+
+    🧩 Exemplo:
+        grid-auto-rows: 100px;
+
+🎯 grid-auto-columns
+    Define a largura das colunas automáticas (as que surgem quando você posiciona itens em colunas não previstas).
+    E usado quando tem mais conteudo que colunas que vc colocau ele criar mais colunas.
+
+    🧩 Exemplo:
+        grid-auto-columns: 150px;
+
+🎯 grid-auto-flow
+    Controla a direção e o comportamento do preenchimento automático de itens no grid.
+    E usado quando tem mais conteudo que linhas e coluna vc conseque deside se que colca uma linha ou coluna com esta tag css.
+
+    🧭 Valores:
+        row (padrão) → preenche linha por linha.
+        column → preenche coluna por coluna.
+        row dense ou column dense → tenta preencher espaços vazios (compactação).
+
+    🧩 Exemplo:
+        grid-auto-flow: column dense;
+
+🎯 A função minmax() é usada no CSS Grid, dentro da propriedade grid-template-columns ou grid-template-rows.
+    ✅ Resumo prático de minmax()
+        Ela define um intervalo de tamanho mínimo e máximo para uma faixa do grid.
+        
+        grid-template-columns: minmax(200px, 1fr);
+    ➡ Nesse exemplo, a coluna terá no mínimo 200px e no máximo ocupará 1fr (ou seja, uma fração do espaço disponível).
+    
+    🧠 Quando usar?
+        Quando você quer que o conteúdo não fique pequeno demais, mas que ainda cresça dinamicamente quando houver espaço.
+        Ideal para layouts responsivos.
+    
+    🧩 exemplo:
+        display: grid;
+        grid-template-columns: minmax(100px, 100px) minmax(100px, 300px);
+    
+    ➡ O que está acontecendo aqui?
+        Você está criando duas colunas em um grid:
+
+        Primeira coluna → minmax(100px, 100px)
+        🔸 Isso é o mesmo que dizer: fixa em 100px.
+        Porque o valor mínimo e máximo são iguais → ela nunca vai crescer ou encolher.
+
+        Segunda coluna → minmax(100px, 300px)
+        🔸 Ela vai ter no mínimo 100px e pode crescer até no máximo 300px, dependendo do espaço disponível no container.
+*/
+
+/* grid-column-start, grid-column-end, grid-row-start, grid-row-end 
+
+🎯 grid-column-start / grid-column-end
+    Define onde o item começa e termina nas colunas.
+    Os valores são linhas da grade (grid lines).
+
+    🧩 Exemplo:
+        .item {
+            grid-column-start: 2;
+            grid-column-end: 4;
+        }
+    ➡️ O item vai do início da coluna 2 até antes da coluna 4, ocupando as colunas 2 e 3.
+
+🎯 grid-row-start / grid-row-end
+    Mesma ideia, mas para as linhas.
+
+    🧩 Exemplo:
+        .item {
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+    ➡️ O item vai da linha 1 até antes da linha 3, ocupando as linhas 1 e 2.
+
+*/
+
+/* grid-column, grid-row, span, grid-area
+
+Atalho para define onde o item começa e termina nas colunas e linhas.
+
+🎯 Atalho: grid-column
+
+    🧩 Exemplo:
+        .item {
+            grid-column: 2 / 4;  start / end
+        }
+    ➡️ Igual a grid-column-start: 2; grid-column-end: 4;
+
+🎯 Atalho: grid-row
+
+    🧩 Exemplo:
+        .item {
+            grid-row: 1 / 3;
+        }
+    ➡️ Igual a grid-row-start: 1; grid-row-end: 3;
+
+🎯 Você também pode usar span:
+    
+    🧩 Exemplo:
+        .item {
+            grid-column: span 2;  ocupa 2 colunas 
+        }
+        Ou até combinar:
+            .item {
+                grid-column: 2 / span 3;  começa na linha 2 e ocupa 3 colunas 
+            }
+
+🎯 grid-area
+    A propriedade grid-area define em uma única linha onde um item começa e termina na grade, tanto em colunas quanto em linhas.
+
+    📌 Sintaxe:
+        grid-area: row-start / column-start / row-end / column-end;
+
+        🧩 Exemplo prático:
+            .item {
+                grid-area: 1 / 2 / 3 / 4;
+            }
+            ➡️ O item vai:
+                Começar na linha 1
+                Começar na coluna 2
+                Terminar na linha 3
+                Terminar na coluna 4
+
+            Ou seja, ocupa da linha 1 à 2 (porque termina antes da linha 3)
+            e da coluna 2 à 3 (porque termina antes da coluna 4).
+
+        🧩 Exemplo de layout 
+            mini layout com display: grid usando grid-template-areas e grid-area para organizar os elementos:
+
+            🧾 HTML:
+                <div class="grid-container">
+                    <header class="item header">Cabeçalho</header>
+                    <nav class="item menu">Menu</nav>
+                    <main class="item conteudo">Conteúdo</main>
+                    <aside class="item lateral">Lateral</aside>
+                    <footer class="item rodape">Rodapé</footer>
+                </div>
+
+            🎨 CSS:
+                .grid-container {
+                    display: grid;
+                    grid-template-columns: 200px 1fr;
+                    grid-template-rows: auto;
+                    grid-template-areas:
+                        "header  header"
+                        "menu    conteudo"
+                        "menu    lateral"
+                        "rodape  rodape";
+                    gap: 10px;
+                    padding: 10px;
+                }
+
+                .item {
+                    padding: 20px;
+                    background-color: #e0e0e0;
+                    border: 1px solid #999;
+                    text-align: center;
+                }
+
+                .header   { grid-area: header; }
+                .menu     { grid-area: menu; }
+                .conteudo { grid-area: conteudo; }
+                .lateral  { grid-area: lateral; }
+                .rodape   { grid-area: rodape; }
+
+            🖼️ Resultado visual:
+                +-------------------+----------------------+
+                |     Cabeçalho     |      Cabeçalho       |
+                +-------------------+----------------------+
+                |       Menu        |      Conteúdo        |
+                +-------------------+----------------------+
+                |       Menu        |       Lateral        |
+                +-------------------+----------------------+
+                |      Rodapé       |       Rodapé         |
+                +-------------------+----------------------+
+                
+*/
+
+/* grid-template, row-gap, column-gap, gap
+
+🎯 grid-template
+    O grid-template é uma forma encurtada (shorthand) de declarar grid-template-rows, grid-template-columns e grid-template-areas de uma só vez.
+
+    📌 A sintaxe geral é:
+        grid-template: <linhas> / <colunas>;
+
+        ou, se for usar áreas nomeadas:
+            grid-template:
+            "area1 area2" alturaDaLinha1
+            "area3 area4" alturaDaLinha2
+            / larguraColuna1 larguraColuna2;
+
+    🧩 Exemplo 1 — apenas linhas e colunas
+        .container {
+            display: grid;
+            grid-template: 100px 200px / 150px 1fr 2fr;
+        }
+        ➡️ Explicação:
+            Linhas: 100px e 200px
+            Colunas: 150px, 1 fração e 2 frações
+
+    🧩 Exemplo 2 — usando áreas nomeadas
+        .container {
+            display: grid;
+            grid-template:
+                "header header" 80px
+                "sidebar content" 1fr
+                "footer footer" 50px
+                / 200px 1fr;
+        }
+        ➡️ Explicação:
+            Linhas:
+                80px para o cabeçalho
+                1fr para o conteúdo
+                50px para o rodapé
+            Colunas:
+                200px para a barra lateral
+                1fr para o conteúdo principal
+            Áreas nomeadas:
+                header, sidebar, content, footer
+        
+🎯 row-gap 
+    Define o espaço vertical entre as linhas do grid.
+    Não cria bordas, apenas espaço entre os elementos.
+    
+    🧩 Exemplo
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            row-gap: 20px; -> 20px de espaço entre as linhas
+        }
+
+🎯 column-gap
+    Define o espaço horizontal entre as colunas do grid.
+    
+    🧩 Exemplo
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 30px; -> 30px de espaço entre colunas
+        }
+
+🎯 Forma abreviada — gap
+    Você pode usar gap para definir ambos de uma vez:
+
+    gap: <row-gap> <column-gap>;
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 30px; -> 20px entre linhas, 30px entre colunas
+        }
+
+    Se passar apenas um valor no gap, ele será aplicado para linhas e colunas igualmente:
+        .container {
+            display: grid;
+            gap: 15px; -> 15px em todos os espaçamentos   
+        }
+
+*/
+
+/* atalho grid, 
+    O atalho grid no CSS é uma forma compacta de definir várias propriedades relacionadas
+    ao Grid Layout de uma só vez, em uma única linha.
+
+    📦 Ele combina propriedades como:
+        grid-template-rows
+        grid-template-columns
+        grid-template-areas
+        grid-auto-rows
+        grid-auto-columns
+        grid-auto-flow
+
+    📌 Sintaxe geral
+        grid: <grid-template-rows> / <grid-template-columns>;
+
+        ou, de forma mais completa:
+            grid: <grid-template-rows> / <grid-template-columns> <grid-auto-flow> <grid-auto-rows> <grid-auto-columns>;
+    
+    🧩 Exemplo simples
+        .container {
+            display: grid;
+            grid: 100px 200px / 1fr 2fr 1fr;
+        }
+        ➡️ Significa:
+            Linhas: primeira linha com 100px, segunda com 200px.
+            Colunas: primeira 1fr, segunda 2fr, terceira 1fr.
+
+    🧩 Exemplo com áreas
+        .container {
+            display: grid;
+            grid:
+                "header header" 100px
+                "sidebar main"  1fr
+                / 200px 1fr;
+        }
+        ➡️ Significa:
+            Áreas nomeadas: "header", "sidebar", "main".
+            Primeira linha: 100px, segunda: 1fr.
+            Primeira coluna: 200px, segunda: 1fr.
+
+        */
+
+/* justify-items, align-items, abreviação place-items
+
+🎯 justify-items 
+    O justify-items no CSS Grid serve para alinhar o conteúdo dentro das células
+    horizontalmente (no eixo inline, ou seja, da esquerda para a direita).
+
+    Aqui está uma tabela visual com os valores possíveis e o efeito de cada um:
+    | Valor                | Alinhamento horizontal do conteúdo na célula       | Exemplo visual |
+    | -------------------- | -------------------------------------------------- | -------------- |
+    | `start`              | Alinha o conteúdo no **início** da célula          | ◼──────        |
+    | `end`                | Alinha o conteúdo no **final** da célula           | ──────◼        |
+    | `center`             | Centraliza o conteúdo na célula                    | ───◼───        |
+    | `stretch` *(padrão)* | Faz o conteúdo ocupar **toda a largura** da célula | ██████         |
+
+🎯 align-items
+    O align-items no CSS Grid (e também no Flexbox) define como os itens são alinhados 
+     verticalmente dentro de suas áreas de célula em relação ao eixo de bloco 
+     (vertical no modo de escrita padrão).
+ 
+    Aqui vai uma tabela visual para facilitar:
+    | Valor                | Descrição                                         | Visualização |
+    | -------------------- | ------------------------------------------------- | ------------ |
+    | `start`              | Alinha os itens no **início vertical** da célula  | 🔼🟦         |
+    | `end`                | Alinha os itens no **final vertical** da célula   | 🟦🔽         |
+    | `center`             | Centraliza verticalmente                          | 🟦           |
+    | `stretch` *(padrão)* | Estica o item para ocupar toda a altura da célula | 🟦🟦🟦       |
+
+🎯 place-items
+    O place-items é uma forma abreviada (shorthand) para definir 
+    align-items e justify-items ao mesmo tempo em um grid ou flex container.
+
+    📌 Sintaxe
+        place-items: align-items justify-items;
+    
+        Primeiro valor → align-items (alinhamento no eixo vertical)
+        Segundo valor → justify-items (alinhamento no eixo horizontal)
+        Se colocar apenas um valor, ele será aplicado para os dois.
+        
+    📦 Valores possíveis
+    | Valor     | Significado                             |
+    | --------- | --------------------------------------- |
+    | `start`   | Alinha ao início                        |
+    | `end`     | Alinha ao final                         |
+    | `center`  | Centraliza                              |
+    | `stretch` | Ocupa todo o espaço disponível (padrão) |
+
+    🧩 Exemplo Visual
+    | CSS                           | Efeito                                       |
+    | ----------------------------- | -------------------------------------------- |
+    | `place-items: center center;` | Centraliza conteúdo no meio da célula        |
+    | `place-items: start end;`     | Alinha no topo e à direita                   |
+    | `place-items: stretch;`       | Estica tanto vertical quanto horizontalmente |
+
+    💡 Dica:
+        Se você já vai usar o mesmo valor para align-items e justify-items, place-items
+        deixa o código mais limpo:
+
+        .container {
+            display: grid;
+            place-items: center;
+        }
+        ⬆ Isso é o mesmo que:
+        align-items: center;
+        justify-items: center;
+
+*/
+
+/* justify-content, align-content, abreviação place-content
+
+🎯 justify-content, align-content
+    📌 Diferença principal
+        justify-content → alinha todo o grid no eixo horizontal (linha X).
+        align-content → alinha todo o grid no eixo vertical (linha Y).
+
+    ⚠️ Importante: eles funcionam apenas se o container tiver espaço sobrando no eixo correspondente.
+        
+    | Propriedade / Valor               | Efeito no Grid                                            |
+    | --------------------------------- | --------------------------------------------------------- |
+    | `justify-content: start;`         | Todo o grid encostado à esquerda.                         |
+    | `justify-content: end;`           | Todo o grid encostado à direita.                          |
+    | `justify-content: center;`        | Grid centralizado horizontalmente.                        |
+    | `justify-content: space-between;` | Espaço igual **entre** as colunas, sem margem nas bordas. |
+    | `justify-content: space-around;`  | Espaço igual nas bordas e entre colunas.                  |
+    | `justify-content: space-evenly;`  | Espaço exatamente igual entre colunas **e** nas bordas.   |
+
+    | Propriedade / Valor             | Efeito no Grid                                           |
+    | ------------------------------- | -------------------------------------------------------- |
+    | `align-content: start;`         | Todo o grid encostado no topo.                           |
+    | `align-content: end;`           | Todo o grid encostado no fundo.                          |
+    | `align-content: center;`        | Grid centralizado verticalmente.                         |
+    | `align-content: space-between;` | Espaço igual **entre** as linhas, sem margem nas bordas. |
+    | `align-content: space-around;`  | Espaço igual nas bordas e entre linhas.                  |
+    | `align-content: space-evenly;`  | Espaço exatamente igual entre linhas **e** nas bordas.   |
+
+    💡 Resumo visual rápido:
+        justify-content  → eixo X (esquerda ↔ direita)
+        align-content    → eixo Y (cima ↕ baixo)
+
+🎯 place-content
+    O place-content é uma forma abreviada para definir align-content (eixo vertical) e
+    justify-content (eixo horizontal) ao mesmo tempo, usado principalmente em Grid
+    Layout (e também no Flexbox, mas menos comum).
+
+    📌 Sintaxe 
+        place-content: <align-content> <justify-content>;
+
+        Se você informar apenas um valor, ele será aplicado aos dois eixos.
+        Se informar dois valores, o primeiro será para o align-content e o segundo para o justify-content.
+
+    📦 Valores comuns
+        start → Agrupa no início.
+        end → Agrupa no final.
+        center → Centraliza.
+        stretch → Estica para ocupar todo o espaço.
+        space-between → Distribui igualmente, sem espaço nas extremidades.
+        space-around → Distribui igualmente, com espaço nas extremidades.
+        space-evenly → Espaços iguais entre todos, incluindo extremidades.
+    
+    🧩 Exemplo
+        Agrupa no centro vertical e horizontal
+            place-content: center;
+    💡 Equivalente a:
+            align-content: center;
+            justify-content: center;
+
+*/
+
+/* justify-self, align-self, abreviação place-self
+
+🎯 O justify-self é uma propriedade do CSS Grid que controla o alinhamento horizontal
+     de um único item dentro da sua célula de grade.
+    
+    justify-self → controla o alinhamento horizontal (esquerda ↔ direita) de um item
+     específico dentro da sua célula da grade.
+    
+    📌 Sintaxe:
+        justify-self: start | end | center | stretch;
+        | Valor     | Efeito                                                              |
+        | --------- | ------------------------------------------------------------------- |
+        | `start`   | Alinha o item à **esquerda** da célula.                             |
+        | `end`     | Alinha o item à **direita** da célula.                              |
+        | `center`  | Centraliza o item horizontalmente dentro da célula.                 |
+        | `stretch` | Faz o item ocupar **toda a largura** disponível da célula (padrão). |
+
+🎯 O align-self é parecido com o justify-self, mas em vez de alinhar horizontalmente,
+     ele controla o alinhamento vertical de um único item dentro da célula de um CSS Grid
+     ou Flexbox.
+
+    align-self → controla o alinhamento vertical (cima ↔ baixo) de um item específico
+     dentro da sua célula da grade.
+
+    📌 Sintaxe:
+        align-self: start | end | center | stretch;
+        | Valor     | Efeito                                                                     |
+        | --------- | -------------------------------------------------------------------------- |
+        | `start`   | Alinha o item ao **topo** da célula.                                       |
+        | `end`     | Alinha o item à **parte inferior** da célula.                              |
+        | `center`  | Centraliza o item verticalmente dentro da célula.                          |
+        | `stretch` | Faz o item ocupar **toda a altura** disponível da célula (padrão no Grid). |
+
+    💡 Exemplo prático de align-self e justify-self: 
+        body {
+            display: grid;
+            border: 3px solid;
+            height: 80vh;
+            grid-template: repeat(3, 1fr) / repeat(3, auto);
+
+            place-items: start;
+        } 
+        .item-01{
+            background: palegoldenrod;
+            justify-self: stretch;  => ocupa toda a largura da célula
+            align-self: center;     => centraliza verticalmente na célula
+        }
+        .item-02{
+            background: paleturquoise;
+            justify-self: end;      => gruda na direita da célula
+            align-self: start;      => gruda no topo da célula
+        }
+
+    📌 Resumindo:
+        justify-self = alinhamento horizontal do item na célula.
+        align-self = alinhamento vertical do item na célula.
+        Valores comuns: start, end, center, stretch.
+
+🎯 place-self é um atalho para definir align-self e justify-self ao mesmo tempo em
+     um único elemento no CSS Grid (e também funciona no Flexbox).
+
+    📌 Sintaxe 
+        place-self: <align-self> <justify-self>;
+        
+        O primeiro valor define o align-self (alinhamento vertical).
+        O segundo valor define o justify-self (alinhamento horizontal).
+        Se você passar apenas um valor, ele será aplicado para os dois.
+
+    💡 Exemplo prático:
+        body {
+            display: grid;
+            border: 3px solid;
+            height: 80vh;
+            grid-template: repeat(3, 1fr) / repeat(3, auto);
+            place-items: start;
+        }
+        .item-01{
+            background: palegoldenrod;
+            place-self: center stretch; => vertical centro, horizontal esticado
+        }
+        .item-02{
+            background: paleturquoise;
+            place-self: start end;      => vertical no topo, horizontal à direita
+        }
+
+    📌 Resumindo: 
+        .item-01:
+            place-self: center stretch — verticalmente o item fica centralizado na célula (align-self: center)
+            horizontalmente o item ocupa toda a largura da célula (justify-self: stretch)
+        .item-02:
+            place-self: start end — verticalmente fica no topo da célula (align-self: start)
+            horizontalmente fica na direita da célula (justify-self: end)
+        
+        Visual simplificado para .item-01 e .item-02 dentro da célula
+        | Item       | Vertical (`align-self`) | Horizontal (`justify-self`) |
+        | ---------- | ----------------------- | --------------------------- |
+        | `.item-01` | centro                  | esticado (full width)       |
+        | `.item-02` | topo                    | final (direita)             |
+
+*/
+
+body {
+    display: grid;
+    border: 3px solid;
+    height: 80vh;
+    grid-template: repeat(3, 1fr) / repeat(3, auto);
+
+    place-items: start;
 }
 
-.exemplo-1 {
-    background-color: yellow;
-    width: 300px;
-    box-sizing: border-box;
+.item-01{
+    background: palegoldenrod;
+    place-self: center stretch;
 }
 
-.exemplo-2 {
-    box-sizing: border-box;
-    background-color: palevioletred;
-    width: calc(100% - 30px);
+.item-02{
+    background: paleturquoise;
+    place-self: start end;
 }
+
+.item-03{
+    background: palegreen;
+}
+
+.item-04{
+    background: palevioletred;
+}
+
+.item-05{
+    background: lightseagreen;
+}
+
+.item-06{
+    background: palegreen;
+}
+
+.item-07{
+    background: palevioletred;
+}
+
+.item-08{
+    background: lightseagreen;
+}
+
+.item-09{
+    background: palegreen;
+}
+
 
 /*
 header{
