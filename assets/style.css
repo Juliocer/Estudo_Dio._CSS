@@ -129,15 +129,15 @@ Funciona principalmente com:
 
 📌 Valores Comuns de object-position:
     ✅ center (padrão)
-    object-position: center;
-        A imagem fica centralizada (horizontal e verticalmente).
-        Valor padrão se você não definir nada.
+        object-position: center;
+            A imagem fica centralizada (horizontal e verticalmente).
+            Valor padrão se você não definir nada.
 
     ✅ top, bottom, left, right
-    object-position: top;
-    object-position: bottom;
-    object-position: left;
-    object-position: right;
+        object-position: top;
+        object-position: bottom;
+        object-position: left;
+        object-position: right;
 
         top: alinha o topo da imagem com o topo do container.
         bottom: alinha a base da imagem com a base do container.
@@ -160,33 +160,48 @@ Funciona principalmente com:
         O segundo valor (70%) move de cima para baixo (vertical).
         Isso significa que a imagem vai aparecer mais deslocada para a direita e parte inferior do container.
 
-
-    div{
-        width: 200px;
-        height: 300px;
-        border: 5px solid blue;
-    }
-    
-    img{
-        width: 100%;
-        height: 100%;
-    }
-    
-    #contain{
-        object-fit: contain;
-    }
-    
-    #cover{
-        object-fit: cover;
-    }
-    
-    #none{
-        object-fit: none;
-    }
-    
-    #scale-dow{
-        object-fit: scale-down;
-    }
+    Exemplo:
+    CSS
+        div{
+            width: 200px;
+            height: 300px;
+            border: 5px solid blue;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        #contain{
+            object-fit: contain;
+        }
+        #cover{
+            object-fit: cover;
+        }
+        #none{
+            object-fit: none;
+        }
+        #scale-dow{
+            object-fit: scale-down;
+        }
+    HTML
+        <h1>Propriedade <code>Object-fit</Object></Object></code></h1>
+        <code>Object-fit;</code> <b>(padrão)</b>
+        <div> <img src="../Primeiro Pasta/img/nave_considero_realista.jpg" alt=""> </div>
+        <br>
+        <code>Object-fit; <b>contain</b></code> (padrão)
+        <div> <img src="../Primeiro Pasta/img/nave_considero_realista.jpg" alt="" id="contain"> </div>
+        <br>
+        <code>Object-fit; <b>cover</b></code> (padrão)
+        <div> <img src="../Primeiro Pasta/img/nave_considero_realista.jpg" alt="" id="cover"> </div>
+        <br>
+        <code>Object-fit; <b>none</b></code> (padrão)
+        <div> <img src="../Primeiro Pasta/img/nave_considero_realista.jpg" alt="" id="none"> </div>
+        <br>
+        <code>Object-fit; <b>scale-dow</b></code> (padrão)
+        <div> <img src="../Primeiro Pasta/img/nave_considero_realista.jpg" alt="" id="scale-dow"> </div>
+        <br>
+        <code>Object-fit; <b>scale-dow</b></code>(padrão)
+        <div> <img src="../Primeiro Pasta/img/nave_considero_realista.jpg" alt="" id="scale-dow"> </div>
     
     */
 
@@ -304,137 +319,233 @@ Funciona principalmente com:
 
 /* background-attachment, background-origin, background-blend-mode
 
-    Background-Attachment
-🎯 Essa propriedade define como a imagem de fundo se comporta em relação à rolagem da página ou de um elemento com overflow.
+🎯 Background-Attachment: 
+    Essa propriedade define como a imagem de fundo se comporta em relação à rolagem da página ou de um elemento com overflow.
 
-✅ Explicações claras:
-Valor	        O que faz
-scroll(padrão)	A imagem de fundo rola junto com o conteúdo da página ou da div.
-fixed	        A imagem de fundo fica fixa na tela (na viewport), mesmo que o conteúdo role. Dá um efeito tipo "parallax".
-local	        A imagem de fundo rola junto com o conteúdo da própria div. Útil em overflow: auto com rolagem interna.
+    ✅ Explicações claras:
+        Valor	        O que faz
+        scroll(padrão)	A imagem de fundo rola junto com o conteúdo da página ou da div.
+        fixed	        A imagem de fundo fica fixa na tela (na viewport), mesmo que o conteúdo role. Dá um efeito tipo "parallax".
+        local	        A imagem de fundo rola junto com o conteúdo da própria div. Útil em overflow: auto com rolagem interna.
 
-### 🔵 `fixed`
-- A imagem **fica fixa na tela**, como se estivesse colada no fundo da janela.
-- Mesmo rolando a página ou o conteúdo da `div`, a imagem **não se move**.
-- Isso só funciona bem se o elemento **não estiver dentro de um elemento com `transform`, `perspective`, ou `filter` aplicado**.
+    🔵 `fixed`
+        - A imagem **fica fixa na tela**, como se estivesse colada no fundo da janela.
+        - Mesmo rolando a página ou o conteúdo da `div`, a imagem **não se move**.
+        - Isso só funciona bem se o elemento **não estiver dentro de um elemento com `transform`, `perspective`, ou `filter` aplicado**.
 
-### 🔵 `scroll`
-- A imagem de fundo **rola junto com a página**, é o comportamento **padrão**.
-- Se você rolar a página ou o conteúdo da `div`, a imagem se moverá com ele.
+    🔵 `scroll`
+        - A imagem de fundo **rola junto com a página**, é o comportamento **padrão**.
+        - Se você rolar a página ou o conteúdo da `div`, a imagem se moverá com ele.
 
-### 🔵 `local`
-- A imagem **rola junto com o conteúdo da `div`**.
-- Funciona apenas se a `div` **tem rolagem interna** (`overflow: auto` e bastante texto).
-- A imagem **fica fixa no conteúdo**, e se movimenta ao rolar o conteúdo da própria `div`.
+    🔵 `local`
+        - A imagem **rola junto com o conteúdo da `div`**.
+        - Funciona apenas se a `div` **tem rolagem interna** (`overflow: auto` e bastante texto).
+        - A imagem **fica fixa no conteúdo**, e se movimenta ao rolar o conteúdo da própria `div`.
 
-Exemplo: 
-    body{ height: 200vh; }
+    Exemplo: 
+        CSS
+            body{ height: 200vh; }
+                .exemplo{
+                    width: 300px;
+                    height: 300px;
+                    background-image: url('../img/nave_considero_realista.jpg');
+                    background-size: cover;
+                    border: 1px solid red;
+                    overflow: auto; -> overflow: auto; permite rolagem interna se o conteúdo for maior que a div }
+                #fixed{ background-attachment: fixed; }
+                #scroll{ background-attachment: scroll; }
+                #local{ background-attachment: local; }
+
+        HTML
+            <code>background-attachment: fixed;</code>
+            <div class="exemplo" id="fixed">
+                O que é o Lorem Ipsum?
+                O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto
+                padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar
+                um espécime de livro.
+                Porque é que o usamos?
+                É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua
+                mancha gráfica. Logo, o uso de Lorem Ipsum leva a uma distribuição mais ou menos normal de letras, ao contrário
+                do uso de "Conteúdo aqui, conteúdo aqui", tornando-o texto legível. 
+            </div>
+            <code>background-attachment: scroll</code>
+            <div class="exemplo" id="scroll">
+                O que é o Lorem Ipsum?
+                O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto
+                padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar
+                um espécime de livro.
+                Porque é que o usamos?
+                É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua
+                mancha gráfica. Logo, o uso de Lorem Ipsum leva a uma distribuição mais ou menos normal de letras, ao contrário
+                do uso de "Conteúdo aqui, conteúdo aqui", tornando-o texto legível. 
+            </div>
+            <code>background-attachment: local</code>
+            <div class="exemplo" id="local">
+                O que é o Lorem Ipsum?
+                O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto
+                padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar
+                um espécime de livro.
+                Porque é que o usamos?
+                É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua
+                mancha gráfica. Logo, o uso de Lorem Ipsum leva a uma distribuição mais ou menos normal de letras, ao contrário
+                do uso de "Conteúdo aqui, conteúdo aqui", tornando-o texto legível. 
+            </div>
+
+🎯 background-origin: Define onde o plano de fundo (imagem, cor) começa a ser desenhado dentro do elemento.
+
+    ✅ Explicações claras:
+        Valor	        Explicação
+        padding-box     O background começa no início da área de padding (não cobre a borda).
+        border-box      O background começa no início da borda e cobre toda a área do elemento.
+        content-box     O background cobre apenas a área de conteúdo, ignorando padding e borda.
+
+    🔵 padding-box
+        Significado: O fundo começa a ser desenhado a partir da área de padding.
+        Cobre: A área de conteúdo + padding.
+        Não cobre: As bordas.
+        Uso comum: Quando você quer que o fundo respeite a distância da borda, sem preenchê-la.
+
+    📌 Exemplo visual:
+        Imagine uma caixa com bordas, padding e conteúdo. O fundo vai cobrir tudo exceto a borda.
+
+    🔵 border-box
+        Significado: O fundo começa a ser desenhado desde a borda externa do elemento.
+        Cobre: Conteúdo + padding + borda.
+        Uso comum: Quando você quer que o fundo se estenda por toda a área do elemento, inclusive a borda.
+
+    📌 Exemplo visual:
+        A imagem ou cor de fundo vai ficar debaixo da borda também, ocupando toda a caixa do elemento.
+
+    🔵 content-box
+        Significado: O fundo é desenhado somente dentro da área de conteúdo.
+        Cobre: Apenas a área de conteúdo.
+        Não cobre: O padding nem a borda.
+        Uso comum: Quando você quer que o fundo fique restrito ao conteúdo, sem ocupar espaço extra.
+
+    📌 Exemplo visual:
+        A imagem de fundo fica "encaixada" só no meio da caixa, sem tocar nas laterais (padding ou borda).
+
+    Exemplo:
         .exemplo{
             width: 300px;
             height: 300px;
             background-image: url('../img/nave_considero_realista.jpg');
-            background-size: cover;
-            border: 1px solid red;
-            overflow: auto; -> overflow: auto; permite rolagem interna se o conteúdo for maior que a div }
-        #fixed{ background-attachment: fixed; }
-        #scroll{ background-attachment: scroll; }
-        #local{ background-attachment: local; }
-
-
-🎯 background-origin: Define onde o plano de fundo (imagem, cor) começa a ser desenhado dentro do elemento.
-
-✅ Explicações claras:
-Valor	        Explicação
-padding-box     O background começa no início da área de padding (não cobre a borda).
-border-box      O background começa no início da borda e cobre toda a área do elemento.
-content-box     O background cobre apenas a área de conteúdo, ignorando padding e borda.
-
-🔵 padding-box
-    Significado: O fundo começa a ser desenhado a partir da área de padding.
-    Cobre: A área de conteúdo + padding.
-    Não cobre: As bordas.
-    Uso comum: Quando você quer que o fundo respeite a distância da borda, sem preenchê-la.
-
-📌 Exemplo visual:
-Imagine uma caixa com bordas, padding e conteúdo. O fundo vai cobrir tudo exceto a borda.
-
-🔵 border-box
-    Significado: O fundo começa a ser desenhado desde a borda externa do elemento.
-    Cobre: Conteúdo + padding + borda.
-    Uso comum: Quando você quer que o fundo se estenda por toda a área do elemento, inclusive a borda.
-
-📌 Exemplo visual:
-A imagem ou cor de fundo vai ficar debaixo da borda também, ocupando toda a caixa do elemento.
-
-🔵 content-box
-    Significado: O fundo é desenhado somente dentro da área de conteúdo.
-    Cobre: Apenas a área de conteúdo.
-    Não cobre: O padding nem a borda.
-    Uso comum: Quando você quer que o fundo fique restrito ao conteúdo, sem ocupar espaço extra.
-
-📌 Exemplo visual:
-A imagem de fundo fica "encaixada" só no meio da caixa, sem tocar nas laterais (padding ou borda).
-
-Exemplo:
-.exemplo{
-    width: 300px;
-    height: 300px;
-    background-image: url('../img/nave_considero_realista.jpg');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    border: 15px dashed palegreen;
-    padding: 30px;
-}
-    
-    #padding-box{
-        background-origin: padding-box;
-    }
-    
-    #border-box{
-        background-origin: border-box;
-    }
-    
-    #content-box{
-        background-origin: content-box;
-    }
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            border: 15px dashed palegreen;
+            padding: 30px;
+        }
+            
+        #padding-box{
+            background-origin: padding-box;
+        }
+            
+        #border-box{
+            background-origin: border-box;
+        }
+            
+        #content-box{
+            background-origin: content-box;
+        }
 
 🎯 background-clip: Controla até onde o plano de fundo pode se estender ou ser visível.
 
-✅ Explicações claras:
-Valor	        Onde o fundo termina
-border-box	    Até a borda
-padding-box	    Até o padding
-content-box	    Até o conteúdo
+    ✅ Explicações claras:
+        Valor	        Onde o fundo termina
+        border-box	    Até a borda
+        padding-box	    Até o padding
+        content-box	    Até o conteúdo
 
-🔵 border-box
-    Significado: O fundo vai até o limite externo da borda.
-    O que cobre: Conteúdo + padding + borda.
-    Efeito: A imagem ou cor de fundo aparece por baixo da borda.
-    Uso comum: Para fazer com que o fundo ocupe toda a área do elemento, inclusive onde há borda.
+    🔵 border-box
+        Significado: O fundo vai até o limite externo da borda.
+        O que cobre: Conteúdo + padding + borda.
+        Efeito: A imagem ou cor de fundo aparece por baixo da borda.
+        Uso comum: Para fazer com que o fundo ocupe toda a área do elemento, inclusive onde há borda.
 
-📌 Dica: É o valor padrão da maioria dos navegadores.
+    📌 Dica: É o valor padrão da maioria dos navegadores.
 
-🔵 padding-box
-    Significado: O fundo termina no final do padding.
-    O que cobre: Conteúdo + padding.
-    Não cobre: A borda (fica transparente ou da cor da borda).
-    Uso comum: Quando você quer que o fundo fique dentro da borda, sem ultrapassá-la.
+    🔵 padding-box
+        Significado: O fundo termina no final do padding.
+        O que cobre: Conteúdo + padding.
+        Não cobre: A borda (fica transparente ou da cor da borda).
+        Uso comum: Quando você quer que o fundo fique dentro da borda, sem ultrapassá-la.
 
-📌 Dica: Muito usado com elementos que têm bordas estilizadas, para não interferir no visual da borda.
+    📌 Dica: Muito usado com elementos que têm bordas estilizadas, para não interferir no visual da borda.
 
-🔵 content-box
-    Significado: O fundo só é visível na área de conteúdo.
-    O que cobre: Apenas a área onde o conteúdo (texto, imagens) está.
-    Não cobre: Nem o padding, nem a borda.
-    Uso comum: Quando você quer o fundo restrito ao conteúdo, como em caixas com muito padding, mas sem interferência visual no fundo.
+    🔵 content-box
+        Significado: O fundo só é visível na área de conteúdo.
+        O que cobre: Apenas a área onde o conteúdo (texto, imagens) está.
+        Não cobre: Nem o padding, nem a borda.
+        Uso comum: Quando você quer o fundo restrito ao conteúdo, como em caixas com muito padding, mas sem interferência visual no fundo.
 
-🧠 Resumo com metáfora:
-Pense no fundo como uma imagem que você cola dentro de uma caixa:
-    background-origin: onde você posiciona a imagem (início).
-    background-clip: até onde você deixa ela visível (fim).
+    🧠 Resumo com metáfora:
+        Pense no fundo como uma imagem que você cola dentro de uma caixa:
+            background-origin: onde você posiciona a imagem (início).
+            background-clip: até onde você deixa ela visível (fim).
 
 
-.exemplo {
+    .exemplo {
+            width: 300px;
+            height: 300px;
+            border: 15px dashed palegreen;
+            color: white;
+            padding: 30px;
+            font-size: 35px;
+            font-weight: 900;
+            background-color: palevioletred;
+            
+            background-image: repeating-linear-gradient(45deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px, hsla(197, 62%, 11%, 0.5) 10px,
+            hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.5) 35px, hsla(5, 53%, 63%, 0.5) 40px,
+            hsla(197, 62%, 11%, 0.5) 40px, hsla(197, 62%, 11%, 0.5) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,
+            hsla(5, 53%, 63%, 0.5) 60px, hsla(5, 53%, 63%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 80px,
+            hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, 0.5) 90px, hsla(5, 53%, 63%, 0.5) 110px,
+            hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 120px, hsla(197, 62%, 11%, 0.5) 120px, hsla(197, 62%, 11%, 0.5) 140px
+            ),
+            repeating-linear-gradient(135deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px, hsla(197, 62%, 11%, 0.5) 10px,
+            hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.5) 35px, hsla(5, 53%, 63%, 0.5) 40px,
+            hsla(197, 62%, 11%, 0.5) 40px, hsla(197, 62%, 11%, 0.5) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,
+            hsla(5, 53%, 63%, 0.5) 60px, hsla(5, 53%, 63%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 80px,
+            hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, 0.5) 90px, hsla(5, 53%, 63%, 0.5) 110px,
+            hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 140px, hsla(197, 62%, 11%, 0.5) 140px, hsla(197, 62%, 11%, 0.5) 160px
+            );
+    }
+
+    #padding-box {
+        background-clip: padding-box;
+    }
+
+    #border-box {
+        background-clip: border-box;
+    }
+
+    #content-box {
+        background-clip: content-box;
+    }
+
+    #text {
+        -webkit-background-clip: text;
+        color: transparent;
+        border: 5px solid black;
+        background-clip: text;
+    }
+
+🎯 background-blend-mode é uma mesclagem dos fundos de um elemento.
+
+    🎨 Valores comuns do background-blend-mode:
+    | Valor                                      | Efeito de mesclagem                                                |
+    | ------------------------------------------ | ------------------------------------------------------------------ |
+    | `normal`                                   | Sem mesclagem (padrão)                                             |
+    | `multiply`                                 | Escurece combinando as cores (como misturar tinta)                 |
+    | `screen`                                   | Clareia combinando cores (efeito de brilho)                        |
+    | `overlay`                                  | Combina `multiply` e `screen` (realce forte)                       |
+    | `darken`                                   | Usa a cor mais escura entre as camadas                             |
+    | `lighten`                                  | Usa a cor mais clara entre as camadas                              |
+    | `color-dodge`                              | Clareia as cores de base                                           |
+    | `color-burn`                               | Escurece com contraste                                             |
+    | `difference`                               | Subtrai a cor de fundo da camada de cima                           |
+    | `luminosity`, `hue`, `saturation`, `color` | Fazem mesclagens baseadas em propriedades da cor (mais artísticas) |
+
+    .exemplo{
         width: 300px;
         height: 300px;
         border: 15px dashed palegreen;
@@ -442,71 +553,10 @@ Pense no fundo como uma imagem que você cola dentro de uma caixa:
         padding: 30px;
         font-size: 35px;
         font-weight: 900;
-        background-color: palevioletred;
-        
-        background-image: repeating-linear-gradient(45deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px, hsla(197, 62%, 11%, 0.5) 10px,
-        hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.5) 35px, hsla(5, 53%, 63%, 0.5) 40px,
-        hsla(197, 62%, 11%, 0.5) 40px, hsla(197, 62%, 11%, 0.5) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,
-    hsla(5, 53%, 63%, 0.5) 60px, hsla(5, 53%, 63%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 80px,
-    hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, 0.5) 90px, hsla(5, 53%, 63%, 0.5) 110px,
-    hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 120px, hsla(197, 62%, 11%, 0.5) 120px, hsla(197, 62%, 11%, 0.5) 140px
-    ),
-    repeating-linear-gradient(135deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px, hsla(197, 62%, 11%, 0.5) 10px,
-    hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.5) 35px, hsla(5, 53%, 63%, 0.5) 40px,
-    hsla(197, 62%, 11%, 0.5) 40px, hsla(197, 62%, 11%, 0.5) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,
-    hsla(5, 53%, 63%, 0.5) 60px, hsla(5, 53%, 63%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 80px,
-    hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, 0.5) 90px, hsla(5, 53%, 63%, 0.5) 110px,
-    hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 140px, hsla(197, 62%, 11%, 0.5) 140px, hsla(197, 62%, 11%, 0.5) 160px
-    );
-}
-
-#padding-box {
-    background-clip: padding-box;
-}
-
-#border-box {
-    background-clip: border-box;
-}
-
-#content-box {
-    background-clip: content-box;
-}
-
-#text {
-    -webkit-background-clip: text;
-    color: transparent;
-    border: 5px solid black;
-    background-clip: text;
-}
-
-🎯 background-blend-mode é uma mesclagem dos fundos de um elemento.
-
-🎨 Valores comuns do background-blend-mode:
-| Valor                                      | Efeito de mesclagem                                                |
-| ------------------------------------------ | ------------------------------------------------------------------ |
-| `normal`                                   | Sem mesclagem (padrão)                                             |
-| `multiply`                                 | Escurece combinando as cores (como misturar tinta)                 |
-| `screen`                                   | Clareia combinando cores (efeito de brilho)                        |
-| `overlay`                                  | Combina `multiply` e `screen` (realce forte)                       |
-| `darken`                                   | Usa a cor mais escura entre as camadas                             |
-| `lighten`                                  | Usa a cor mais clara entre as camadas                              |
-| `color-dodge`                              | Clareia as cores de base                                           |
-| `color-burn`                               | Escurece com contraste                                             |
-| `difference`                               | Subtrai a cor de fundo da camada de cima                           |
-| `luminosity`, `hue`, `saturation`, `color` | Fazem mesclagens baseadas em propriedades da cor (mais artísticas) |
-
-.exemplo{
-    width: 300px;
-    height: 300px;
-    border: 15px dashed palegreen;
-    color: white;
-    padding: 30px;
-    font-size: 35px;
-    font-weight: 900;
-    background-color: orange;
-    background-image: url(../img/nave_considero_realista.jpg);
-    background-blend-mode: multiply;
-}
+        background-color: orange;
+        background-image: url(../img/nave_considero_realista.jpg);
+        background-blend-mode: multiply;
+    }
 */
 
 /* background
@@ -1302,7 +1352,7 @@ Você pode usar:
 
     */
 
-/*------------------------------------ Flexbox ------------------------------------------------------------------- */
+/*------------------------------------ Flexbox -------------------------------------------------------------------*/
 
 /* display, vertical-align, position, z-index: ; 
 
@@ -1528,9 +1578,6 @@ Você pode usar:
                 left: 30px;
                 top: 30px;
             }
-
-
-
 */
 
 /* flexbox 
@@ -2624,90 +2671,3715 @@ Atalho para define onde o item começa e termina nas colunas e linhas.
 
 */
 
-body {
-    display: grid;
-    border: 3px solid;
-    height: 80vh;
-    grid-template: repeat(3, 1fr) / repeat(3, auto);
+/*--------------------------------- Responsividade ----------------------------------------------------------------------- */
 
-    place-items: start;
+/* Multicolunas: column-width, column-rule, column-gap
+    column-width, column-rule, column-gap
+
+    O column-width ele determina o tamanho da coluna
+        Exemplo: column-width: 200px;
+    O column-rule ele coloca uma linha entre as colunas
+        Exemplo: column-rule: 1px solid gray;
+    O column-gap coloca um espaçamento entre as colunas
+        Exemplo: column-gap: 100px;
+
+    Exemplo:
+        body{
+            font-family: Arial;
+        }
+
+        .container{
+            column-width: 200px;
+            column-rule: 1px solid gray;
+            column-gap: 100px;
+        }
+*/
+
+/* Layouts flexíveis - Flexbox
+
+ CSS
+        ------------ Area do Cabeçalho ----
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: lightblue;
+            padding: 60px;
+            text-align: center;
+        }
+
+        header h2 {
+            font-size: 1rem;
+            font-weight: normal;
+        }
+
+        ------------ Area de texto ---- 
+
+        main {
+            padding: 30px;
+            text-align: center;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h3 {
+            text-transform: uppercase;
+        }
+
+        .details {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background-color: lightblue;
+            padding: 16px;
+            border-radius: 4px;
+        }
+
+        ------------ Area da imagem ---- 
+
+        .image-card{
+            background-color: lightblue;
+            border: 1px solid #e2e2e2;
+            padding: 10px;
+            flex-basis: 200px;
+        }
+
+        .image-card img{
+            width: 100%;
+        }
+
+        .gallery{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 20px;
+        }
+
+ HTML
+        <header>
+            <h1>Layouts flexíveis urilizando flex-box </h1>
+        </header>
+
+        <main>
+            <section>
+                <h3>Saiba mais</h3>
+                <div class="details">
+                    <div class="card">
+                        Ao contrário da crença popular, o Lorem Ipsum não é simplesmente texto aleatório. Tem raízes numa
+                        peça de literatura clássica em Latim, de 45 AC, tornando-o com mais de 2000 anos. Richard
+                        McClintock, um professor de Latim no Colégio Hampden-Sydney, na Virgínia, procurou uma das palavras
+                        em Latim mais obscuras (consectetur) numa passagem Lorem Ipsum, e atravessando as cidades do mundo
+                        na literatura clássica, descobriu a sua origem.
+                    </div>
+                    <div class="card">
+                        Ao contrário da crença popular, o Lorem Ipsum não é simplesmente texto aleatório. Tem raízes numa
+                        peça de literatura clássica em Latim, de 45 AC, tornando-o com mais de 2000 anos. Richard
+                        McClintock, um professor de Latim no Colégio Hampden-Sydney, na Virgínia, procurou uma das palavras
+                        em Latim mais obscuras (consectetur) numa passagem Lorem Ipsum, e atravessando as cidades do mundo
+                        na literatura clássica, descobriu a sua origem.
+                    </div>
+                    <div class="card">
+                        Ao contrário da crença popular, o Lorem Ipsum não é simplesmente texto aleatório. Tem raízes numa
+                        peça de literatura clássica em Latim, de 45 AC, tornando-o com mais de 2000 anos. Richard
+                        McClintock, um professor de Latim no Colégio Hampden-Sydney, na Virgínia, procurou uma das palavras
+                        em Latim mais obscuras (consectetur) numa passagem Lorem Ipsum, e atravessando as cidades do mundo
+                        na literatura clássica, descobriu a sua origem.
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3>Galeria de imagens</h3>
+                <div class="gallery">
+                    <div class="image-card">
+                        <img src="https://picsum.photos/300/300" alt="Imagem aleatória">
+                    </div>
+                    <div class="image-card">
+                        <img src="https://picsum.photos/300/300" alt="Imagem aleatória">
+                    </div>
+                    <div class="image-card">
+                        <img src="https://picsum.photos/300/300" alt="Imagem aleatória">
+                    </div>
+                    <div class="image-card">
+                        <img src="https://picsum.photos/300/300" alt="Imagem aleatória">
+                    </div>
+                    <div class="image-card">
+                        <img src="https://picsum.photos/300/300" alt="Imagem aleatória">
+                    </div>
+                    <div class="image-card">
+                        <img src="https://picsum.photos/300/300" alt="Imagem aleatória">
+                    </div>
+                    <div class="image-card">
+                        <img src="https://picsum.photos/300/300" alt="Imagem aleatória">
+                    </div>
+                    <div class="image-card">
+                        <img src="https://picsum.photos/300/300" alt="Imagem aleatória">
+                    </div>
+                    <div class="image-card">
+                        <img src="https://picsum.photos/300/300" alt="Imagem aleatória">
+                    </div>
+                    <div class="image-card">
+                        <img src="https://picsum.photos/300/300" alt="Imagem aleatória">
+                    </div>
+                </div>  
+            </section>
+        </main>
+
+*/
+
+/* Layouts flexíveis - Grid
+
+CSS
+
+    body{
+        margin: 0;
+        font-family: Arial;
+        font-weight: bold;
+        text-align: center;
+        display: grid;
+        grid-template: 100px repeat(3, 300px) / repeat(4, 1fr);
+        grid-template-areas:  
+            "header header header header"
+            "navbar main-content main-content main-content"
+            "navbar content-1 content-2 content-3"
+            "navbar footer footer footer"
+        ;
+    }
+
+    header, nav, section{
+        padding: 20px;
+    }
+
+    .header{
+        grid-area: header;
+        background-color: lightblue;
+    }
+
+    nav{
+        background-color: lightgreen;
+        grid-area: navbar;
+    }
+
+    ul{
+        margin: 0;
+        padding: 0;
+    }
+
+    li{
+        list-style: none;
+        margin-bottom: 8px;
+    }
+
+    li a{
+        color: black;
+    }
+
+    .main-section-content{
+        background-color: lightsalmon;
+        grid-area: main-content;
+    }
+
+    .content-1{
+        grid-area: content-1;
+        background-color: paleturquoise;
+    }
+
+    .content-2{
+        grid-area: content-2;
+        background-color: papayawhip;
+    }
+
+    .content-3{
+        grid-area: content-3;
+        background-color: plum;
+    }
+
+    .footer{
+        grid-area: footer;
+        background-color: lightpink;
+    }
+
+HTML
+
+    <header class="header">header</header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Menu 1</a></li>
+            <li><a href="#">Menu 2</a></li>
+            <li><a href="#">Menu 3</a></li>
+            <li><a href="#">Menu 4</a></li>
+            <li><a href="#">Menu 5</a></li>
+        </ul>
+    </nav>
+    <section class="main-section-content">main content</section>
+    <section class="content-1">content-1</section>
+    <section class="content-2">content-2</section>
+    <section class="content-3">content-3</section>
+    <footer class="footer">footer content</footer>
+
+*/
+
+/* meta tag usado no HTML viewport 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    👉 Ela serve para informar ao navegador como deve ajustar a página em dispositivos 
+        móveis (celulares e tablets).
+
+    Explicando cada parte:
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        name="viewport" → define que essa meta tag controla a "janela de visualização" 
+            (viewport).
+        width=device-width → ajusta a largura da página para a largura real da tela do 
+            dispositivo (sem isso, em celular a página parece “esticada” como se fosse desktop).
+        initial-scale=1.0 → define o nível inicial de zoom (1.0 = sem zoom).
+
+    Sem essa tag:
+        Em celulares, sua página pode ficar muito pequena, e o usuário precisaria dar zoom 
+            manual para ler.
+
+    Com essa tag:
+        O site já se adapta melhor ao tamanho da tela, principalmente se você usa CSS 
+            responsivo (Flexbox, Grid, Media Queries).
+
+    ✅ Principais atributos do viewport:
+        width → define a largura da viewport.
+            valores possíveis:
+                device-width → largura do dispositivo
+                número fixo em pixels (ex: width=1024)
+
+        height → define a altura da viewport (menos usado).
+            valores possíveis:
+                device-height
+                número fixo
+
+        initial-scale → nível inicial de zoom quando a página carrega.
+            exemplo: initial-scale=1.0 (100%), initial-scale=2.0 (200%)
+
+        minimum-scale → zoom mínimo que o usuário pode dar.
+            exemplo: minimum-scale=0.5
+
+        maximum-scale → zoom máximo permitido.
+            exemplo: maximum-scale=3.0
+
+        user-scalable → permite ou bloqueia o zoom manual do usuário.
+            valores: yes (padrão) ou no
+                exemplo: user-scalable=no (bloqueia pinch-to-zoom)
+
+        viewport-fit → usado em dispositivos com notch (como iPhone X+).
+            valores:
+                auto (padrão)
+                contain (conteúdo fica dentro da área segura)
+                cover (pode usar a tela inteira, incluindo atrás do notch)
+
+*/
+
+/* Media queries @media
+
+A @media é essencial para design responsivo, permitindo que seu site se adapte a diferentes telas, como celulares, tablets e desktops.
+
+Diferença entre screen e print no CSS
+    No CSS, o @media permite aplicar estilos diferentes dependendo do meio em que a página é visualizada.
+
+    screen: refere-se a tela padrão que vc colocau o estilo.
+    print: refere-se à impressão, e para vc deicha editado para impreção dirando coisas desnecessárias para impressão permintindo 
+            ajustar cores, fontes e ocultar elementos desnecessários (como menus e rodapés), garantindo que a página impressa fique organizada e legível. 
+
+    Resumo:
+    screen → estilo para tela.
+    print → estilo para impressão.
+
+    screen vs print (CSS)
+    screen → estilos aplicados apenas na tela (monitores, celulares, tablets).
+    print → estilos aplicados apenas na impressão, ajustando cores, fontes e escondendo elementos desnecessários.
+    Lembre-se: screen é o que você vê, print é o que sai na impressora.
+
+and e not são operadores lógicos que controlam quando os estilos são aplicados.
+    and
+        Combina duas ou mais condições.
+        A regra só será aplicada se todas as condições forem verdadeiras.
+        Exemplo: 
+            @media screen and (min-width: 768px) {
+                body {
+                    background-color: lightgreen;
+                }
+            }
+        Aqui, o fundo só ficará verde se for tela (screen) e a largura for pelo menos 768px.
+        
+        Exemplo 2:
+            @media screen and (min-width: 768px) and (orientation: landscape) {
+                body {
+                    background-color: lightgreen;
+                }
+            }
+        O que acontece:
+            screen → só vale para visualização em tela.
+            min-width: 768px → só aplica se a tela tiver 768px ou mais de largura.
+            orientation: landscape → só aplica se a tela estiver horizontal.
+            Resultado: o fundo só fica verde quando todas as três condições forem verdadeiras.
+    
+    not
+        Inverte a condição.
+        A regra será aplicada quando a condição for falsa.
+        Exemplo:
+            @media not print {
+                body {
+                    background-color: lightblue;
+                }
+            }
+        Aqui, o fundo azul vai aparecer em todos os meios que não forem impressão.
+    
+    Resumo simples:
+        and → todas as condições precisam ser verdadeiras.
+        not → aplica quando a condição é falsa.
+
+max-width, min-width -> eles determina a largura maxima e minima da tela para aplicar estilos no layout.
+    Exemplo: se a tela tiver até 600px de largura, o texto fica menor:
+        @media (max-width: 600px) { body { font-size: 14px; } }
+
+max-height, min-height -> eles determina a altura maxima e minima da tela para aplicar estilos no layout.
+    Exemplo: se a altura da tela for até 500px, o fundo fica azul claro:
+        @media (max-height: 500px) { body { background-color: lightblue; } }
+
+orientation -> Aplica estilos dependendo da orientação da tela, que pode ser portrait (vertical) ou landscape (horizontal).
+    Exemplo: se o celular estiver horizontal, o fundo fica verde:
+        @media (orientation: landscape) { body { background-color: lightgreen; } }
+
+prefers-color-scheme -> Aplica estilos dependendo do tema do usuário (light ou dark)
+    Exemplo: se o usuário estiver no tema escuro, o fundo fica preto e o texto branco:
+        @media (prefers-color-scheme: dark) { body { background-color: #222; color: #fff; } }
+
+pointer -> Indica a precisão do dispositivo de apontamento:
+            none → sem ponteiro (ex: TV, assistente de voz).
+            coarse → ponteiro grosseiro (ex: dedo em tela touch).
+            fine → ponteiro preciso (ex: mouse, trackpad).
+    Exemplo: se o usuário estiver em celular (touch), o texto dos botões aumenta:
+        @media (pointer: coarse) { button { font-size: 18px; } }
+
+hover -> Aplica estilos se o dispositivo suporta hover, como o mouse.
+    Exemplo: se for possível passar o mouse sobre um botão, ele muda de cor:
+        @media (hover: hover) { button:hover { background-color: yellow; } }
+
+
+        */
+
+/* Layout Flexível Mobile
+body{
+    font-family: Arial, sans-serif;
 }
-
-.item-01{
-    background: palegoldenrod;
-    place-self: center stretch;
-}
-
-.item-02{
-    background: paleturquoise;
-    place-self: start end;
-}
-
-.item-03{
-    background: palegreen;
-}
-
-.item-04{
-    background: palevioletred;
-}
-
-.item-05{
-    background: lightseagreen;
-}
-
-.item-06{
-    background: palegreen;
-}
-
-.item-07{
-    background: palevioletred;
-}
-
-.item-08{
-    background: lightseagreen;
-}
-
-.item-09{
-    background: palegreen;
-}
-
-
-/*
-header{
-    background-color: rgb(58, 58, 60);
-    color: white;
-    padding: 10px;
-    border-radius: 15px;
-}
-
-h1{
-    margin: 0;
-    text-align: center;
-}
-
-nav .menu{
-    display: flex;
-    gap: 10px;
-    list-style-type: none;
-    margin-bottom: 10px;
-}
-
 nav ul{
     margin: 0;
+    padding: 0;
 }
-
-nav a{
+li a{
     text-decoration: none;
-    color: white;
-    background-color: rgb(72, 71, 74);
-    padding: 10px;
-    border-radius: 20px;
+    color: black;
+    font-weight: bold;
+}
+nav li {
+    background-color: lightgreen;
+    padding: 8px;
+    border-radius: 4px;
+    list-style: none;
+}
+nav ul{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+#skills{
+    background-color: lightgreen;
+    border: 1px solid green;
+    border-radius: 4px;
+}
+#skills li{
+    list-style: decimal;
+}
+#education{
+    background-color: lightblue;
+    border: 1px solid blue;
+    border-radius: 4px;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+@media screen and (min-width: 720px){
+    main{
+        flex-direction: row;
+        gap: 24px;
+        max-width: 1200px;
+        margin: 16px auto;
+        flex-wrap: wrap;
+    }
+
+    #presentation{
+        flex-basis: 500px;
+    }
+
+    #skills, #education{
+        flex: 1;
+    }
+
+    nav ul{
+        flex-direction: row;
+    }
+
+    nav ul li{
+        flex: 1;
+        text-align: center;
+    }
 }
 
-nav a:hover{
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    background-color: rgb(101, 101, 105);
-}
+HTML 
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Sobre mim</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="#">Conheça meu trabalho</a></li>
+                <li><a href="#">Linkedin</a></li>
+            </ul>
+        </nav>
+    </header>
+        
+    <main>
+        <section id="presentation">
+            <h1>Júlio César Santos Franco</h1>
+            <p>O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.</p>
+            <p>O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.</p>
+            <p>O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.</p>
+            <p>O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro.</p>
+        </section>
+        <section id="skills">
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>javascript</li>
+                <li>Python</li>
+                <li>C</li>
+            </ul>
+        </section>
+        <section id="education">
+            <ul>
+                <li>Técnico em desenvolvimento de sistema</li>
+                <li>Dio.</li>
+            </ul>
+        </section>
+    </main>
+*/
 
-/* */
+/*--------------------------------- Pseudo-elementos ----------------------------------------------------------------------- */
+
+/* ::first-letter, ::first-line, ::backdrop, ::marker
+
+🎯 O ::first-letter é usado para selecionar e estilizar apenas a primeira letra da primeira 
+    linha de um elemento de texto.
+
+    Ele pode ser aplicado de duas formas:
+        De maneira específica, escolhendo apenas uma tag.
+        De maneira global, aplicando a todas as tags de texto.
+
+    🔹 Exemplo 1 – Selecionando a letra inicial de uma tag específica
+            HTML: <p>O aprendizado de pseudo-elementos em CSS é muito útil.</p>
+            CSS: p::first-letter { color: red; } 
+        
+        👉 Resultado: Somente a letra "O" do parágrafo ficará vermelha.
+        
+    🔹 Exemplo 2 – Selecionando a letra inicial de todas as tags de texto
+            HTML: <h2>Pseudo-elemento - <code>::first-letter</code></h2>
+                <p>Selecione a primeira letra da primeira linha</p>
+                <p>Propriedades disponiveis</p>
+            
+            CSS: ::first-letter{ color: red; }
+
+        👉 Resultado: A primeira letra de cada elemento de texto (<h2> e <p>) ficará vermelha.
+            No <h2>, a letra "P"
+            No primeiro <p>, a letra "S"
+            No segundo <p>, a letra "P"
+
+    ✅ Resumo rápido:
+        p::first-letter { ... } → estiliza apenas os <p>.
+        ::first-letter { ... } → estiliza todas as letras iniciais de qualquer elemento textual.
+
+🎯 O ::first-line serve para selecionar e estilizar apenas a primeira linha visível de um bloco de texto.
+        Primeira linha do texto.
+
+    🔹 Propriedades que funcionam no ::first-line
+        Nem todas as propriedades CSS são aceitas.
+        As que podem ser aplicadas são basicamente relacionadas a texto, fontes e cor:
+            color, background-color
+            font, font-size, font-style, font-variant, font-weight
+            letter-spacing, word-spacing, line-height
+            text-decoration, text-transform, vertical-align
+    ⚠️ Não dá para usar coisas como margin, padding, border, float no ::first-line.
+
+    ✅ Resumo rápido:
+        p::first-line → estiliza apenas os <p>.
+        ::first-line → toda a primeira linha visível do texto.
+
+🎯 O ::backdrop é um pseudo-elemento especial que permite estilizar o fundo (plano 
+    de fundo) que aparece atrás de um elemento que está em modo tela cheia (fullscreen).
+
+    ✅ Resumo rápido:
+        ::backdrop estiliza o fundo atrás de elementos em tela cheia (fullscreen).
+        Muito útil para criar modais bonitos e acessíveis.
+
+    🔹 Exemplo:
+        HTML: <video controls> <source src="./video/Video.mp4"> </video>
+        CSS: video::backdrop{ 
+            background: radial-gradient(circle, blue, black);
+            backdrop-filter: blur(5px);
+        }
+    
+    👉 O que acontece?
+        Você carrega a página.
+        O vídeo aparece normalmente.
+        Ao clicar no botão "Tela cheia", o vídeo entra em fullscreen.
+        O fundo atrás do vídeo fica azul, graças ao video::backdrop.
+
+🎯 O ::marker serve para estilizar os marcadores de listas (<ul> e <ol>), ou seja, as 
+    bolinhas, quadradinhos e números que aparecem antes dos itens.
+
+    🔹 O que pode ser estilizado no ::marker?
+        Nem todas as propriedades CSS funcionam. As principais permitidas são:
+            Cor e tipografia:
+                color
+                font, font-size, font-weight, font-style, font-variant
+            Conteúdo alternativo:
+                content (pode substituir o marcador padrão por outro símbolo ou emoji 🎯)
+
+    ✅ Resumo rápido:
+        ::marker = estiliza o marcador de <li>.
+        Funciona em listas ordenadas (<ol>) e não ordenadas (<ul>).
+        Pode mudar cor, fonte e até substituir o símbolo por outro com content.
+
+    🔹 Exemplo: 
+        HTML: <ul>
+                <li>Color</li>
+                <li>content</li>
+              </ul>
+        CSS: li::marker{
+                content: "🔥 ";
+                color: red;
+             }
+    👉 Resultado: Em vez da bolinha padrão, cada item da lista terá o emoji 🔥.
+
+*/
+
+/* ::placeholder, ::selection, ::file-selector-button, ::before e ::after
+
+🎯 O ::placeholder permite estilizar o texto placeholder exibido em campos de formulário (<input> e <textarea>).
+
+    🔹 Exemplo básico
+        HMTL: <input type="text" placeholder="Digite seu nome">
+        CSS: input::placeholder {
+                color: gray;
+                font-style: italic;
+            }
+    👉 Resultado: O texto "Digite seu nome" ficará em cinza e itálico.
+    
+    🔹 O que pode ser estilizado?
+        Com ::placeholder você pode aplicar propriedades de texto e cor, como:
+        color
+        font-size
+        font-style
+        font-weight
+        letter-spacing
+        opacity
+    ⚠️ Não funciona com propriedades de layout (ex: margin, padding, border).
+
+    ✅ Resumo rápido:
+        ::placeholder estiliza o texto de dica dentro de <input> e <textarea>.
+        Muito usado para acessibilidade e design moderno.
+
+🎯 O ::selection permite estilizar a parte do texto que o usuário seleciona com o mouse ou teclado.
+
+    🔹 O que pode ser estilizado?
+        No ::selection, apenas algumas propriedades CSS funcionam:
+            Cor de fundo: background-color
+            Cor do texto: color
+            Efeitos de texto: text-shadow
+    ⚠️ Não funciona com propriedades como border, margin, padding, display, transform etc.
+
+    ✅ Resumo rápido
+        ::selection estiliza o texto quando está selecionado.
+        Funciona em praticamente todos os navegadores modernos.
+        Ótimo para dar um toque personalizado em textos.
+
+    🔹 Exemplo prático
+        HMTL: <h1>Aprendendo pseudo-elementos</h1>
+            <p>Selecione este parágrafo para ver o efeito personalizado.</p>
+        CSS: 
+            h1::selection {
+                background: black;
+                color: white;
+            }
+            p::selection {
+                background: lightgreen;
+                color: darkgreen;
+            }
+    👉 Resultado:
+        Se você selecionar o título, a seleção fica branca no fundo preto.
+        Se selecionar o parágrafo, a seleção fica verde clara com letras verde-escuras.
+
+    🔹 Exemplo criativo com gradiente
+        ::selection {
+        background: linear-gradient(to right, purple, pink);
+        color: white;
+        }
+    👉 Isso deixa a seleção com efeito gradiente roxo → rosa (embora o suporte a gradiente possa variar entre navegadores).
+
+🎯 O ::file-selector-button permite estilizar diretamente o botão padrão que aparece em um campo de upload de arquivo (<input type="file">).
+
+    🔹 O que pode ser estilizado?
+        Você pode usar praticamente qualquer propriedade CSS de botão:
+            color, background, border, padding, margin
+            font-size, font-weight
+            cursor
+            border-radius, box-shadow
+            transition, animation
+
+    ✅ Resumo rápido
+        ::file-selector-button → estiliza o botão de upload de arquivos.
+        Substitui hacks antigos (::-webkit-file-upload-button).
+        Funciona nos navegadores modernos.
+
+    🔹 Exemplo básico
+        HTML:
+            <form action="">
+                <label for="fileUpload">Upload de arquivo</label>
+                <input type="file">
+            </form>
+        CSS: 
+            input::file-selector-button{
+                border: 2px solid darkblue;
+                background-color: #6c5ce7;
+                color: white;
+                padding: 12px;
+                border-radius: 4px;
+            }
+    👉 O que acontece:
+        Borda azul escura: define o contorno do botão.
+        Fundo roxo: deixa o botão com cor personalizada.
+        Texto branco: facilita a leitura sobre o fundo roxo.
+        Padding: aumenta o tamanho interno do botão, deixando-o mais clicável.
+        Border-radius: suaviza os cantos do botão.
+                
+🎯 ::before e ::after
+    Esses pseudo-elementos permitem inserir conteúdo antes ou depois do conteúdo real de um elemento, sem precisar alterar o HTML.
+
+    ::before → insere antes do conteúdo do elemento.
+    ::after → insere depois do conteúdo do elemento.
+
+    Eles sempre precisam da propriedade content, mesmo que seja vazia (""), caso contrário não aparecem.
+    
+    🔹 Regras importantes
+        Sempre precisa de content. Pode ser:
+            Texto: "Hello"
+            Emoji: "🔥"
+            Vazio: "" (para efeitos visuais)
+        Pode ser combinado com pseudo-classes (:hover, :focus, :first-child) para criar efeitos interativos.
+        Herda o contexto do elemento, mas você pode usar position, color, font e background para personalizar.
+
+    🔹 Exemplo básico
+        HTML: <p>Aprendendo pseudo-elementos em CSS.</p>
+        CSS:p::before {
+                content: "👉 ";  insere um emoji antes do parágrafo
+            }
+            p::after {
+                content: " ✔";   insere um check depois do parágrafo
+            }
+    Resultado: 👉 Aprendendo pseudo-elementos em CSS. ✔
+
+    🔹 Usos comuns
+    1. Decoração visual
+        h2::before {
+            content: "★ ";
+            color: gold;
+        }
+    👉 Adiciona uma estrela antes do título.
+
+    2. Separadores ou ícones
+        li::after {
+            content: " •";
+            color: gray;
+        }
+    👉 Coloca um ponto após cada item da lista.
+
+    3. Efeitos de hover ou animações
+        button::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 2px;
+            background: blue;
+            transition: width 0.3s;
+        }
+        button:hover::after {
+            width: 100%;
+        }
+    👉 Cria uma linha animada embaixo do botão quando passa o mouse.
+
+    4. Efeitos imge no inicio e no fim
+        HMTL: 
+            <p>
+                <span>Exemplo 1</span>
+                <span>Exemplo 2</span>
+                <span>Exemplo 3</span>
+                <span>Exemplo 4</span>
+            </p>
+        CSS: 
+            p::before{
+                content:"🔥" ;
+                color: red;
+                background-color: burlywood;
+            }
+            p::after{
+                content:"🔥" ;
+                color: red;
+                background-color: burlywood;
+            }
+    👉 O que está acontecendo é o seguinte:
+        p::before adiciona o conteúdo antes do parágrafo inteiro, e p::after adiciona depois do parágrafo inteiro.
+        Isso não adiciona o emoji antes de cada <span>, apenas uma vez no início e uma vez no final do <p>.
+
+    5. Efeitos
+        HTML: <div class="card-image" ></div>
+        CSS:.card-image{
+                position: relative;
+                width: 300px;
+                height: 300px;
+                border: 1px solid gray;
+                border-radius: 8px;
+                background: url('../img/nave\ que\ eu\ considero\ realista.jpg') no-repeat;
+                background-size: cover;
+                overflow: hidden;
+            }
+            .card-image::before{
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(transparent, rgb(255, 0 ,140));
+            }
+    👉 O pseudo-elemento ::before cria um overlay degradê sobre a imagem, sem precisar de HTML extra, e o card mantém o layout e cantos arredondados intactos.
+*/
+
+/*--------------------------------- Pseudo Classes ----------------------------------------------------------------------- */
+
+/* :hover, :active
+    
+🎯 A pseudo-classe :hover é usada para aplicar estilos a um elemento quando o usuário passa o mouse sobre ele.
+    Muito usada em botões, links, imagens, menus etc.
+    Funciona em quase todos os elementos HTML.
+    Fica ainda melhor com transições (transition) e transformações (transform).
+    
+    🔹 Exemplo básico com link
+        HTML
+            <a href="#">Clique aqui</a>
+        CSS
+            a {
+                color: blue;
+                text-decoration: none;
+            }
+            a:hover {
+                color: red;
+                text-decoration: underline;
+            }
+        👉 Quando o mouse passa por cima do link, a cor muda para vermelho e aparece o sublinhado.
+
+    🔹 Exemplo com botão
+        HTML
+            <button>Enviar</button>
+        CSS
+            button {
+                background: dodgerblue;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+            }
+            button:hover {
+                background: deepskyblue;
+                transform: scale(1.05); cresce levemente
+            }
+        👉 O botão muda de cor e dá um pequeno zoom quando passa o mouse.
+        
+    🔹 Exemplo com imagem
+        HMTL
+            <img src="foto.jpg" alt="Foto de exemplo" width="200">
+        CSS
+            img:hover {
+                filter: brightness(80%);
+                transform: scale(1.1);
+                transition: 0.3s ease;
+            }
+        👉 Ao passar o mouse, a imagem escurece um pouco e dá um zoom suave.
+
+🎯 O que é :active?
+    A pseudo-classe :active aplica estilo a um elemento enquanto ele está sendo clicado (pressionado com o mouse ou dedo no mobile).
+    Funciona muito bem em links, botões e inputs.
+
+    🔹 Exemplo básico com link
+        HMTL
+            <a href="#">Clique aqui</a>
+        CSS
+            a {
+            color: blue;
+            text-decoration: none;
+            }
+            a:hover {
+            color: red;
+            }
+            a:active {
+            color: green;
+            }
+        👉 Quando o link é clicado e segurado, ele muda para verde.
+
+    🔹 Exemplo com botão
+        HMTL
+            <button>Enviar</button>
+        CSS
+            button {
+                background: dodgerblue;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: transform 0.1s ease;
+            }
+            button:hover {
+                background: deepskyblue;
+            }
+            button:active {
+                background: navy;
+                transform: scale(0.95); efeito de "apertar" 
+            }
+        👉 Quando o usuário clica e segura, o botão fica mais escuro e parece que foi pressionado.
+
+    🔹 Diferença entre :hover e :active
+        :hover → funciona enquanto o mouse está sobre o elemento.
+        :active → funciona apenas durante o clique (pressionar).
+                
+
+*/
+
+/* :focus, :focus-within, :focus-visible 
+
+🎯 :focus
+    Ativado quando um elemento recebe foco (via clique ou teclado).
+    Usado em inputs, botões, links, etc.
+
+    CSS
+        input:focus {
+            border: 2px solid blue;
+            background: #eef;
+        }
+        👉 Sempre que o input for selecionado, o estilo será aplicado (independente se foi com mouse ou teclado).
+
+🎯 :focus-within
+    Ativado quando o elemento ou qualquer filho dele está focado.
+    Muito útil em formulários e containers.
+    
+    CSS
+        form:focus-within {
+            border: 2px solid green;
+            padding: 10px;
+        }
+        👉 Se você clicar em um input dentro do form, o form inteiro recebe o estilo.
+
+🎯 :focus-visible
+    É parecido com :focus, mas só aplica o estilo se o navegador entender que o foco deve ser visível.
+    Exemplo: quando se navega com TAB no teclado.
+    Se você clicar com o mouse, o estilo pode não aparecer, evitando bordas de foco desnecessárias.
+        
+    CSS
+        button:focus-visible {
+            outline: 3px solid orange;
+        }
+    👉 Melhora acessibilidade, mostrando foco apenas quando realmente faz sentido.
+
+🔹 Diferença entre :hover, :active e :focus
+    :hover → enquanto o mouse está sobre o elemento.
+    :active → enquanto o elemento está sendo clicado.
+    :focus → quando o elemento está selecionado para interação (via clique ou teclado).
+
+⚡ Exemplo juntando os três:
+    HTML
+        <form>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome">
+            <button>Enviar</button>
+        </form>
+    CSS
+        input:focus {
+            border: 2px solid blue;
+        }
+
+        form:focus-within {
+            background: #f0f8ff;
+        }
+
+        button:focus-visible {
+            outline: 3px dashed orange;
+        }
+    👉 Se você clicar no input, ele fica com borda azul.
+        O form muda o fundo porque tem um filho focado.
+        Se você navegar até o botão com TAB, ele ganha outline laranja.
+
+*/
+
+/* :target, :enabled e :disabled, :link e :visited
+
+🎯 O que é :target?
+    Ele seleciona um elemento que foi “alvo” de um link com âncora (#id).
+    Ou seja, quando você clica em um link que aponta para #algum-id, o elemento com esse id vira o :target.
+
+    📌 Exemplo prático
+        HMTL
+            <a href="#sec1">Ir para Seção 1</a>
+            <a href="#sec2">Ir para Seção 2</a>
+            <div id="sec1">Seção 1</div>
+            <div id="sec2">Seção 2</div>
+        CSS
+            #sec1, #sec2 {
+                padding: 20px;
+                margin: 20px;
+                border: 1px solid gray;
+            }
+
+            #sec1:target {
+                background-color: lightgreen;
+            }
+
+            #sec2:target {
+                background-color: lightblue;
+            }
+        👉 Quando você clicar em "Ir para Seção 1", a Seção 1 ganha o estilo do :target.
+        👉 Quando clicar em "Ir para Seção 2", a Seção 2 vira o alvo.   
+
+🎯 :enabled e :disabled
+    🔹 :enabled
+    Seleciona um elemento de formulário que está habilitado (pode ser clicado ou editado normalmente).
+    Exemplo: um <button> sem atributo disabled.
+
+    🔹 :disabled
+    Seleciona um elemento de formulário que está desabilitado (não pode ser usado porque tem o atributo disabled).
+
+    📌 Exemplo prático
+        HMTL
+            <form>
+                <button>Enviar (habilitado)</button>
+                <button disabled>Enviar (desabilitado)</button>
+                
+                <input type="text" placeholder="Nome (habilitado)">
+                <input type="text" placeholder="Sobrenome (desabilitado)" disabled>
+            </form>
+        CSS
+            button:enabled,
+            input:enabled {
+                background-color: green;
+                color: white;
+                cursor: pointer;
+            }
+
+            button:disabled,
+            input:disabled {
+                background-color: gray;
+                color: #ccc;
+                cursor: not-allowed;
+            }
+        ✅ Resultado:
+        Botões e inputs habilitados ficam verdes.
+        Botões e inputs desabilitados ficam cinza.
+
+🎯 :link e :visited
+    :link e :visited que são usadas para estilizar links (<a>).
+    
+    🔹 :link
+    Seleciona links que ainda não foram visitados (ou seja, que o usuário nunca clicou).
+    Só funciona em elementos <a> com atributo href.
+
+    🔹 :visited
+    Seleciona links que já foram visitados (o usuário clicou e já acessou aquela página anteriormente).
+    Também só funciona em <a href="...">.
+
+    📌 Exemplo prático
+        HTML
+            <a href="https://www.google.com">Google</a>
+            <a href="https://www.youtube.com">YouTube</a>
+            <a href="https://www.wikipedia.org">Wikipedia</a>
+
+        CSS 
+            Links ainda não visitados
+                a:link {
+                    color: blue;
+                    text-decoration: none;
+                }
+
+            Links já visitados
+                a:visited {
+                    color: purple;
+                }
+
+            Efeitos extras
+                a:hover {
+                    color: red;
+                    text-decoration: underline;
+                }
+
+            a:active {
+                color: orange;
+            }
+
+        ✅ Funcionamento:
+            Antes de visitar → o link aparece azul.
+            Depois de visitar → muda para roxo.
+            Quando passa o mouse (:hover) → fica vermelho.
+            Quando clica e segura (:active) → fica laranja.
+*/
+
+/* :placeholder-shown, Checked e Indeterminate, 
+
+🎯 O que é :placeholder-shown?
+    É uma pseudo-classe CSS que seleciona um campo de formulário (<input> ou <textarea>) quando o texto do placeholder está visível, ou seja:
+        O campo está vazio
+        O atributo placeholder existe
+    Assim que o usuário digita algo, o placeholder desaparece e a pseudo-classe deixa de ser aplicada.
+    
+    📌 Exemplo prático
+        HTML
+            <form>
+                <input type="text" placeholder="Digite seu nome">
+                <input type="email" placeholder="Digite seu e-mail">
+            </form>
+        CSS
+            Enquanto o placeholder estiver sendo exibido
+                input:placeholder-shown {
+                    border: 2px dashed gray;
+                    background-color: #f9f9f9;
+                }
+
+            Quando o usuário digitar algo
+                input:not(:placeholder-shown) {
+                    border: 2px solid green;
+                    background-color: #eaffea;
+                }
+            ✅ Funcionamento:
+            Antes de digitar → o campo fica com borda cinza tracejada.
+            Depois de digitar → o estilo muda para borda verde.
+
+🎯 Checked e Indeterminate
+    🔹 :checked
+        Usada para selecionar elementos de formulário marcados, como:
+            checkbox marcado ✅
+            radio button selecionado 🔘
+            option em <select> selecionado
+
+        📌 Exemplo:
+            HTML
+                <form>
+                    <label>
+                        <input type="checkbox" checked> Aceito os termos
+                    </label>
+
+                    <label>
+                        <input type="radio" name="opcao" checked> Opção A
+                    </label>
+                    <label>
+                        <input type="radio" name="opcao"> Opção B
+                    </label>
+                </form>
+            CSS
+                input:checked {
+                    outline: 2px solid green;
+                    background-color: lightgreen;
+                }
+            ✅ Aqui, qualquer checkbox ou radio marcado ganhará borda verde.
+
+    🔹 :indeterminate
+        Seleciona checkboxes que estão em estado intermediário (nem marcado, nem desmarcado).
+        Esse estado não pode ser definido direto no HTML — precisa ser configurado via JavaScript.
+
+        📌 Exemplo:
+            HMTL
+                <form>
+                    <label>
+                        <input type="checkbox" id="pai"> Selecionar todos
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" class="filho"> Item 1
+                    </label>
+                    <label>
+                        <input type="checkbox" class="filho"> Item 2
+                    </label>
+                </form>
+            CSS
+                input:indeterminate {
+                    outline: 2px solid orange;
+                    background-color: #fff3cd;
+                }
+            JAVASCRIPT
+                const pai = document.getElementById("pai");
+                pai.indeterminate = true; // força estado "indefinido"
+            
+                👉 O estado indeterminate é muito usado em checkboxes de "Selecionar todos":
+                    Se todos os itens filhos estão marcados → checkbox pai fica checked.
+                    Se nenhum está marcado → fica desmarcado.
+                    Se alguns estão marcados → fica indeterminate.
+
+    ⚡ Resumindo:
+    :checked → quando o elemento está selecionado/marcado.
+    :indeterminate → quando o elemento está em estado intermediário (definido via JS).
+*/
+
+/* :valid e :invalid, :in-range e :out-of-range
+
+🎯 :valid e :invalid
+    Elas validam os inputs de acordo com os atributos HTML5 (required, pattern, type, min, max, etc.).
+
+    📌 Exemplo:
+        HTML
+            <form>
+                <label for="">Digite seu E-mail</label>
+                <input type="email" placeholder="Digite seu email" required>
+            
+                <label for="">Somente letras</label>
+                <input type="text" pattern="[A-Za-z]+" placeholder="Somente letras" required>
+            </form>
+        CSS
+            input[type="email"]:valid {
+                border: 2px solid green;
+                background-color: #e6ffe6;
+            }
+            input[type="email"]:invalid {
+                border: 2px solid red;
+                background-color: #ffe6e6;
+            }
+
+            input[type="text"]:valid {
+                border: 2px solid green;
+                background-color: #e6ffe6;
+            }
+            input[type="text"]:invalid {
+                border: 2px solid red;
+                background-color: #ffe6e6;
+            }
+        ✅ Se o usuário digitar um email válido, fica verde.
+        ❌ Se for inválido (ex: "abc123"), fica vermelho.
+
+🎯 :in-range e :out-of-range
+    Funcionam em inputs numéricos (number, range, date, etc.) que têm min e max.
+
+    📌 Exemplo:
+        HTML
+            <form>
+                <label>Idade (18 a 60):</label>
+                <input type="number" min="18" max="60" required>
+            </form>
+        CSS
+            input:in-range {
+                border: 2px solid green;
+                background-color: #f0fff0;
+            }
+            input:out-of-range {
+                border: 2px solid orange;
+                background-color: #fff0e6;
+            }
+        ✅ Se digitar 25, o input ficará verde (dentro da faixa).
+        ⚠️ Se digitar 10 ou 70, ficará laranja (fora da faixa).
+
+📌 Exemplo:
+    HMTL
+        <form action="">
+            <h3>Faça sua compra</h3>
+            <label for="email" required>E-mail:</label>
+            <input type="email" name="email">
+            <span class="error">E-mail inválido</span>
+
+            <label for="codigo-produto">Código Produto:</label>
+            <input 
+                type="number" 
+                name="codigo-produto" 
+                min="1000"
+            >
+            <span class="error">Código Produto inválido</span>
+
+            <label for="cupom">Cupom de Desconto:</label>
+            <input 
+                type="cupom"
+                type="text" 
+                pattern="[a-z]+"
+                placeholder="Apenas letras minúsculas"
+            >
+            <span class="error">Cupom de Desconto inválido</span>
+
+            <label for="data-nascimento">Data de nascimento</label>
+            <input 
+                type="date" 
+                name="data-nascimento"
+                min="2002-01-07"
+                max="2025-08-24"
+            >
+            <span class="error">Data de nascimento inválida</span>
+
+            <label for="quantidade">Quantidade</label>
+            <input 
+                type="number" 
+                name="amount"
+                min="3"
+                max="10"
+            >
+            <span class="error">Quantidade inválida</span>
+
+            <label>
+                <input type="checkbox" required>
+                <span>Li e aceito os termos de uso</span>
+            </label>
+
+            <button type="submit">Compras</button>
+        </form>
+    CSS
+        form label,
+        form button {
+            display: block;
+            margin-top: 12px;
+        }
+
+        input {
+            padding: 4px 14px;
+            margin-top: 8px;
+        }
+
+        form {
+            border: 1px solid grey;
+            border-radius: 4px;
+            width: 300px;
+            padding: 40px;
+            margin: auto;
+            background-color: rgb(247, 247, 247);
+        }
+
+        form h3 {
+            margin: 0;
+        }
+
+        input:valid,
+        input:in-range {
+            border: 1px solid rgb(28, 168, 28);
+            color: rgb(28, 168, 28);
+        }
+
+        input:invalid,
+        input:out-of-range {
+            border: 1px solid orangered;
+            color: orangered;
+        }
+
+        input:valid+span {
+            color: green;
+        }
+
+        input:invalid+span {
+            color: red;
+        }
+
+        .error {
+            color: orangered;
+            font-size: 0.75rem;
+            display: none;
+            margin-top: 4px;
+        }
+
+        input:invalid+.error {
+            display: block;
+        }
+    Campos obrigatórios (required).
+    Validação automática de email, números, faixa (min/max) e regex (pattern).
+    Mensagens de erro só aparecem quando o campo é inválido.
+
+
+*/
+
+/* :required e :optional, :autofill, :root
+
+🎯 :required → seleciona os campos que têm o atributo required.
+    Exemplo: destacar os obrigatórios.
+        input:required{
+            border-color: purple;
+        }
+
+🎯 :optional → seleciona os campos que não têm o atributo required.
+    Exemplo: destacar os opcionais.
+        input:optional{
+            border-color: palevioletred;
+        }
+    
+    👉 Assim você consegue diferenciar quais inputs o usuário precisa preencher obrigatoriamente e quais são opcionais.
+
+🎯 O :autofill é uma pseudo-classe usada para estilizar campos de formulário que foram preenchidos automaticamente pelo navegador (ex: sugestões salvas de e-mail, nome, senha, etc).
+    🔹 Exemplo:
+        input:autofill {
+            border: 2px solid green;
+            background-color: #eaffea;
+            color: #222;
+        }
+    ⚠️ Mas cuidado:
+        Nem todos os navegadores suportam da mesma forma.
+        No Chrome/Safari geralmente se usa com prefixo:
+
+        input:-webkit-autofill {
+            border: 2px solid green;
+            background-color: #eaffea;
+        }
+    👉 Isso é útil quando você quer evitar aquele amarelo “padrão do Chrome” ou personalizar a aparência quando o campo é preenchido automaticamente.
+
+🎯 O :root é uma pseudo-classe em CSS que representa o elemento raiz do documento.
+    No HTML, esse elemento é o <html>.
+
+    🔹 Exemplo:
+        :root {
+            --cor-principal: #0077ff;
+            --cor-secundaria: #ff0066;
+            --espacamento: 16px;
+        }
+        body {
+            background-color: var(--cor-principal);
+            color: white;
+            padding: var(--espacamento);
+        }
+        h1 {
+            color: var(--cor-secundaria);
+        }
+        Nesse caso:
+            :root declara variáveis globais.
+            var(--nome-da-variavel) usa a variável.
+
+    ⚡ Resumindo:
+        :root = <html> no CSS.
+        É perfeito para definir variáveis globais reutilizáveis.
+
+
+*/
+
+/* :nth-child e nth-of-type
+
+🎯 :nth-child(n)
+    Seleciona o n-ésimo filho de qualquer tipo dentro de um elemento pai.
+    Conta todos os filhos, independente da tag.
+    Pode usar números exatos (:nth-child(3) → 3º filho), palavras-chave (odd → filhos ímpares, even → filhos pares) ou fórmulas (3n+1 → 1º, 4º, 7º…).
+
+    Exemplo:
+        li:nth-child(2) { color: red; }
+    Isso aplica no 2º filho do pai, seja ele <li>, <p>, <span>, etc.
+
+🎯 :nth-of-type(n)
+    Seleciona o n-ésimo filho de um tipo específico (uma tag) dentro do pai.
+    Conta apenas os elementos do mesmo tipo, ignorando os outros.
+    Pode usar números, odd, even ou fórmulas como em :nth-child.
+        
+    Exemplo:
+        li:nth-of-type(2) { color: blue; }
+    Isso aplica no 2º <li> dentro do pai, mesmo que existam outros elementos entre eles.
+
+🔹 Diferença principal
+    :nth-child(n) conta todos os filhos, independente da tag.
+    :nth-of-type(n) conta somente filhos do mesmo tipo.
+
+🔹 Sintaxe básica de
+        :nth-child(an+b)
+    a → define o passo (quantos elementos pular)
+    b → define o deslocamento inicial (onde começar)
+
+    Exemplo com 3n+1
+        HTML
+            <ul id="lista-1">
+                <li>Item 01</li>
+                <li>Item 02</li>
+                <li>Item 03</li>
+                <li>Item 04</li>
+                <li>Item 05</li>
+                <li>Item 06</li>
+                <li>Item 07</li>
+            </ul>
+        CSS
+            li:nth-child(3n+1){
+                color: red;
+            }
+    ✅ Resultado:
+        n=0 → 3*0+1 = 1 → Item 1
+        n=1 → 3*1+1 = 4 → Item 4
+        n=2 → 3*2+1 = 7 → Item 7
+        Ou seja, aplica nos itens 1, 4, 7…
+*/
+
+/* :first-of-type e :last-of-type, 
+
+🎯 :first-of-type
+    Seleciona o primeiro elemento de um tipo específico dentro do elemento pai.
+
+    Exemplo:
+        p:first-of-type {
+            color: red;
+        }
+    Se dentro de uma <div> você tiver vários <p>, apenas o primeiro <p> será estilizado, mesmo que tenha outros elementos antes dele.
+
+🎯 :last-of-type
+    Seleciona o último elemento de um tipo específico dentro do pai.
+
+    Exemplo:
+        p:last-of-type {
+            color: blue;
+        }
+    Isso aplica somente no último <p>, mesmo que tenha outros elementos diferentes depois dele.
+
+🔹 Exemplo prático
+    <div>
+        <h2>Título</h2>
+        <p>Primeiro parágrafo</p>
+        <p>Segundo parágrafo</p>
+        <span>Um span</span>
+        <p>Último parágrafo</p>
+    </div>
+    p:first-of-type → "Primeiro parágrafo"
+    p:last-of-type → "Último parágrafo"
+*/
+
+/* :nth-last-child() e :nth-last-of-type() 
+
+🎯 :nth-last-child()
+    Conta os filhos de trás para frente, sem se importar com a tag.
+    Funciona como :nth-child(), mas contando de trás para frente.
+        Exemplo:
+            p:nth-last-child(1) {
+                color: red;
+            }
+        Isso pinta de vermelho o último filho do pai, mas só se ele for um <p>.
+
+🎯 :nth-last-of-type()
+    Conta os filhos de trás para frente, mas considera só o tipo da tag.
+    Funciona como :nth-of-type(), mas contando de trás para frente.
+        Exemplo:
+            p:nth-last-of-type(1) {
+                color: blue;
+            }
+        Isso pinta de azul o último <p>, mesmo que ele não seja o último filho do pai (pode ter outros elementos depois).
+
+🔹 Resumindo a diferença
+    :nth-last-child() → conta todos os filhos do pai (independente da tag).
+    :nth-last-of-type() → conta só os filhos do mesmo tipo de elemento.
+
+*/
+
+/* :only-child e :only-of-type
+
+🎯 O seletor :only-child é bem direto:
+    Ele seleciona um elemento que é filho único do pai.
+    Ou seja, o pai só pode ter esse filho e mais nenhum outro.
+    Exemplo: 
+        HTML
+            <div>
+                <p>Sou filho único</p>
+            </div>
+
+            <div>
+                <p>Eu não sou único</p>
+                <span>Irmão</span>
+            </div>
+        CSS
+            p:only-child {
+                color: red;
+            }
+    👉 Nesse caso:
+        O primeiro <p> fica vermelho (é filho único do <div>).
+        O segundo <p> não fica vermelho (porque o <div> tem um <span> também).
+
+🔹 Diferença entre :only-child e :only-of-type
+    :only-child → seleciona o elemento se ele for o único filho do pai (não pode ter mais ninguém junto).
+    :only-of-type → seleciona o elemento se ele for o único daquele tipo dentro do pai, mesmo que existam outros elementos de tipos diferentes.
+
+🎯 :only-of-type seleciona o elemento se ele for o único daquele tipo dentro do pai, mesmo que existam outros elementos de tipos diferentes.
+    Exemplo prático:
+    HTML:
+        <div>
+            <p>Sou o único parágrafo aqui</p>
+            <span>Tenho um irmão diferente</span>
+        </div>
+
+        <div>
+            <p>Primeiro parágrafo</p>
+            <p>Segundo parágrafo</p>
+        </div>
+    CSS
+        p:only-child {
+            color: red;
+        }
+
+        p:only-of-type {
+            background: yellow;
+        }
+    👉 Resultado:
+        O primeiro <p> não recebe vermelho (porque não é filho único, tem o <span>),
+        Mas ele recebe fundo amarelo porque é o único <p> dentro daquele <div>.
+        No segundo <div>, nenhum <p> é estilizado, porque existem dois <p> do mesmo tipo.
+
+⚡ Em resumo:
+    :only-child → não pode ter nenhum irmão.
+    :only-of-type → pode ter irmãos, mas não do mesmo tipo de tag.
+
+
+*/
+
+/* :empty, :is(), :where()
+
+🎯 O que é :empty
+    O seletor :empty seleciona um elemento que não tem nenhum conteúdo dentro – ou seja:
+        Não pode ter texto (nem mesmo espaço em branco).
+        Não pode ter filhos (outras tags).
+    Se tiver qualquer coisa, mesmo um simples espaço, já deixa de ser :empty.
+
+    Exemplo: 
+        HTML
+            <div class="caixa-vazia"></div>
+            <div class="caixa-com-texto">Olá</div>
+            <div class="caixa-com-filho"><span>Filho</span></div>
+
+        CSS
+            div:empty {
+            background: lightblue;
+            border: 2px dashed blue;
+            }
+    👉 Resultado:
+        Só o primeiro <div> (caixa-vazia) será selecionado, porque não tem nada dentro.
+        O segundo e terceiro não contam como :empty, pois têm texto ou elementos filhos.
+        
+    ⚡ Resumindo:
+        :empty = elemento vazio de verdade → sem texto, sem espaços, sem filhos.
+
+🎯 O que é :is()
+    O :is() serve para agrupar seletores e deixar o código mais limpo e fácil de manter.
+    Ele aceita uma lista de seletores dentro dos parênteses e aplica o mesmo estilo a todos.
+        
+    Exemplo básico
+        :is(h1, h2, h3) {
+            color: blue;
+        }
+    👉 Isso é igual a escrever:
+        h1, h2, h3 {
+            color: blue;
+        }
+    Ou seja, todos os títulos <h1>, <h2> e <h3> ficarão azuis.
+    
+    🔹 Exemplo prático
+        HTML
+            <p>Parágrafo normal</p>
+            <p class="destaque">Parágrafo destaque</p>
+            <div>Um div</div>
+        CSS
+            :is(p.destaque, div) {
+            background: yellow;
+            }
+    👉 Aqui:
+        O <p class="destaque"> vai ficar amarelo.
+        O <div> também vai ficar amarelo.
+
+    ⚡ Resumindo:
+        :is() = forma curta de agrupar seletores.
+        Torna o código mais limpo e reduz repetição.
+        Funciona até no meio de seletores mais complexos.
+
+🎯 O que é :where()
+    O :where() funciona igual ao :is(), ou seja, serve para agrupar seletores e aplicar o mesmo estilo.
+
+    A diferença é:
+        👉 :where() sempre tem especificidade 0 (é como se fosse muito fraco na hierarquia do CSS).
+        👉 Já o :is() herda a especificidade do seletor mais forte dentro dele.
+
+    Exemplo básico 
+        HMTL
+        :where(h1, h2, h3) {
+            color: green;
+        }
+    Isso deixa todos os títulos verdes, assim como faria o :is().
+    ✅ Mas se outro estilo mais específico aparecer, ele vai sobrescrever facilmente.
+
+    📌 Resumindo:
+        :is() e :where() servem para agrupar seletores.
+        :is() herda a especificidade do seletor mais forte.
+        :where() sempre tem especificidade 0 → ótimo para estilos base/reset.
+*/
+
+/* :not(), :has()
+🎯 O que é :not()
+    O :not() é uma pseudo-classe que serve para selecionar tudo, exceto o que você indicar dentro dele.
+
+    Ele é muito útil para exceções em seletores.
+
+    Exemplo básico
+    p:not(.destaque) {
+    color: gray;
+    }
+    👉 Todos os <p> ficam cinza, menos os que tiverem a classe .destaque.
+
+    Exemplo com vários seletores
+        Você pode usar uma lista dentro do :not():
+        button:not(.ativo, .principal) {
+            background: lightgray;
+        }
+    👉 Aqui todos os botões ficam cinza, exceto os que têm .ativo ou .principal.
+
+    Combinação com outros seletores
+        li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    👉 Aplica margem em todos os <li>, menos no último.
+
+    Diferença em relação ao :is() e :where()
+        :is() → inclui elementos que batem com o seletor.
+        :where() → igual ao :is(), mas com especificidade 0.
+        :not() → exclui elementos que batem com o seletor.
+
+    📌 Resumo:
+        :not() serve para criar exceções.
+        Você pode passar tags, classes, IDs ou pseudo-classes dentro dele.
+        Muito útil para estilizar “todos, menos esses”.
+
+🎯 O que é :has()
+    O :has() funciona como um “seletor pai condicional”.
+    Ele seleciona um elemento se dentro dele existir algo específico.
+
+    👉 É quase como dizer em CSS: “estilize este elemento SE ele contiver X”.
+
+    Exemplo básico
+        article:has(img) {
+            border: 2px solid blue;
+        }
+    👉 Todos os <article> que tiverem uma <img> dentro vão ganhar uma borda azul.
+
+    Exemplo com formulários
+        label:has(input:required) {
+            font-weight: bold;
+            color: red;
+        }
+    👉 Todo <label> que tiver um <input required> fica vermelho e em negrito.
+
+    Exemplo com listas
+        li:has(ul) {
+            background: lightyellow;
+        }
+    👉 Estiliza <li> que tenham uma sub-lista (<ul>) dentro deles.
+
+    Combinação com outros seletores
+        .card:has(.ativo) {
+            background: lightgreen;
+        }
+    👉 Apenas os .card que tiverem um filho com classe .ativo ficam verdes.
+    
+    Diferença para :not(), :is() e :where()
+        :is() → pega quem combina com a condição.
+        :where() → igual ao :is(), mas com especificidade zero.
+        :not() → exclui quem combina com a condição.
+        :has() → olha se dentro tem o que você passou.
+
+    📌 Resumo rápido do :has()
+        É chamado de “seletor relacional”, pois permite olhar para os filhos.
+        Muito útil para formulários, cards e listas.
+        Ainda não é 100% suportado em todos os navegadores antigos, mas já funciona bem nos modernos (Chrome, Edge, Safari, etc).
+            
+*/
+
+/*--------------------------------- Transições e Animações ----------------------------------------------------------------------- */
+
+/* ----------- Transformação 2D ----------- */
+
+/* translate()
+🔹 O que é translate()
+    translate() move um elemento no eixo X e Y sem alterar o fluxo da página.
+    Ele não mexe no posicionamento real do elemento, apenas o desloca visualmente.
+    Geralmente usado junto com a propriedade transform.
+
+    🔹 Sintaxe
+        transform: translate(x, y);
+
+        x → deslocamento horizontal (positivo = direita, negativo = esquerda)
+        y → deslocamento vertical (positivo = baixo, negativo = cima)
+    Também existem variações:
+        translateX(px) → só eixo X
+        translateY(px) → só eixo Y
+        translateZ(px) → eixo Z (3D)
+        translate3d(x, y, z) → todos os eixos
+
+    🔹 Exemplo básico
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            transform: translate(50px, 30px);
+        }
+    👉 Isso move a .box 50px para a direita e 30px para baixo sem alterar os outros elementos da página.
+
+    🔹 Usos comuns
+        Animações com transition ou keyframes
+        
+        Movimentar elementos em hover:
+            .button:hover {
+                transform: translateY(-5px);
+            }
+        Criar sliders, galerias ou efeitos parallax
+
+⚡ Dica:
+    Diferente de margin ou position: relative, translate() não causa reflow, ou seja, é mais leve para animações.
+
+    */
+
+/* rotate(), rotateX() e rotateY()
+🔹 O que é rotate()
+    rotate() gira um elemento em torno de um ponto (por padrão, o centro do elemento).
+    Faz parte da propriedade transform.
+    O valor é em graus (deg), radianos (rad) ou turns (turn).
+
+    🔹 Sintaxe 
+        transform: rotate(45deg);
+
+        45deg → gira 45° no sentido horário
+        -45deg → gira 45° no sentido anti-horário
+    Outras unidades possíveis:
+        rad → radianos (rotate(0.5rad))
+        turn → voltas completas (rotate(0.25turn) = 90°)
+
+    🔹 Exemplo básico
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            transform: rotate(45deg);
+        }
+    👉 A .box vai ficar rotacionada 45° em relação ao seu centro.
+
+    🔹 Usos comuns
+        Animar elementos girando (transition ou @keyframes)
+        Criar ponteiros de relógio
+        Girar ícones, setas, imagens, etc.
+
+    ⚡ Dica:
+    O ponto de rotação padrão é o centro do elemento, mas você pode mudar com transform-origin.
+
+🔹 rotateX()
+    Gira o elemento em torno do eixo X (horizontal).
+    Faz ele parecer que está virando para cima ou para baixo.
+        Exemplo:
+            .box {
+                width: 150px;
+                height: 150px;
+                background: tomato;
+                transform: rotateX(45deg);
+            }
+    👉 A .box vai inclinar como se estivesse tombando para trás ou para frente.
+
+🔹 rotateY()
+    Gira o elemento em torno do eixo Y (vertical).
+    Faz ele parecer que está virando para os lados.
+        Exemplo:
+        .box {
+            width: 150px;
+            height: 150px;
+            background: lightblue;
+            transform: rotateY(45deg);
+        }
+    👉 A .box vai inclinar como se estivesse virando para a esquerda ou direita.
+
+🔹 Exemplo prático com ambos 
+    .card {
+        width: 200px;
+        height: 200px;
+        background: purple;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        transform: rotateX(30deg) rotateY(30deg);
+    }
+    👉 O elemento vai girar na diagonal, porque combinamos rotateX e rotateY.
+
+🔹 Dicas importantes
+    1. Para que o efeito 3D seja visível, muitas vezes usamos também:
+            
+        perspective: 500px;
+            
+        no elemento pai (container). Isso cria a sensação de profundidade.
+    2. Dá para animar esses giros com transition ou @keyframes.
+        
+⚡ Resumindo:
+    rotateX() → gira no eixo horizontal (cima/baixo).
+    rotateY() → gira no eixo vertical (esquerda/direita).
+    Melhor efeito quando usado com perspective.
+
+*/
+
+/* scale(), scalex() e scaley()
+
+🔹 O que é scale()?
+    O scale() aumenta ou diminui o tamanho de um elemento, esticando ou encolhendo ele sem alterar suas dimensões originais no código.
+    Ele funciona como um zoom.
+
+    🔹 Sintaxe
+            transform: scale(x, y);
+        x → escala no eixo horizontal (largura).
+        y → escala no eixo vertical (altura).
+        Se passar só um valor, ele aplica nos dois eixos igualmente.
+
+    🔹 Exemplos
+        1. Escala uniforme
+            .box {
+                width: 100px;
+                height: 100px;
+                background: orange;
+                transform: scale(1.5);
+            }
+        👉 Aumenta 150% tanto na largura quanto na altura.
+    
+    ⚡ Resumindo:
+        scale(n) → aumenta/diminui no mesmo eixo.
+        scale(x, y) → controla largura e altura separadamente.
+        Usado em animações, hover e efeitos de zoom.
+
+🔹 Diferença entre scaleX() e scaleY()
+    scaleX() → afeta somente a largura (eixo X).
+    scaleY() → afeta somente a altura (eixo Y).
+    
+    🔹 Exemplos práticos
+        1. scaleX()
+            .box {
+            width: 100px;
+            height: 100px;
+            background: steelblue;
+            transform: scaleX(2);
+            }
+        👉 O quadrado fica duas vezes mais largo, mas a altura não muda.
+
+        2. scaleY()
+            .box {
+            width: 100px;
+            height: 100px;
+            background: tomato;
+            transform: scaleY(1.5);
+            }
+        👉 O quadrado fica 50% mais alto, mas a largura continua igual.
+
+        3. scaleX(-1) (espelhamento horizontal)
+            .box {
+            transform: scaleX(-1);
+            }
+        👉 Espelha o elemento na horizontal (como virar no espelho).
+
+        4. scaleY(-1) (espelhamento vertical)
+            .box {
+            transform: scaleY(-1);
+            }
+        👉 Espelha o elemento na vertical (fica de cabeça pra baixo).
+
+    ⚡ Resumo rápido:
+        scaleX(n) → estica/encolhe na largura.
+        scaleY(n) → estica/encolhe na altura.
+        Valores < 1 → encolhem.
+        Valores > 1 → aumentam.
+        Valores negativos → espelham o elemento.
+
+*/
+
+/* skew(), skewX() e skewY()
+
+🔹 Diferença entre skew(), skewX() e skewY()
+    skew() → inclina um elemento no eixo X e/ou eixo Y ao mesmo tempo.
+    skewX() → inclina só no eixo X (horizontal).
+    skewY() → inclina só no eixo Y (vertical).
+    O valor usado é em graus (deg).
+
+🔹 Exemplos práticos
+    1. skewX()
+        .box {
+            width: 100px;
+            height: 100px;
+            background: lightblue;
+            transform: skewX(30deg);
+        }
+    👉 O quadrado é puxado para os lados, ficando inclinado horizontalmente.
+
+    2. skewY()
+        .box {
+            width: 100px;
+            height: 100px;
+            background: lightgreen;
+            transform: skewY(30deg);
+        }
+    👉 O quadrado é puxado para cima/baixo, ficando inclinado verticalmente.
+
+    3. skew()
+        .box {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            transform: skew(30deg, 20deg);
+        }
+    👉 O quadrado é inclinado 30° no eixo X e 20° no eixo Y ao mesmo tempo.
+
+Se passar apenas um valor (skew(30deg)), ele aplica no eixo X por padrão.
+
+⚡ Resumo rápido:
+    skewX(ângulo) → inclina horizontalmente.
+    skewY(ângulo) → inclina verticalmente.
+    skew(x, y) → inclina nos dois eixos de uma vez.
+
+
+*/
+
+/* matrix() 
+
+O matrix() é o mais avançado dos transform: CSS, porque junta todas as transformações 2D (translate, scale, skew e rotate) em uma única função matemática.
+
+🔹 Sintaxe
+    transform: matrix(a, b, c, d, e, f);
+
+Cada valor representa uma parte da transformação:
+    a → escala no eixo X (scaleX)
+    b → inclinação no eixo Y (skewY)
+    c → inclinação no eixo X (skewX)
+    d → escala no eixo Y (scaleY)
+    e → translação no eixo X (translateX)
+    f → translação no eixo Y (translateY)
+
+🔹 Exemplos 
+    1. Só escala
+        .box {
+            width: 100px;
+            height: 100px;
+            background: lightblue;
+            transform: matrix(2, 0, 0, 2, 0, 0); 
+        }
+    👉 Dobra o tamanho no X e no Y (igual scale(2)).
+
+    2. Só translação
+        .box {
+            width: 100px;
+            height: 100px;
+            background: lightgreen;
+            transform: matrix(1, 0, 0, 1, 50, 100); 
+        }
+    👉 Move o quadrado 50px para a direita e 100px para baixo (igual translate(50px, 100px)).
+
+    3. Só rotação (exemplo de 45°)
+        .box {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            transform: matrix(0.707, 0.707, -0.707, 0.707, 0, 0);
+        }
+    👉 Isso é a forma “matemática” do rotate(45deg).
+    Os números vêm de seno e cosseno da rotação.
+
+⚡ Resumo rápido:
+    matrix() é poderoso, mas difícil de usar “na mão”.
+    Ele combina scale, skew, translate e rotate.
+    Normalmente, a gente usa as funções normais (translate, scale, rotate, skew) no dia a dia.
+    O matrix() aparece mais em animações complexas ou quando o navegador gera valores calculados automaticamente.
+
+*/
+
+/* ----------- Transformação 3D ----------- */
+
+/* perspective: ; e perspective-origin: ;
+
+🔹 perspective
+    Define a distância entre o observador e o plano Z (profundidade) do elemento.
+    É como se fosse a distância da câmera até o objeto.
+    Quanto menor o valor → mais forte o efeito 3D (elementos parecem mais distorcidos).
+    Quanto maior o valor → efeito 3D mais sutil (quase plano).
+
+    📌 Sintaxe:
+        .container {
+            perspective: 600px;
+        }
+    👉 Aqui, qualquer elemento filho com transform: rotateX() ou rotateY() vai parecer girar em 3D, com profundidade.
+
+🔹 perspective-origin
+    Define o ponto de fuga (de onde a câmera está olhando).
+    Por padrão é 50% 50% (centro do container).
+    Pode ser alterado para mudar o ponto de visão: top, left, right, bottom ou valores em % / px.
+
+    📌 Sintaxe: 
+        .container {
+            perspective: 600px;
+            perspective-origin: left top;
+        }
+    👉 Isso faz parecer que a câmera está olhando do canto superior esquerdo, mudando o ângulo da distorção 3D.
+
+    
+    ⚡ Resumo rápido:
+    perspective: → quão “profundo” é o 3D (distância da câmera).
+    perspective-origin: → de onde a câmera olha (centro, canto, etc).
+    
+    🔹 Exemplo prático
+    HTML
+        <div class="scene">
+            <div class="box"></div>
+        </div>
+    CSS
+        .scene {
+            perspective: 500px;
+            perspective-origin: center top;
+        }
+        .box {
+            width: 150px;
+            height: 150px;
+            background: lightblue;
+            transform: rotateX(45deg) rotateY(30deg);
+        }
+    👉 Resultado:
+        O perspective: 500px dá profundidade.
+        O perspective-origin: center top muda o ponto de fuga para cima.
+            
+*/
+
+/* translatex(), translatey(), translatez()
+
+🔹 translateX()
+    Move o elemento apenas no eixo X (horizontal).
+
+    📌 Exemplo:
+        .box {
+            transform: translateX(100px); 100px para a direita 
+        }
+
+🔹 translateY()
+    Move o elemento apenas no eixo Y (vertical).
+
+    📌 Exemplo:
+        .box {
+            transform: translateY(-50px); 50px para cima
+        }
+
+🔹 translateZ()
+    Move o elemento no eixo Z (profundidade, 3D).
+    Precisa de um perspective definido no elemento pai para ser visível.
+    Valores positivos aproximam o objeto, negativos afastam.
+    
+    📌 Exemplo:
+        .scene {
+            perspective: 500px;
+        }
+        .box {
+            transform: translateZ(100px); aproxima o elemento
+        }
+
+⚡ Resumão rápido:
+    translate(x, y) → move em X e Y ao mesmo tempo.
+    translateX() → move só no eixo X.
+    translateY() → move só no eixo Y.
+    translateZ() → move no eixo Z (profundidade, precisa de perspective).
+*/
+
+/* transform-origin
+
+O transform-origin define o ponto de referência (origem) a partir do qual as transformações (rotate, scale, skew, etc.) acontecem.
+
+    🔹 Por padrão
+    O valor inicial é 50% 50% (o centro do elemento).
+    Ou seja, se você der um rotate, ele gira pelo meio.
+
+    🔹 Sintaxe
+        transform-origin: x y z;
+
+        x → eixo horizontal (pode ser left, center, right ou valores em px, %, etc.).
+        y → eixo vertical (pode ser top, center, bottom ou valores em px, %, etc.).
+        z (opcional) → define a origem em 3D, movendo o ponto de perspectiva.
+
+    🔹 Exemplos
+        📌 Girando em torno do canto superior esquerdo:
+            .box {
+                transform: rotate(45deg);
+                transform-origin: top left;
+            }
+        📌 Ampliando em torno da borda inferior:
+            .box {
+                transform: scale(1.5);
+                transform-origin: bottom center;
+            }
+        📌 Usando valores em pixels:
+            .box {
+                transform: rotate(45deg);
+                transform-origin: 0px 100px;
+            }
+        📌 Usando 3D (z):
+            .box {
+                transform: rotateY(60deg);
+                transform-origin: center center -100px;
+            }
+
+    👉 Resumindo: transform-origin é o pivô das transformações.
+    Se você não muda, tudo gira/escala/entorta pelo centro.
+    Se você muda, pode controlar exatamente de onde a transformação parte.
+*/
+
+/* transform-style
+O transform-style é uma propriedade do CSS usada em transformações 3D.
+
+Ele define como os elementos filhos de um elemento com transformações 3D devem ser renderizados:
+se vão ficar no mesmo plano (achatados) ou se vão preservar a profundidade em 3D.
+
+🔹 Valores possíveis
+flat (padrão)
+    Os filhos são renderizados no mesmo plano 2D do elemento pai.
+    Mesmo que você aplique rotateX, rotateY ou translateZ nos filhos, eles ficam “achatados”.
+preserve-3d
+    Os filhos mantêm suas próprias transformações 3D.
+    Assim, cada filho pode ter profundidade (translateZ, rotateY, etc.), criando um verdadeiro espaço 3D.
+
+🔹 Sintaxe 
+    transform-style: flat | preserve-3d;
+
+🔹 Exemplos
+    📌 Sem 3D (flat):
+        .container {
+            transform: rotateY(30deg);
+            transform-style: flat; padrão 
+        }
+        .child {
+            transform: translateZ(100px); não terá efeito visível
+        }
+    📌 Com 3D (preserve-3d):
+        .container {
+            transform: rotateY(30deg);
+            transform-style: preserve-3d;
+        }
+        .child {
+            transform: translateZ(100px); aparece em profundidade
+        }
+    👉 Em resumo:
+        flat = ignora transformações 3D nos filhos (eles ficam achatados no mesmo plano).
+        preserve-3d = os filhos mantêm suas transformações 3D, permitindo criar cubos, cartas virando, efeitos de profundidade etc.
+
+    */
+
+/* backface-visibility
+A propriedade backface-visibility no CSS controla se o lado de trás de um elemento (quando ele é rotacionado em 3D) deve ficar visível ou oculto.
+
+Imagine um cartão que gira com rotateY(180deg):
+    A frente é o que você vê normalmente.
+    O verso (backface) é o "lado de trás" desse cartão.
+
+🔹 Valores
+    visible (padrão): a parte de trás continua visível quando o elemento gira.
+    hidden: a parte de trás fica invisível quando o elemento é girado.
+
+🔹 Exemplo prático
+    Um cartão que gira no eixo Y:
+        .card {
+            width: 150px;
+            height: 200px;
+            background: lightblue;
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+        }
+        🔍 Se não usar backface-visibility: hidden;, quando o cartão virar, você ainda verá a parte de trás dele (ao contrário, como se fosse espelhado).
+        Com hidden, o verso desaparece e só aparece o que você definir como "lado de trás" em outro elemento.
+
+    👉 Essa propriedade é muito usada em animações de “flip card”, tipo aqueles cartões que viram mostrando informações no outro lado.
+*/
+
+/* matrix3d() 
+
+🔹 O que é matrix3d()?
+O matrix3d() é uma função do CSS usada dentro de transform.
+Ele aplica transformações 3D complexas (translação, rotação, escala, inclinação e perspectiva) usando uma matriz 4x4 de 16 valores.
+
+É como a versão avançada do matrix() (2D), só que para o espaço 3D.
+
+🔹 Sintaxe
+    transform: matrix3d(
+        a1, b1, c1, d1,
+        a2, b2, c2, d2,
+        a3, b3, c3, d3,
+        a4, b4, c4, d4
+    );
+
+📌 São 16 valores, que definem como o navegador transforma o elemento no espaço 3D.
+    Os primeiros 12 valores controlam escala, rotação e inclinação.
+    Os últimos 4 valores controlam translação (posição) e perspectiva.
+
+🔹 Exemplo simples
+    Mover um quadrado 100px para a direita no eixo X:
+
+    .square {
+        width: 100px;
+        height: 100px;
+        background: red;
+        transform: matrix3d(
+            1, 0, 0, 0,    linha 1 
+            0, 1, 0, 0,    linha 2 
+            0, 0, 1, 0,    linha 3 
+            100, 0, 0, 1   linha 4 → move 100px no eixo X 
+        );
+    }
+
+🔹 Exemplo de rotação em 3D
+    Rotacionar no eixo Y:
+
+    .square {
+        transform: matrix3d(
+            0, 0, 1, 0,
+            0, 1, 0, 0,
+            -1, 0, 0, 0,
+            0, 0, 0, 1
+        );
+    }
+
+🔹 Quando usar?
+    👉 Na prática, você quase nunca escreve matrix3d() manualmente, porque é muito difícil calcular os 16 valores.
+
+    Em vez disso, você usa funções como:
+    rotateX()
+    rotateY()
+    translateZ()
+    scale3d()
+
+⚡ O navegador converte tudo isso em uma matriz 3D internamente.
+    Mas, se quiser efeitos bem personalizados, pode usar matrix3d() direto.
+
+*/
+
+/* ----------- Animações ----------- */
+
+/* transition:
+
+🎯 O que é transition:?
+    A propriedade transition serve para animar mudanças suaves em outras propriedades CSS (como color, background, transform, etc.).
+    Ela define o tempo e a forma como uma propriedade vai mudar de um valor para outro.
+    Ela define o tempo e a forma como uma propriedade vai mudar de um valor para outro.
+ 
+    🧩 Sintaxe completa
+        transition: propriedade duração função-de-tempo delay;
+
+        📌 Todos os valores:
+            propriedade → Qual propriedade vai ser animada (color, transform, all, etc.)
+            duração → Quanto tempo dura a transição (0.3s, 1s, etc.)
+            função-de-tempo (opcional) → A velocidade da transição (ease, linear, ease-in, etc.)
+            delay (opcional) → Tempo de espera antes de começar (0.2s, 1s, etc.)
+            
+    🧪 Exemplo básico 
+        button {
+            background-color: blue;
+            color: white;
+            transition: background-color 0.5s;
+        }
+        button:hover {
+            background-color: red;
+        }
+        📌 O botão vai mudar de azul para vermelho suavemente em 0.5 segundos.
+
+    🎨 Exemplo com all (todas as propriedades)
+        div {
+            width: 100px;
+            height: 100px;
+            background: orange;
+            transition: all 1s ease-in-out;
+        }
+        div:hover {
+            width: 200px;
+            background: purple;
+        }
+        📌 Vai animar tudo que mudar (width, background, etc.) em 1 segundo, com uma curva suave.
+
+    🎢 Resumo dos valores mais usados
+        linear	    velocidade constante
+        ease	    começa devagar → acelera → termina devagar (padrão)
+        ease-in	    começa devagar → termina rápido
+        ease-out	começa rápido → termina devagar
+        ease-in-out	começa devagar → acelera → termina devagar
+
+    ⏱️ Exemplo com delay
+        .box {
+            background: green;
+            transition: background 1s ease-in 0.5s;
+        }
+        .box:hover {
+            background: yellow;
+        }
+        📌 A transição:
+            dura 1 segundo
+            começa meio segundo depois do hover
+            usa o estilo ease-in
+
+    🎬 Resumo simples
+        transition: serve para animar mudanças de estilo de forma suave e controlada.
+
+    ✅ Dica:
+        transition-property: background-color;
+        transition-duration: 0.5s;
+        transition-timing-function: ease;
+        transition-delay: 0.2s;
+
+    Ou tudo junto:
+        transition: background-color 0.5s ease 0.2s;
+
+*/
+
+/* Uma lista 
+HTML
+    <ul class="list">
+        <li>
+            <label for="">
+                <input type="checkbox">
+                <span>Tomate</span>
+            </label>
+        </li>
+        <li>
+            <label for="">
+                <input type="checkbox">
+                <span>Cogumelo</span>
+            </label>
+        </li>
+        <li>
+            <label for="">
+                <input type="checkbox">
+                <span>Pães</span>
+            </label>
+        </li>
+        <li>
+            <label for="">
+                <input type="checkbox">
+                <span>Pêssegos</span>
+            </label>
+        </li> 
+        <li>
+            <label for="">
+                <input type="checkbox">
+                <span>Macarrão </span>
+            </label>
+        </li>
+        <li>
+            <label for="">
+                <input type="checkbox">
+                <span>Leite condesado</span>
+            </label>
+        </li>
+        <li>
+            <label for="">
+                <input type="checkbox">
+                <span>Carne Moida</span>
+            </label>
+        </li>
+    </ul>
+CSS
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(247, 247, 247);
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .list li{
+        color: white;
+        list-style: none;
+        font-weight: bold;
+        padding: 12px 32px;
+        margin-bottom: 4px;
+        transition: background 1s;
+    }
+
+    .list li:hover{
+        background-color: #b02151;
+    }
+
+    .list{
+        background-color: #d53369;
+        padding: 20px;
+        border-radius: 4px;
+        box-shadow: 20px 20px 10px lightgray;
+    }
+
+    .list input{
+        accent-color: #daae51;
+    }
+
+    .list input:checked + span{
+        text-decoration: line-through;
+    }
+
+    .list li:has(input:checked){
+        background: #f0ab1a;
+        color: #d53369;
+        border-radius: 4px;
+    }
+
+*/
+
+/* @keyframes
+
+🎯 O que é @keyframes?
+    @keyframes define passos de uma animação no CSS.
+    Enquanto o transition só anima uma mudança (ex: de azul → vermelho),
+    o @keyframes permite criar animações mais complexas, com várias etapas.
+
+    🧩 Estrutura básica
+        @keyframes nomeDaAnimacao {
+            from { propriedade: valor-inicial; }
+            to   { propriedade: valor-final; }
+        }
+        📌 from = início da animação
+        📌 to = fim da animação
+
+    🧪 Exemplo simples
+        @keyframes mudarCor {
+            from { background-color: blue; }
+            to   { background-color: red; }
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            animation: mudarCor 2s ease-in-out infinite;
+        }
+        📌 Explicando:
+            A cor da .box vai mudar de azul → vermelho em 2 segundos
+            ease-in-out define a suavidade
+            infinite repete para sempre
+    
+    🎨 Exemplo com múltiplos passos (%)
+        @keyframes movimento {
+            0%   { transform: translateX(0);   background: red; }
+            50%  { transform: translateX(100px); background: yellow; }
+            100% { transform: translateX(0);   background: green; }
+        }
+        .quadrado {
+            width: 100px;
+            height: 100px;
+            background: red;
+            animation: movimento 3s linear infinite;
+        }
+        📌 A caixa:
+            Começa vermelha (esquerda)
+            Vai para amarela (direita, 50%)
+            Volta verde (esquerda, 100%)
+            E repete para sempre
+
+    ⚙️ Propriedades relacionadas
+        Usadas junto com animation::
+            animation-name → Nome do @keyframes
+            animation-duration → Tempo da animação (2s, 5s)
+            animation-timing-function → Tipo de movimento (ease, linear, etc.)
+            animation-delay → Tempo para começar (1s, 0.5s)
+            animation-iteration-count → Quantas vezes repete (1, 3, infinite)
+            animation-direction → Sentido (normal, reverse, alternate)
+            animation-fill-mode → Estado final (none, forwards, backwards, both)
+
+    🎬 Exemplo com tudo junto
+        @keyframes girar {
+            0%   { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }  
+        }
+        .roda {
+            width: 100px;
+            height: 100px;
+            background: orange;
+            animation: girar 2s linear infinite alternate;
+        }
+        📌 O quadrado:
+            Gira de 0° a 360°
+            Demora 2 segundos
+            É linear
+            Repete infinitamente
+            Vai e volta (alternate)
+        ✅ Resumindo
+            transition → só anima de um estado para outro (mais simples).
+            @keyframes → cria animações complexas com várias etapas.
+                
+    */
+
+/* animation-delay:, animation-iteration-count:,  
+
+🎯 animation-delay
+    Define quanto tempo a animação vai esperar antes de começar.
+    Valor em segundos (s) ou milissegundos (ms).
+    Exemplo:
+        .box {
+            animation-delay: 2s; -> espera 2 segundos para iniciar
+        }
+
+🎯 animation-iteration-count
+    Define quantas vezes a animação vai rodar.
+    Valores possíveis:
+        Um número (ex: 3) → roda 3 vezes.
+        infinite → roda para sempre.
+    Exemplo:
+        .box {
+            animation-iteration-count: infinite; -> roda sem parar 
+        }
+
+👉 Exemplo juntando os dois:
+    .box {
+        width: 150px;
+        height: 150px;
+        background: red;
+        animation-name: fade;
+        animation-duration: 3s;
+        animation-delay: 1s;          -> espera 1s para começar
+        animation-iteration-count: 2; -> roda 2 vezes e para  
+    }
+    @keyframes fade {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+*/
+
+/* animation-direction:, animation-timing-function:
+
+🎯 animation-direction
+    Define a direção que a animação segue a cada ciclo.
+        Valores possíveis:
+            normal → padrão, roda sempre do início ao fim.
+            reverse → roda do fim para o início.
+            alternate → vai e volta (um ciclo normal, o próximo invertido).
+            alternate-reverse → igual ao alternate, mas começa invertida.
+    🔹 Exemplo:
+        .box {
+            animation-name: slide;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate; -> vai e volta 
+        }
+
+        @keyframes slide {
+            from { transform: translateX(0); }
+            to { transform: translateX(200px); }
+        }
+
+🎯 animation-timing-function
+    Controla a velocidade do progresso da animação (como ela acelera e desacelera).
+        Valores comuns:
+            linear → mesma velocidade o tempo todo.
+            ease → começa devagar, acelera e termina devagar (padrão).
+            ease-in → começa devagar e acelera.
+            ease-out → começa rápido e desacelera.
+            ease-in-out → começa devagar, acelera no meio e desacelera no fim.
+            cubic-bezier(x1, y1, x2, y2) → curva de aceleração personalizada.
+    🔹 Exemplo:
+        .box {
+            animation-name: bounce;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out; -> acelera no meio
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100px); } 
+        }
+
+👉 Resumindo:
+    animation-direction → controla o sentido da animação em cada repetição.
+    animation-timing-function → controla a velocidade/aceleração dentro de cada ciclo.
+*/
+
+/* animation-fill-mode
+
+🎯 O animation-fill-mode define como os estilos da animação são aplicados antes e depois dela acontecer.
+
+    🎨 animation-fill-mode
+        Ele controla o estado final ou inicial do elemento quando a animação não está rodando ativamente.
+            Valores possíveis:
+                none → padrão. O elemento não mantém nenhum estilo da animação fora do tempo ativo.
+                forwards → mantém os estilos do último frame da animação (ex: o 100% ou to).
+                backwards → aplica os estilos do primeiro frame da animação (ex: 0% ou from) durante o delay.
+                both → combina forwards + backwards. Mantém os estilos do primeiro frame no delay e os do último frame após o fim.
+
+    🔹 Exemplo prático:
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            animation-name: change;
+            animation-duration: 3s;
+            animation-delay: 2s;
+            animation-fill-mode: forwards; -> mantém a cor final 
+        }
+
+        @keyframes change {
+            from { background: red; }
+            to { background: blue; }
+        }
+    Sem animation-fill-mode, depois da animação o quadrado volta a ser vermelho.
+    Com forwards, ele fica azul mesmo após acabar a animação.
+    Com backwards, ele já ficaria vermelho durante os 2s de delay (mesmo antes de começar).
+    Com both, combina os dois comportamentos.
+
+*/
+
+/* animation-play-state
+
+🎯 O animation-play-state controla se uma animação está rodando ou pausada.
+    Valores possíveis:
+        running → (padrão) a animação está em execução.
+        paused → a animação é pausada no quadro atual.
+
+    🔹 Exemplo prático:
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            animation: move 4s linear infinite;
+            animation-play-state: running; -> ou paused
+        }
+
+        @keyframes move {
+            from { transform: translateX(0); }
+            to { transform: translateX(200px); }
+        }
+        Com running, o quadrado se move normalmente.
+        Com paused, ele para no ponto em que estava da animação.
+
+    🔹 Uso interativo (pausar ao passar o mouse):
+        .box:hover {
+            animation-play-state: paused;
+        }
+        👉 Assim, a animação roda normalmente, mas quando o mouse passa por cima, ela congela.
+*/
+
+/* animation: é o atalho (shorthand)
+
+🎯 A propriedade animation: é o atalho (shorthand) que reúne todas as subpropriedades de animação em uma única linha.
+
+🎨 Sintaxe geral:
+    animation: name duration timing-function delay iteration-count direction fill-mode play-state;
+        Ordem mais usada (mas não precisa usar todas):
+            animation-name → o nome do @keyframes.
+            animation-duration → tempo da animação (ex: 2s, 500ms).
+            animation-timing-function → como a animação progride (linear, ease, ease-in, etc).
+            animation-delay → tempo para começar.
+            animation-iteration-count → quantas vezes repete (1, 3, infinite).
+            animation-direction → sentido (normal, reverse, alternate, alternate-reverse).
+            animation-fill-mode → estado final (none, forwards, backwards, both).
+            animation-play-state → execução (running, paused).
+
+🔹 Exemplo simples:
+    .box {
+        width: 100px;
+        height: 100px;
+        background: blue;
+        animation: move 3s linear infinite;
+    }
+
+    @keyframes move {
+        from { transform: translateX(0); }
+        to { transform: translateX(200px); }
+    }
+    ➡ Aqui, a animação se chama move, dura 3 segundos, é linear e roda para sempre (infinite).
+
+🔹 Exemplo completo (com todos valores):
+    .box {
+        animation: move 5s ease-in-out 1s infinite alternate both running;
+    }
+    Isso significa:
+        move → nome do @keyframes
+        5s → duração
+        ease-in-out → acelera e desacelera
+        1s → delay (começa depois de 1 segundo)
+        infinite → repete para sempre
+        alternate → vai e volta
+        both → mantém estilos aplicados antes e depois
+        running → começa rodando
+*/
+
+/* ----------- Exemplos de Animação ----------- */
+
+/* Exemplo prático de animação 1
+HTML: 
+    <body>
+        <button>Clique aqui</button>
+    </body>
+CSS: 
+    body{
+        margin: 0;
+        height: 100vh;
+        background-color: #fefefe;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    ➡ Remove margens, ocupa a tela toda, usa Flexbox para centralizar o botão vertical e horizontalmente.
+    
+    button{
+        padding: 12px 24px;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        font-size: 1.5rem;
+        background: linear-gradient(90deg, #d53369, #daae51);
+        box-shadow: 8px 12px 7px lightgray;
+        animation: wiggle 2.2s linear infinite;
+    }
+    ➡ Botão estilizado com:
+        preenchimento (padding)
+        cantos arredondados (border-radius)
+        degradê rosa → dourado
+        sombra leve
+        animação wiggle infinita
+
+    button:hover{
+        cursor: pointer;
+        filter: brightness(1.1);
+    }
+    ➡ Quando passa o mouse, o botão fica um pouco mais claro.
+
+    @keyframes wiggle {
+        0% { transform: rotate(0); }
+        15% { transform: rotate(-15deg); }
+        20% { transform: rotate(10deg); }
+        25% { transform: rotate(-10deg); }
+        30% { transform: rotate(10deg); }
+        35% { transform: rotate(-10deg); }
+        40%, 100% { transform: rotate(0); }
+    }
+    ➡ Faz o botão balançar para os lados, retornando ao centro no final.
+
+💡 Dica extra:
+    Se quiser deixar a animação só quando passar o mouse, basta mover a linha animation: wiggle 2.2s linear infinite; para dentro do hover:
+        button:hover {
+            cursor: pointer;
+            filter: brightness(1.1);
+            animation: wiggle 2.2s linear infinite;
+        }
+    Assim, o botão só balança quando o usuário interage.
+*/
+
+/* Exemplo prático de animação 2 
+HTML
+    <body>
+        <span class="loader"></span>
+        <span class="loader"></span>
+        <span class="loader"></span>
+    </body>
+    ➡ Três spans com a classe loader, que vão virar bolinhas.
+
+CSS
+    body {
+        margin: 0;
+        height: 100vh;
+        background-color: #fefefe;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    ➡ Centraliza tudo no meio da tela.
+
+    .loader {
+        border: 5px solid #d53369;
+        border-radius: 50%;
+        margin: 8px;
+    }
+    ➡ Cria cada círculo:
+        borda grossa (border: 5px solid)
+        formato redondo (border-radius: 50%)
+        espaçamento entre eles (margin: 8px)
+
+    Animação para cada bolinha
+        .loader:nth-child(1){
+            animation: loader .8s ease-in-out alternate infinite;
+        }
+
+        .loader:nth-child(2){
+            animation: loader .8s ease-in-out .3s alternate infinite;
+        }
+
+        .loader:nth-child(3){
+            animation: loader .8s ease-in-out .6s alternate infinite;
+        }
+    ➡ Todas usam a mesma animação loader, mas com delays diferentes:
+        1ª sem atraso
+        2ª começa 0.3s depois
+        3ª começa 0.6s depois
+    Isso cria o efeito de onda.
+
+    Keyframes
+        @keyframes loader {
+            to {
+                transform: scale(1.8);
+            }
+        }
+    ➡ Faz a bolinha crescer até 1.8x o tamanho e, por estar com alternate infinite, ela volta ao normal repetidamente.
+*/
+
+/* Exemplo prático de animação 3 
+
+HTML
+    <body>
+        <img class="rocket" width="300px" height="300px" src="./img/ChatGPT Image 28 de ago. de 2025, 07_39_48.png" alt="">
+    </body>
+    ➡ Aqui você está colocando uma imagem dentro do body.
+    ➡ Essa imagem tem a classe .rocket, largura e altura fixadas em 300px.
+
+CSS
+    body {
+        margin: 0;
+        height: 100vh; -> ocupa toda a altura da tela
+        display: flex;
+        justify-content: center; -> centraliza horizontalmente
+        align-items: center; -> centraliza verticalmente
+        background: linear-gradient(180deg, rgb(34, 34, 34) 0%, rgb(34, 13, 80) 50%, rgb(74, 153, 230) 100%);
+    }
+    ➡ O body está configurado para ocupar a tela inteira (100vh).
+    ➡ Usando display: flex → a imagem fica no centro da tela.
+    ➡ O fundo é um degradê que vai de cinza escuro → roxo → azul.
+
+    .rocket {
+        animation: take-off-rocket 6s ease-in-out infinite alternate;
+    }
+    ➡ A classe .rocket aplica uma animação chamada take-off-rocket.
+    ➡ Essa animação dura 6 segundos, tem uma curva de movimento suave (ease-in-out).
+    ➡ Ela vai rodar para sempre (infinite).
+    ➡ O alternate faz a animação ir e depois voltar (não reinicia de repente).
+
+    @keyframes take-off-rocket {
+        0% {
+            transform: translateY(20vh);
+        }
+        50% {
+            transform: translateY(-80vh);
+        }
+        100% {
+            transform: translateY(20vh);
+        }
+    }
+    ➡ Esse trecho define o que acontece com a imagem durante a animação.
+    ➡ transform: translateY(...) move o foguete no eixo vertical:
+        20vh → ele começa um pouco abaixo do centro.
+        -80vh → ele sobe bastante, quase saindo da tela.
+        20vh → depois volta para a posição inicial.
+
+✅ Em resumo:
+    Esse código faz a imagem do foguete subir e descer continuamente, como se estivesse “flutuando” ou fazendo um movimento de vai-e-vem no espaço.
+*/
+
+/* Exemplo prático de animação 4
+
+HTML
+    <blockquote>
+        <p class="gradient-word">Júlio César</p>
+        <h1>show me the code</h1>
+    </blockquote>
+    ➡ Um blockquote centraliza o conteúdo (apesar de não ser semânticamente o mais indicado aqui).
+    ➡ Dentro dele, há um parágrafo (p) com a classe .gradient-word, que aplica efeito de gradiente no texto "Júlio César".
+    ➡ O h1 traz o título "show me the code".
+
+CSS
+    body{
+        font-family: 'Quicksand', sans-serif;
+        margin: 0;
+        height: 100vh;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(-45deg, #d53369, #daae51);
+        background-size: 400% 400%;
+        animation: gradient 5s ease infinite alternate;
+    }
+    ➡ O body usa Flexbox para centralizar tudo na tela.
+    ➡ Fundo: gradiente entre rosa-avermelhado (#d53369) e dourado (#daae51).
+    ➡ background-size: 400% 400% → amplia o fundo, permitindo "movimento".
+    ➡ animation: gradient 5s ease infinite alternate; → anima o fundo, movendo o gradiente de um lado para outro com o @keyframes.
+
+    h1{
+        font-size: 3rem;
+        margin: 0;
+        position: relative;
+        bottom: 40px;
+    }
+    ➡ Deixa o título grande e ajusta um pouco a posição para subir em relação ao texto acima.
+
+    .gradient-word{
+        font-family: 'Pacifico', cursive;
+        margin: 0;
+        font-size: 4.5rem;
+        line-height: 1;
+
+        background: linear-gradient(0deg, transparent, rgba(24, 24, 24, .4));
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+    ➡ O texto não tem cor própria (color: transparent).
+    ➡ A cor visível vem do gradiente aplicado no fundo, mas recortado no formato das letras (background-clip: text).
+    ➡ Resultado: "Júlio César" aparece estilizado como se tivesse um brilho/transparência.
+
+    @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    ➡ Move o fundo do degradê horizontalmente de esquerda → direita → esquerda, criando o efeito de gradiente em movimento.
+
+🔎 Resumindo
+👉 Esse código cria uma página centralizada com:
+    Fundo animado em gradiente que se movimenta.
+    Um texto estilizado "Júlio César" com gradiente aplicado no próprio texto.
+    Um título "show me the code" logo abaixo.
+
+*/
+
+/* Exemplo prático de animação 5
+
+HTML
+    <body>
+        <div class="box"></div> -> círculo colorido animado
+        <h1>Júlio César</h1> -> título principal
+        <p>Show me the code | Trilha de CSS</p> -> subtítulo
+    </body>
+    ➡ O div.box é o elemento visual (um círculo difuso e colorido).
+    ➡ O h1 e o p são os textos centrais.
+
+CSS
+    body{
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #222;
+        perspective: 300px;
+        font-family: 'Quicksand', cursive;
+    }
+    ➡ Remove margens, ocupa toda a tela (100vh).
+    ➡ Centraliza tudo com flexbox.
+    ➡ Define perspective: 300px; → isso dá profundidade 3D para os elementos animados.
+    ➡ Fundo escuro (#222).
+
+    h1{
+        font-size: 4rem;
+        text-align: center;
+        margin: 0;
+    }
+
+    p{
+        color: white;
+    }
+
+    .box{
+        position: absolute;
+        background: linear-gradient(90deg, #fc466b, #3f5efb);
+        border-radius: 50%;
+        width: 300px;
+        height: 300px;
+        animation: example 5s infinite alternate;
+        filter: blur(100px);
+    }
+    ➡ É um círculo (border-radius: 50%) com degradê rosa → azul.
+    ➡ Fica difuso por causa do filter: blur(100px) (parece um glow).
+    ➡ position: absolute; garante que ele fique atrás do texto.
+    ➡ Ele é animado pelo @keyframes example.
+
+    @keyframes example {
+        0% {
+            transform: rotateY(30deg) rotate(-25deg) translateZ(100px);
+        }
+        25% {
+            transform: rotateY(-30deg) translateZ(100px);
+        }
+        50% {
+            transform: rotateX(-50deg) translateZ(-100px);
+        }
+        75% {
+            transform: rotateX(-50deg) translateZ(-100px);
+        }
+        100% {
+            transform: rotateX(20deg) translateZ(0);
+        }
+    }
+    ➡ O círculo muda de posição no espaço 3D, girando no eixo X e Y, além de se aproximar e se afastar com translateZ.
+    ➡ O alternate faz a animação ir e voltar, criando um movimento contínuo de pulsação/flutuação.
+
+🔹 Resultado Final
+    👉 Você tem um fundo brilhante, fluido e animado em 3D, com um texto centralizado na frente.
+    Parece uma aura colorida e em movimento atrás do título.
+        
+*/
+
+/*------------------------------------ Boas Práticas ----------------------------------------------------------------------------- */
+
+/* Hierarquia do efeito em cascata 
+
+✅ Pontos que o exemplo já demonstra bem:
+
+    1. Hierarquia de CSS:
+        Inline → color: rgb(0, 255, 34);
+        Interno → <style> → h2 { color: paleturquoise; background-color: black; }
+        Externo → style.css → h2 { color: white; background-color: palevioletred; }
+            Isso mostra como o navegador escolhe qual regra aplicar.
+
+    2. Uso semântico de HTML:
+        <main>, <h1>, <p>, <ol> → tags corretas para o conteúdo.
+
+    3. Organização do CSS externo:
+        Regras para main e h2 estão separadas, mantendo legibilidade.
+
+✅ A hierarquia do CSS (efeito em cascata) segue essa ordem de prioridade:
+
+    1. Inline → estilos aplicados diretamente no elemento HTML com o atributo style.
+        Ex.: <h2 style="color: rgb(0, 255, 34);">.
+        Sempre tem mais prioridade que os outros tipos de CSS.
+
+    2. Interno → estilos definidos dentro da tag <style> no <head> do HTML.
+        Ex.:
+            h2 {
+                color: paleturquoise;
+                background-color: black;
+            }
+            -> Tem prioridade menor que o inline, mas maior que o externo.
+    
+    3. Externo → estilos definidos em arquivos CSS separados e linkados ao HTML.
+        Ex.: style.css
+            h2 {
+                color: white;
+                background-color: palevioletred;
+            }
+            -> Tem a menor prioridade, sendo aplicado apenas se não houver conflito com interno ou inline.
+
+💡 Resumo rápido:
+    Inline > Interno > Externo → quanto mais próximo do elemento, maior a prioridade.
+
+⚡ Boas práticas que podem ser aplicadas aqui:
+    1. Evitar inline styles
+        Inline styles quebram a cascata natural e dificultam manutenção.
+        Exemplo: mover style="color: rgb(0, 255, 34);" para o CSS interno ou externo.
+
+        CSS
+            h2.exemplo {
+                color: rgb(0, 255, 34);
+            }
+        HTML
+            <h2 class="exemplo">[Exemplo de hierarquia]</h2>
+
+    2. Evitar conflito de cores entre CSS interno e externo
+        Prefira uma única fonte de estilos para um elemento, seja interno ou externo, para não confundir a hierarquia.
+    3. Nomenclatura de classes
+        Usar classes descritivas ajuda na manutenção: h2.exemplo, h2.titulo-principal.
+    4. Comentários no CSS
+        Adicionar comentários explicando cada regra ajuda outros desenvolvedores a entender a intenção.
+
+    -> Estilo do título principal do exemplo de hierarquia
+        h2.exemplo {
+            color: rgb(0, 255, 34);
+            background-color: black;
+        }
+
+    5. Centralização e responsividade
+        main { max-width: 500px; margin: auto; } já é uma boa prática para centralizar e limitar a largura.
+
+Exemplo usado: 
+    HTML
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="./assets/style.css">
+            <title>Document</title>
+            <style>
+                h2{
+                    color: paleturquoise;
+                    background-color: black;
+                }
+            </style>
+        </head>
+        <body>
+            <main>
+                <h1>Hierarquia do Efeito em Cascata</h1>
+                <p>Estabelece uma prioridade para aplicação de uma regra de estilo, caso se tenha mais de uma regra para um
+                    mesmo
+                    seletor CSS.</p>
+                <p>Se houver um conflito, o navegador irá:</p>
+                <ol>
+                    <li>Analisar todas as regras;</li>
+                    <li>Ver o nivel de importância na origem do elemnto;</li>
+                    <li>Comparar a especificidade das declaraçôes com mesmo nivel de importância (entra o cálculo de
+                        especificidade);</li>
+                    <li>Em caso de empate do grau de especificidade, irá olhar a ordem de declaração colocada dentro dos
+                        arquivos de
+                        código. A regra CSS que for declarada por ultimo, irá ser selecionada.</li>
+                </ol>
+                <hr>
+                <h2 style="color: rgb(0, 255, 34);">[Exemplo de hierarquia]</h2>
+            </main>
+        </body>
+        </html>
+    CSS
+        main {
+            max-width: 500px;
+            margin: auto;
+        }
+        
+        h2 {
+            color: white;
+            background-color: palevioletred;
+        }
+*/
+
+/* Especificidade Hierarquia Inline=(style), ID(#), Classes, pseudo-classes e atributos, Tag HTML
+
+Codigo usado como Exemplo na posição ️4️⃣.
+
+1️⃣ Especificidade aplicada
+    | Tipo                                | Pontos |
+    | ----------------------------------- | ------ |
+    | Inline                              | 1000   |
+    | ID                                  | 100    |
+    | Classes, pseudo-classes e atributos | 10     |
+    | Tag HTML                            | 1      |
+
+2️⃣ Aplicando as regras
+    Texto 01 (<p style="background-color: red;" class="texto">)
+        Inline → 1000 pontos → tem prioridade máxima.
+        Resultado: vermelho, mesmo existindo regras internas e externas.
+
+    Texto 02 (<p> dentro do <main id="conteudo">)
+        Seletor #conteudo p → ID (100) + tag (1) = 101 pontos
+        Seletor p → tag (1 ponto)
+        Resultado: palevioletred (maior especificidade).
+
+    Texto 03 (<p> fora do <main>)
+        Só tem seletor p → tag (1 ponto)
+        Resultado: palegreen
+
+3️⃣ Pontos-chave do exemplo
+    1. Inline sempre ganha, independentemente de classes ou IDs.
+    2. IDs têm mais peso que classes ou tags.
+    3. Combinar ID + classe + tag aumenta a especificidade (como #conteudo p.texto = 111 pontos).
+    4. Tag simples (p) tem menor prioridade.
+
+4️⃣ HTML e CSS
+    HMTL 
+        <main id="conteudo">
+            <p style="background-color: red;" class="texto">Texto 01</p>
+            <p>Texto 02</p>
+        </main>
+        <p>Texto 03</p>
+        <br><hr><br>
+        <h6>Cálculo de Específicidade</h6>
+        <ol>
+            <li>Inline: 1000 pontos</li>
+            <li>Id: 100 pontos</li>
+            <li>Classes, pseudo-classes e atributos: 10 pontos</li>
+            <li>Tag HTML: 1 ponto</li>
+        </ol>
+        <br><hr><br>
+        <ul>
+            <li>#exemplo h1.titulo = 111 pontos</li>
+            <li>a:hover = 11 pontos</li>
+            <li>div p = 2 pontos</li>
+        </ul>
+    CSS
+        p{
+            background-color: palegreen;
+        }
+        #conteudo p{
+            background-color: palevioletred;
+        }
+        #conteudo p.texto{
+            background-color: paleturquoise;
+        }
+*/
+
+/* !important 
+
+📌 Regras de prioridade (resumão)
+    1. !important sempre vence regras normais, mesmo com seletor menos específico.
+    2. Entre dois !important, vence o que tiver maior especificidade.
+    3. Se a especificidade também empatar, vence o que aparecer por último no CSS.
+
+!IMPORTANT
+HMTL 
+    <body>
+        <h1>!important</h1>
+        <div>
+            <p>Nível de prioridade do efeito em cascata</p>
+        </div>
+        <ol>
+            <li>Declarações com !important do usuário</li>
+            <li>Declarações com !important do desenvolvedor</li>
+            <li>Folha de estilo do desenvolvedor
+                <ol>
+                    <li>CSS inline</li>
+                    <li>CSS interno</li>
+                    <li>CSS externo</li>
+                    <li>Folha de estilos padrões do navegador</li>
+                </ol>
+            </li>
+        </ol>
+    </body>
+CSS 
+    p {
+        color: red !important;
+        font-size: 1.5rem;
+    }
+
+    div p{
+        color: blue;
+        font-size: 2rem;
+    }
+
+📊 Análise
+    Seletor p
+        color: red !important; → tem prioridade máxima, vai sobrepor qualquer outra regra de cor.
+        font-size: 1.5rem; → sem !important, pode ser substituído se outra regra for mais específica.
+    Seletor div p
+        color: blue; → não será aplicado, porque o !important da regra anterior vence.
+        font-size: 2rem; → será aplicado, porque div p (especificidade: 11 pontos) vence p (1 ponto).
+
+✅ Resultado final do <p> dentro do <div>:
+    Cor: vermelho (red) → por causa do !important.
+    Tamanho da fonte: 2rem → porque a regra div p é mais específica e não houve !important no font-size.
+
+*/
+
+/* inherit 
+
+📌 Resumo didático para lembrar:
+    Algumas propriedades são herdáveis por padrão (ex.: color, font-family, line-height).
+    Outras não são herdáveis, mas podem ser forçadas com inherit (ex.: border, margin, padding).
+    Também existem valores como initial (volta ao valor padrão do CSS) e unset (funciona como inherit se a propriedade for herdável, senão funciona como initial).
+
+inherit
+    HTML
+        <body>
+            <h1>Herança | CSS</h1>
+            <div class="teste">
+                <p>O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.</p>
+                <p>O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o
+                    texto
+                    padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para
+                    criar
+                    um espécime de livro.
+                </p>
+            </div>
+        </body>
+    CSS
+        body{
+            color: red;
+        }
+        .teste {
+            padding: 8px;
+            border: 2px solid blue;
+        }
+        .teste p{
+            border: inherit;
+            padding: inherit;
+        }
+
+🔎 Entendendo o que acontece
+    body { color: red; }
+        A cor vermelha é herdada automaticamente pelos elementos filhos (h1, p, etc.), pois a propriedade color é herdável por padrão.
+        Resultado → todos os textos ficam vermelhos.
+    .teste { padding: 8px; border: 2px solid blue; }
+        O div.teste tem um padding de 8px e uma borda azul de 2px.
+    .teste p { border: inherit; padding: inherit; }
+        Aqui entra a diferença:
+            border: inherit; → os <p> herdam a borda azul do elemento pai (div.teste).
+            padding: inherit; → os <p> herdam o padding de 8px do pai.
+
+        ⚠️ Normalmente, padding e border não são herdados automaticamente.
+        Mas quando usamos inherit, forçamos que os filhos recebam os valores do pai.
+
+✅ Resultado final:
+    O texto (p) → vermelho (herança natural do color).
+    Cada <p> dentro de .teste → com padding 8px e borda azul 2px, porque foram forçados a herdar via inherit.
+
+*/
+
+/* ----------- Organizando os Estilos CSS (Metodologias) ----------- */
+
+/* Definindo variáveis com :root e var()
+
+📌 Estrutura do código
+    HTML
+        <body class="dark-theme">
+            <h1>digital innovation one</h1>
+            <a href="">Me inscrever</a>
+            <p>Ola Mundo </p>
+        </body>
+    CSS
+        :root{
+            --font-size-title: 5rem;
+            --text-color: red;
+        }
+        .light-theme{
+            --bg-body: rgb(247, 239, 239);
+            --bg-gradient: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%);
+        }
+        .dark-theme{
+            --bg-body: rgb(34, 34, 34);
+            --bg-gradient: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--bg-body);
+            text-align: center;
+        }
+        h1{
+            background: var(--bg-gradient);
+            font-size: var(--font-size-title);
+            text-align: center;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        a{
+            text-decoration: none;
+            background: var(--bg-gradient);
+            padding: 8px 14px;
+            border-radius: 4px;
+            color: #fafafa;
+        }
+        p{
+            color: var(--text-color, blue);
+        }
+
+🔎 Como funciona aqui
+    1. Definições globais com :root
+        O seletor :root é o mesmo que html, mas com maior especificidade para variáveis globais.
+        Variáveis definidas aqui podem ser acessadas em qualquer lugar.
+            :root {
+                --font-size-title: 5rem;
+                --text-color: red;
+            }
+
+    2. Temas (light e dark)
+        Você definiu duas “paletas de cores” diferentes:
+            .light-theme { ... }  
+            .dark-theme { ... }
+        Como o <body> tem a classe dark-theme, são aplicados:
+            --bg-body: rgb(34, 34, 34);
+            --bg-gradient: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+    
+    3. Uso das variáveis com var(--nome, fallback)
+        var(--bg-body) → aplica a cor de fundo definida pelo tema.
+        var(--font-size-title) → deixa o título gigante.
+        var(--text-color, blue) → usa --text-color se existir; se não existir, usa azul como fallback.
+
+✅ Resultado final
+    body → fundo cinza escuro (dark theme).
+    h1 → texto com gradiente dourado/rosa, transparente e recortado no fundo.
+    a → botão com gradiente e texto branco.
+    p → texto vermelho (--text-color do :root).
+
+📌 Boas práticas que você já aplicou
+    Usar :root para variáveis globais.
+    Separar temas com classes (.light-theme / .dark-theme) → fácil para alternar com JS.
+    Usar fallback no var() (blue no caso do p).
+    Centralização de estilo sem repetir valores fixos.
+
+🔹 1. O que é :root?
+    O seletor :root representa o elemento raiz do documento (equivalente ao <html>).
+    A diferença é que :root tem maior especificidade do que html.
+    É o lugar ideal para definir variáveis globais de CSS, que podem ser reutilizadas em todo o código. 
+
+    Exemplo: 
+        :root {
+            --font-size-title: 5rem;
+            --text-color: red;
+        }
+    Aqui você criou variáveis CSS Custom Properties, todas iniciadas com --.
+
+🔹 2. O que é var()?
+    A função var(--nome-da-variável, valor-fallback) serve para usar uma variável definida em :root ou em qualquer outro seletor.
+    O segundo parâmetro (valor-fallback) é opcional → será usado caso a variável não esteja definida.
+
+    Exemplo:
+        p {
+        color: var(--main-color, blue); usa --main-color, senão aplica azul
+        }
+
+🔹 3. Por que usar variáveis CSS?
+    ✅ Reutilização → você escreve um valor uma vez e usa em vários lugares.
+    ✅ Manutenção fácil → se precisar mudar uma cor ou tamanho, muda só na variável.
+    ✅ Temas dinâmicos → basta trocar a classe (.light-theme, .dark-theme) e todas as variáveis mudam.
+    ✅ Herança natural → variáveis podem ser redefinidas em elementos filhos e sobrepor o valor global.
+
+📌 Resumo:
+    :root = lugar para centralizar variáveis globais.
+    var() = função que “puxa” o valor da variável e pode ter um valor de segurança (fallback).
+    Essa combinação é perfeita para design escalável, responsivo e fácil de manter.
+*/
+
+/* BEM (Block-Element-Modifier) no CSS
+
+BEM é uma metodologia de nomenclatura que ajuda a organizar classes CSS de forma clara, modular e escalável. Ela divide o código em três partes: Bloco, Elemento e Modificador.
+
+1️⃣ Bloco (Block)
+    Representa um componente independente, que pode existir sozinho.
+        Exemplo: um menu, um botão ou um card.
+            <div class="menu"></div>
+            <div class="button"></div>
+
+2️⃣ Elemento (Element)
+    É uma parte do bloco que depende dele.
+    Sintaxe: bloco__elemento (dois underlines)
+        <div class="menu">
+            <ul class="menu__list">
+                <li class="menu__item">Home</li>
+                <li class="menu__item">Sobre</li>
+            </ul>
+        </div>
+    Aqui, menu__list e menu__item são elementos do bloco menu.
+
+3️⃣ Modificador (Modifier)
+    Define variações de estilo ou estado de um bloco ou elemento.
+    Sintaxe: bloco--modificador ou bloco__elemento--modificador (dois traços)
+        <button class="button button--primary">Enviar</button>
+        <button class="button button--secondary">Cancelar</button>
+    Aqui, button--primary e button--secondary modificam o estilo do bloco button.
+    
+Benefícios do BEM
+    Facilita a leitura e manutenção do CSS.
+    Evita conflitos de nomes.
+    Facilita o reuso de componentes.
+
+    Exemplo: 
+        <body class="dark-theme">
+            <nav class="menu">
+                <ul class="menu__list">
+                    <li class="menu__item">Início</li>
+                    <li class="menu__item">Sobre Nós</li>
+                    <li class="menu__item">Contato</li>
+                    <li class="menu__item">
+                        <a href="www.linkedin.com/in/júlio-césar-santos-franco" class="menu__link">
+                            Entrar
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <h1>digital innovation one</h1>
+        </body>
+
+1️⃣ Bloco
+    menu é o bloco principal da navegação:
+        
+        <nav class="menu">...</nav>
+
+    É independente e representa o componente completo de menu. ✅
+
+2️⃣ Elementos
+    Você criou elementos dentro do bloco menu:
+    
+        <ul class="menu__list">...</ul>
+        <li class="menu__item">...</li>
+        <a class="menu__link">...</a>
+    
+    menu__list → lista de itens do menu
+    menu__item → cada item da lista
+    menu__link → o link dentro do item do menu
+    Tudo certo, os nomes seguem a lógica bloco__elemento. ✅
+
+3️⃣ Modificadores
+    No seu código ainda não tem modificadores, mas poderia adicionar variações, por 
+    exemplo:
+        
+        <li class="menu__item menu__item--active">Início</li>
+
+    Aqui menu__item--active indicaria o item ativo.
+    
+*/
+
+/* SMACSS (Scalable and Modular Architecture for CSS)
+
+O que é SMACSS?
+    SMACSS (Scalable and Modular Architecture for CSS) é uma metodologia de organização de CSS que ajuda a criar estilos mais escaláveis, moduláveis e fáceis de manter, especialmente em projetos grandes.
+
+Ela não é um framework, mas sim um conjunto de boas práticas e categorias de estilo.
+
+Categorias principais no SMACSS
+    SMACSS divide o CSS em 5 categorias:
+    1️⃣ Base (Base Rules)
+        Estilos globais para elementos HTML sem classes.
+        Exemplo: reset de estilos ou tipografia padrão.
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                color: #333;
+            }
+            h1, h2, h3 {
+                margin: 0;
+                padding: 0;
+            }
+
+    2️⃣ Layout (Layout Rules)
+        Estilos para grandes áreas do layout, geralmente blocos que estruturam a página.
+        Exemplo: cabeçalho, rodapé, sidebar, container.
+            .header {
+                background-color: #f5f5f5;
+                padding: 20px;
+            }
+            .footer {
+                background-color: #222;
+                color: #fff;
+                padding: 20px;
+            }
+
+    3️⃣ Module (Module Rules)
+        Estilos para componentes reutilizáveis, independentes do layout.
+        Exemplo: menus, cards, botões.
+            .card {
+                border: 1px solid #ddd;
+                padding: 15px;
+                border-radius: 5px;
+            }
+            .button {
+                padding: 10px 20px;
+                background-color: blue;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+
+    4️⃣ State (State Rules)
+        Representam variações ou estados de módulos ou layouts.
+        Exemplo: ativo, desabilitado, expandido, oculto.
+            .button--disabled {
+                background-color: gray;
+                cursor: not-allowed;
+            }
+            .menu--open {
+                display: block;
+            }
+
+    5️⃣ Theme (Theme Rules)
+        Estilos para temas diferentes, cores ou estilos alternativos.
+        Exemplo: tema escuro ou claro.
+            .dark-theme {
+                background-color: #121212;
+                color: #fff;
+            }
+            .light-theme {
+                background-color: #fff;
+                color: #000;
+            }
+
+✅ Vantagens do SMACSS
+    Facilita a manutenção do CSS em projetos grandes.
+    Separa estilos globais, estruturais e específicos.
+    Combina bem com metodologias como BEM.
+    Ajuda a evitar conflitos de CSS.
+*/
+
+/* OOCSS (Object Oriented CSS) 
+
+🔹 O que é OOCSS?
+    OOCSS é uma metodologia de escrita de CSS criada pela Nicole Sullivan, que aplica conceitos de Programação Orientada a Objetos (POO) ao CSS.
+    A ideia é: separar estrutura de aparência e reutilizar estilos como se fossem “objetos”.
+
+    Assim, você cria classes mais reaproveitáveis e modulares, em vez de duplicar regras para cada componente.
+
+🔹 Princípios do OOCSS
+    1️⃣ Separar estrutura da aparência
+        Estrutura = regras que definem comportamento/forma (largura, padding, posicionamento).
+        Aparência = cores, fontes, backgrounds.
+    
+    👉 Exemplo:
+        Estrutura (reutilizável)
+            .box {
+                padding: 20px;
+                border: 1px solid #ddd;
+            }
+
+        Aparência
+            .box--primary {
+                background-color: blue;
+                color: white;
+            }
+            .box--secondary {
+                background-color: lightgray;
+                color: black;
+            }
+
+    2️⃣ Separar contêiner do conteúdo
+        O estilo do contêiner não deve depender do que está dentro dele.
+        Isso evita que mudanças no HTML quebre o CSS.
+        👉 Exemplo ruim:
+            .card h2 {
+            font-size: 20px;
+            }
+
+        👉 Exemplo melhor (OOCSS):
+            .card__title {
+            font-size: 20px;
+            }
+🔹 Exemplo prático
+    Um botão em OOCSS:
+        HTML: 
+            <button class="btn btn--primary">Salvar</button>
+            <button class="btn btn--secondary">Cancelar</button>
+        CSS: 
+            Estrutura do botão (objeto base)
+                .btn {
+                    padding: 10px 15px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    border: none;
+                }
+
+            Aparência (modificadores) 
+                .btn--primary {
+                    background: blue;
+                    color: white;
+                }
+                .btn--secondary {
+                    background: gray;
+                    color: black;
+                }
+            Aqui, btn é um objeto reutilizável, e os modificadores (--primary, --secondary) aplicam aparência diferente.
+
+🔹 Diferença entre OOCSS e BEM
+    OOCSS → foco em reutilização e separação de responsabilidades (estrutura x aparência).
+    BEM → foco em nomenclatura clara e hierárquica (bloco__elemento--modificador).
+    Juntas, elas se complementam: você pode usar OOCSS para pensar objetos reaproveitáveis, e BEM para nomear as classes.
+        
+*/
+
+/*------------------------------------ Framework-CSS ----------------------------------------------------------------------------- */
+
+/* Framework 
+1. tailwindcss 
+2. materializecss
+3. bulma
+4. bootstrap
+*/
+
+
+
+
+
+
+
+
+
+
+
+
